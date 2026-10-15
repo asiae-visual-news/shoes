@@ -1,15 +1,15 @@
-<!doctype html>
+Put your HTML text here<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>신발만 벗는다 — 현관 한 칸이 들여오는 것들</title>
-<meta name="description" content="신발 한 켤레 밑창에 평균 42만 마리. 같은 신발 안쪽의 146배다. 미국 집에선 현관에서 서너 걸음 안쪽에, 신발을 벗는 우리 집에선 현관 타일 한 칸에 쌓인다."/>
+<title>신발만 벗는다 — 현관 한 칸이 들여오는 것들 | 딥 스크롤</title>
+<meta name="description" content="새 신발을 2주만 신어도 바깥 면에 세균 평균 42만 마리. 같은 신발 안쪽의 146배다. 미국 집에선 현관 첫 네 걸음에, 신발을 벗는 우리 집에선 현관 타일 한 칸에 쌓인다."/>
 <meta name="theme-color" content="#0B0906"/>
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="신발만 벗는다"/>
-<meta property="og:description" content="신발 한 켤레 밑창에 평균 42만 마리. 우리는 신발을 벗는다. 그런데, 신발만 벗는다."/>
-<!-- 배포 폴더명이 다르면 이 주소만 바꿔 주세요. 공유 썸네일은 절대 주소여야 뜹니다. -->
+<meta property="og:description" content="새 신발을 2주만 신어도 바깥 면에 세균 평균 42만 마리. 우리는 신발을 벗는다. 그런데, 신발만 벗는다."/>
+<!-- 배포 폴더명이 다르면 이 주소만 바꿔 주세요. 공유 썸네일은 절대 주소여야 뜹니다. 표지는 반드시 jpg로 저장하세요. -->
 <meta property="og:image" content="https://hyun05-cpu.github.io/shoes/00-cover.jpg"/>
 <meta property="og:url" content="https://hyun05-cpu.github.io/shoes/"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -24,8 +24,7 @@
   --bg:#0B0906;--bg2:#110d09;--ink:#EFE6D8;--dim:#9C978E;
   --stone:#8A7A66;--stone-lt:#BDAF9A;--line:rgba(207,194,174,.13);
   --lamp:#F2C27B;--lamp-lt:#F6DDB5;--soil:#B89468;--uv:#8E7CFF;--uv-lt:#CFC6FF;
-  --acc:var(--lamp);--germ:var(--lamp);
-  --c-pest:#8E8A63;--c-road:#6E7277;--c-metal:#8F5E47;--c-pollen:#B8A26C;
+  --germ:var(--lamp);--c-road:#6E7277;--c-metal:#8F5E47;
   --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --serif:"Song Myung","Noto Serif KR",serif;
   --pad:max(22px,5vw);--gut:clamp(20px,5vw,64px);
@@ -42,8 +41,9 @@ button{font-family:inherit}
 .wrap{position:relative}
 #svhProbe{position:absolute;top:0;left:0;width:1px;height:100svh;visibility:hidden;pointer-events:none}
 
-/* ═════ 공통 활자 ═════ */
-.sec{position:relative;padding:clamp(170px,28vh,300px) var(--pad)}
+/* ═════ 공통 활자 ═════
+   정렬 규칙: 설명 글은 왼쪽, 막 카드·고정 장면·한 문장 순간은 가운데. "왼쪽에서 읽고, 가운데에서 본다." */
+.sec{position:relative;padding:clamp(200px,34vh,360px) var(--pad)}
 .sec .inner{max-width:1060px;margin:0 auto;text-align:left}
 .label{display:flex;align-items:center;gap:10px;font-size:clamp(12px,1.1vw,13.5px);letter-spacing:.16em;color:#DAD5CC;font-weight:600;margin:0 0 clamp(26px,4.4vh,40px)}
 .label::before{content:"";flex:none;width:20px;height:1px;background:var(--lamp);box-shadow:0 0 8px rgba(242,194,123,.7)}
@@ -51,7 +51,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,54px);lin
 .sec h2{max-width:20ch}
 p{font-size:clamp(15px,1.15vw,17.5px);color:var(--stone-lt);font-weight:350;margin:0 0 1.7em;line-height:2.05}
 .sec p{line-height:2.15;letter-spacing:-.005em}
-.sec .inner p,.statHead p,.traceIn p,.babyGrid p,.changeCol p{max-width:44ch}
+.sec .inner p,.statHead p,.traceIn p,.babyGrid p,.changeCol p,.crossHead p{max-width:44ch}
 p.big{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,28px);line-height:1.7;color:#F8F0E4;margin-top:clamp(48px,8vh,80px)}
 .small{font-size:13px;color:var(--stone);line-height:1.7;font-weight:350}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
@@ -63,16 +63,16 @@ p.big{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,28px);
 
 /* 단어 하나씩, 그래픽은 살짝 커지며 */
 .wd{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(4px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1),filter .8s}
-.won .wd,.wipeSec.done .wu1 .wd{opacity:1;transform:none;filter:none}
+.won .wd,.wipeSec.done .wuText .wd{opacity:1;transform:none;filter:none}
 .gfx{opacity:0;transform:scale(.985) translateY(14px);transition:opacity 1s cubic-bezier(.2,.7,.3,1),transform 1.1s cubic-bezier(.2,.7,.3,1)}
 .gfx.gon{opacity:1;transform:translateY(var(--par,0px))}
 
 /* ═════ 고정 장면 ═════ */
-.pin{position:relative;margin-bottom:20svh}
+.pin{position:relative;margin-bottom:36svh}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .lines{position:relative;min-height:7.4em;text-align:center}
-.lines>div{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
-.lines>div.on{opacity:1;transform:none}
+.lines>div{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.lines>div.on{opacity:1;transform:none;transition:opacity .8s .2s,transform .9s .2s cubic-bezier(.2,.7,.3,1)}
 .lines b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(23px,3vw,38px);line-height:1.42;letter-spacing:-.01em;color:#F8F0E4;text-shadow:0 1px 18px rgba(11,9,6,.9);text-wrap:balance}
 .lines b em{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;color:var(--stone);font-size:.66em;margin-left:6px;letter-spacing:0}
 .lines span{display:block;margin-top:18px;font-size:clamp(14px,1.3vw,16.5px);color:var(--stone-lt);font-weight:350;line-height:1.6;text-wrap:balance}
@@ -108,8 +108,14 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .cue{margin-top:clamp(52px,8vh,96px);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.24em;color:var(--stone);opacity:.75}
 .cue b{display:block;width:1px;height:34px;background:linear-gradient(var(--stone),transparent);animation:cue 1.9s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
-.disc{position:absolute;right:var(--gut);bottom:clamp(16px,2.6vh,26px);font-size:11px;color:rgba(200,194,184,.75);z-index:3;opacity:.4;text-shadow:0 1px 12px #0B0906}
+/* 재현 이미지 고지: 표지 사진 위에서도 읽히게(34차에 진하게) */
+.disc{position:absolute;right:var(--gut);bottom:clamp(16px,2.6vh,26px);font-size:11px;color:rgba(200,194,184,.75);z-index:3;opacity:.85;text-shadow:0 1px 12px #0B0906}
 .disc b{color:var(--lamp-lt);font-weight:600;margin-right:7px}
+/* 시리즈 표식: 책등처럼 왼쪽 가장자리에 세로로. 매 회 같은 자리 */
+.series{position:absolute;z-index:3;left:max(18px,calc(env(safe-area-inset-left,0px) + 14px));top:0;bottom:0;display:flex;align-items:center;pointer-events:none;opacity:0;animation:fadeIn 1.4s 1.3s ease-out forwards}
+.series span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.42em;color:rgba(242,194,123,.42);font-weight:500;white-space:nowrap}
+.series::after{content:"";position:absolute;left:calc(100% + 12px);top:clamp(90px,16vh,160px);bottom:clamp(90px,16vh,160px);width:1px;background:rgba(242,194,123,.16)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* ═════ 발자국 진행 표시 · 슬레이트 ═════ */
 .trail{position:fixed;z-index:60;right:max(12px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:clamp(8px,1.6vh,14px);pointer-events:none;transition:opacity .6s}
@@ -143,7 +149,7 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .sound-hint.show{opacity:1;transform:none}
 
 /* ═════ 막 카드 ═════ */
-.card{position:relative;min-height:70svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(56px,9vh,110px) var(--gut);background:#050403}
+.card{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(56px,9vh,110px) var(--gut);background:#050403}
 .card::before,.card::after{content:"";position:absolute;left:0;right:0;height:clamp(26px,5vh,54px);background:#000}
 .card::before{top:0}.card::after{bottom:0}
 .cardIn{max-width:720px}
@@ -220,7 +226,7 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .camFocus::before{width:16px;height:1.5px}.camFocus::after{width:1.5px;height:16px}
 
 /* ═════ 2막: 검체 ═════ */
-.stats{background:var(--bg);padding-bottom:clamp(170px,28vh,300px)}
+.stats{background:var(--bg);padding-bottom:clamp(200px,34vh,360px)}
 .statHead{max-width:1060px;margin:0 auto}
 .statHead>p{margin:0 0 1.5em}
 .swabAct{max-width:1060px;margin:clamp(70px,11vh,120px) auto 0}
@@ -274,12 +280,14 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .lm{position:absolute;left:22%;right:0;height:0;border-top:1px dashed rgba(207,194,174,.28);opacity:.18;transition:opacity .5s}
 .lm span{position:absolute;right:0;bottom:6px;font-size:12px;color:var(--stone-lt);letter-spacing:.04em}
 .lm.on{opacity:1}.lm.on span{color:#F8F0E4}
-.gridFoot,.zoomFoot,.stepFoot,.perFoot,.washFoot,.cultFoot{max-width:640px;margin:0 auto;width:100%;text-align:center}
+.gridFoot,.zoomFoot,.stepFoot,.cultFoot{max-width:640px;margin:0 auto;width:100%;text-align:center}
 
-/* ═════ 2막: 배율 ═════ */
+/* ═════ 2막: 배율 (밑창·홈은 사진, 세균은 그림. 34차) ═════ */
 .zoomStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(22px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:radial-gradient(80% 60% at 50% 45%,#15110b,#0B0906 72%)}
 .scale{text-align:center;font-size:13px;color:var(--dim)}
 .scale b{font-size:clamp(30px,5vw,46px);font-weight:700;color:var(--ink);letter-spacing:-.03em;margin-left:10px;font-variant-numeric:tabular-nums}
+.zTag{display:block;margin-top:8px;font-size:11px;color:var(--stone);letter-spacing:.02em}
+.zTag em{font-style:normal;color:var(--lamp-lt);font-weight:600;margin-right:6px}
 .zBox{display:flex;align-items:center;justify-content:center;min-height:0;padding:clamp(10px,2vh,20px) 0}
 .zwrap{position:relative;height:100%;max-height:min(86vw,560px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid #ffffff26;background:#0f0c08;box-shadow:0 0 0 10px #ffffff06,0 0 80px #0006 inset}
 .zl{position:absolute;inset:0;will-change:transform,opacity;transform-origin:50% 50%}
@@ -306,14 +314,8 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .quoteSec .traceIn{max-width:900px}
 .quoteSec .big{font-size:clamp(23px,3.4vw,40px);line-height:1.75;margin:0;max-width:none}
 
-/* ═════ 4막: 문화 비교 (스크롤이 슬라이더를 민다) ═════ */
-.cultStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(24px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:var(--bg)}
-.cultHead{text-align:center}
-.cultHead .label{justify-content:center;margin-bottom:12px}
-.cultHead h2{font-size:clamp(24px,3.4vw,40px);margin:0;max-width:none}
-.cultBox{min-height:0;display:flex;align-items:center;justify-content:center}
+/* ═════ 비교 창 (4막 문화 비교) ═════ */
 .comp{position:relative;overflow:hidden;border:1px solid rgba(207,194,174,.18);touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none}
-.cultBox .comp{height:100%;width:auto;max-width:min(1060px,92vw);aspect-ratio:16/9}
 .comp .side{position:absolute;inset:0}
 .comp .side.r{clip-path:inset(0 0 0 92%)}
 .comp .side .fb{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -322,8 +324,17 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .comp .knob{position:absolute;z-index:4;top:50%;left:92%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;border:1.5px solid rgba(242,194,123,.9);background:rgba(11,9,6,.5);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);box-shadow:0 0 26px rgba(242,194,123,.45);display:flex;align-items:center;justify-content:center;font-size:13px;color:#F8F0E4}
 .comp .who{position:absolute;z-index:3;top:14px;font-size:12px;font-weight:600;letter-spacing:.1em;color:#F8F0E4;text-shadow:0 1px 10px #0B0906,0 0 22px #0B0906}
 .comp .who.l{left:14px}.comp .who.r{right:14px}
+.comp .ctag{top:auto;bottom:12px;z-index:3;pointer-events:none}
 
-/* ═════ 4막: 자외선 ═════ */
+/* ═════ 4막: 문화 비교 ═════ */
+.cultStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(24px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:var(--bg)}
+.cultHead{text-align:center}
+.cultHead .label{justify-content:center;margin-bottom:12px}
+.cultHead h2{font-size:clamp(24px,3.4vw,40px);margin:0;max-width:none}
+.cultBox{min-height:0;display:flex;align-items:center;justify-content:center}
+.cultBox .comp{height:100%;width:auto;max-width:min(1060px,92vw);aspect-ratio:16/9}
+
+/* ═════ 4막: 자외선 (사진 없이 재현 그래픽만. 34차) ═════ */
 .uvSec{position:relative;overflow:hidden;background:#040406;padding:clamp(120px,16vh,180px) var(--pad) clamp(150px,24vh,260px)}
 .uvSec .inner{margin-bottom:clamp(40px,7vh,72px)}
 .uvSec .label{color:#E8DCCB}
@@ -331,11 +342,8 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .uvSec.dark .sOff{animation:sensorOff 1.1s steps(1,end) forwards}
 .uv{position:relative;max-width:1180px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(160,140,255,.16);background:#0b0b0d;touch-action:pan-y;cursor:none;--x:50%;--y:50%;--r:clamp(90px,17vw,190px)}
 .uv svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.uvGlow,.uvImg.glow{-webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0%,rgba(0,0,0,.75) 45%,transparent 100%);mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0%,rgba(0,0,0,.75) 45%,transparent 100%)}
-.uv.all .uvGlow,.uv.all .uvImg.glow{-webkit-mask-image:none;mask-image:none}
-.uvImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
-.uv.hasBase .uvImg.base,.uv.hasGlow .uvImg.glow{display:block}
-.uv.hasBase.hasGlow .uvBase,.uv.hasBase.hasGlow .uvGlow{display:none}
+.uvGlow{-webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0%,rgba(0,0,0,.75) 45%,transparent 100%);mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0%,rgba(0,0,0,.75) 45%,transparent 100%)}
+.uv.all .uvGlow{-webkit-mask-image:none;mask-image:none}
 .uvLamp{position:absolute;left:var(--x);top:var(--y);width:calc(var(--r)*2);height:calc(var(--r)*2);transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(160,140,255,.16) 0%,rgba(120,90,255,.07) 45%,transparent 70%);mix-blend-mode:screen}
 .uv.all .uvLamp{opacity:0}
 .uvTag{position:absolute;right:14px;bottom:12px;font-size:11px;color:rgba(214,206,255,.7);z-index:2}
@@ -346,11 +354,8 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 
 /* ═════ 4막: 한 칸을 넘는 것들 ═════ */
 .cross{background:var(--bg)}
-.crossHead{max-width:1060px;margin:0 auto;text-align:center}
-.crossHead>*{margin-left:auto!important;margin-right:auto!important}
-.crossHead h2{margin-bottom:30px;max-width:none}
-.crossHead p{max-width:36ch}
-.crossHead p.small{margin-top:clamp(26px,4vh,40px);font-size:13.5px}
+.crossHead{max-width:1060px;margin:0 auto;text-align:left}
+.crossHead h2{margin-bottom:30px}
 .crossGrid{max-width:1060px;margin:clamp(56px,9vh,96px) auto 0;display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
 .mapWrap{position:sticky;top:12vh}
 .map{width:100%;height:auto;display:block}
@@ -364,19 +369,32 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .cross.mop #entryStainX{opacity:1;transform:scale(1.35)}
 .mapMsg{margin:24px 0 0;text-align:center;font-size:clamp(15px,1.5vw,18px);color:#E8DCCB;min-height:1.8em}
 .mapMsg em{font-style:normal;color:#F8F0E4;font-weight:700}
+.xcol{display:flex;flex-direction:column}
+.xCue{display:flex;align-items:center;gap:10px;margin:0 0 16px!important;font-size:14px!important;line-height:1.5!important;color:#E8DCCB!important;max-width:none!important}
+.xCue i{display:block;width:20px;height:22px;flex:none;animation:tapHint 1.6s ease-in-out infinite;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='48' viewBox='0 0 44 48'><g fill='none' stroke='%23F2C27B' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'><path d='M17 27V9a4 4 0 0 1 8 0v14'/><path d='M25 16.5a3.6 3.6 0 0 1 7 0V24'/><path d='M32 19.5a3.6 3.6 0 0 1 7 0v11c0 8-5 15-13 15-6 0-9.5-3-12-8l-5-9a3.7 3.7 0 0 1 6-4l3 4'/></g></svg>") center/contain no-repeat}
+.xCue b{margin-left:auto;font-weight:600;color:var(--lamp);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+@keyframes tapHint{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(3px) scale(.9)}}
 .xlist{display:grid;gap:14px;text-align:left}
-.xrow{appearance:none;display:grid;grid-template-columns:64px 1fr 26px;align-items:center;gap:18px;padding:14px 18px 14px 14px;border:1px solid rgba(207,194,174,.2);background:rgba(11,9,6,.6);color:var(--ink);text-align:left;font-family:var(--sans);cursor:pointer;transition:border-color .3s,background .3s}
+.xrow{appearance:none;display:grid;grid-template-columns:64px 1fr 26px;align-items:center;gap:18px;padding:14px 18px 14px 14px;border:1px solid rgba(207,194,174,.2);background:rgba(11,9,6,.6);color:var(--ink);text-align:left;font-family:var(--sans);cursor:pointer;transition:border-color .3s,background .3s,transform .25s}
 .xrow.noth{grid-template-columns:1fr 24px}
-.xrow:hover{border-color:rgba(242,194,123,.55)}
+.xrow:hover{border-color:rgba(242,194,123,.55);transform:translateX(4px)}
+.xrow:active{transform:scale(.985)}
 .xth{display:block;width:64px;height:64px;position:relative;filter:grayscale(.5) brightness(.75);transition:filter .4s}
 .xtile{background:repeating-linear-gradient(0deg,transparent 0 15px,rgba(255,255,255,.07) 15px 16px),repeating-linear-gradient(90deg,#1b1610 0 15px,rgba(255,255,255,.07) 15px 16px)}
 .xtx b{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
 .xtx span{display:block;font-size:13px;line-height:1.65;color:var(--stone-lt)}
-.xchk{position:relative;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45)}
+.xchk{position:relative;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(242,194,123,.6);transition:background .3s,border-color .3s}
+.xchk::before,.xchk::after{content:"";position:absolute;left:50%;top:50%;background:rgba(242,194,123,.85);transform:translate(-50%,-50%)}
+.xchk::before{width:10px;height:1.5px}.xchk::after{width:1.5px;height:10px}
+.xlist.idle .xrow{animation:xNudge 3s ease-in-out infinite}
+.xlist.idle .xrow:nth-child(2){animation-delay:.3s}.xlist.idle .xrow:nth-child(3){animation-delay:.6s}.xlist.idle .xrow:nth-child(4){animation-delay:.9s}.xlist.idle .xrow:nth-child(5){animation-delay:1.2s}
+@keyframes xNudge{0%,70%,100%{border-color:rgba(207,194,174,.2);box-shadow:none}35%{border-color:rgba(242,194,123,.6);box-shadow:0 0 18px rgba(242,194,123,.14)}}
 .xrow[aria-pressed="true"]{border-color:var(--lamp);background:rgba(242,194,123,.08)}
 .xrow[aria-pressed="true"] .xth{filter:none}
 .xrow[aria-pressed="true"] .xchk{background:var(--lamp);border-color:var(--lamp);box-shadow:0 0 14px rgba(242,194,123,.7)}
-.xrow[aria-pressed="true"] .xchk::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #0B0906;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.xrow[aria-pressed="true"] .xchk::before{display:none}
+.xrow[aria-pressed="true"] .xchk::after{left:7px;top:3px;width:6px;height:11px;background:none;border:solid #0B0906;border-width:0 2px 2px 0;transform:rotate(45deg)}
 
 /* ═════ 5막: 바닥 ═════ */
 .baby{background:var(--bg2)}
@@ -384,43 +402,36 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .babyGrid>.ph{width:100%;max-width:820px;aspect-ratio:16/10;margin-top:clamp(44px,7vh,80px)}
 .babyGrid>*:not(.ph){max-width:44ch}
 .baby p.big{margin-top:clamp(40px,7vh,64px)}
-.perStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(22px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:linear-gradient(180deg,#0e0b08,#120d08)}
-.when{text-align:center;font-size:clamp(22px,3.6vw,34px);font-weight:900;letter-spacing:-.03em}
-.when small{display:block;font-size:12.5px;color:var(--dim);font-weight:500;letter-spacing:0;margin-bottom:6px}
-.perBox{display:flex;align-items:center;justify-content:center;min-height:0}
-.perBox svg{width:min(900px,100%);height:auto;max-height:100%}
-.chem .c{transform:translateY(calc(var(--dy) * var(--s,0)))}
-.toxLeg{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);max-width:900px;margin:0 auto clamp(22px,4vh,34px);width:100%;text-align:left}
-.toxLeg div{flex:1 1 210px;background:var(--bg);padding:12px 14px;opacity:.18;transition:opacity .5s}
-.toxLeg div.on{opacity:1}
-.toxLeg b{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:800;margin-bottom:3px}
-.toxLeg b i{width:9px;height:9px;border-radius:50%;flex:none}
-.toxLeg span{font-size:12px;color:var(--dim);line-height:1.5;display:block}
-.tscale{max-width:820px;margin:clamp(14px,2.6vh,26px) auto 0;width:100%}
-.tscale svg{width:100%;height:auto;display:block;overflow:visible}
-.tscale text{font-family:var(--sans);font-size:11px;fill:var(--stone)}
-.tscale .tbar text{font-size:11.5px;fill:var(--stone-lt)}
-.tscale .tbar.hit text{fill:#F8F0E4}
 
-/* ═════ 6막: 세탁 · 오늘 저녁 ═════ */
-.washStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(24px,6vh,56px) var(--pad) clamp(56px,9vh,84px);background:linear-gradient(180deg,#0e0b08,#0B0906)}
-.washNum{text-align:center}
-.washNum b{display:block;font-family:var(--sans);font-weight:700;font-size:clamp(46px,8.4vw,88px);letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
-.washNum span{display:block;margin-top:14px;font-size:13px;color:var(--dim);min-height:1.6em}
-.drumBox{display:flex;align-items:center;justify-content:center;min-height:0;padding:clamp(16px,3vh,32px) 0}
-.drumBox svg{height:100%;width:auto;max-width:78vw;max-height:min(78vw,520px)}
+/* ═════ 6막: 세탁기 ═════ */
+.washStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(24px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:radial-gradient(80% 60% at 50% 50%,#15110b,#0B0906 72%)}
+.washMeters{display:flex;justify-content:center;gap:clamp(28px,6vw,72px)}
+.wm{display:flex;align-items:center;gap:14px}
+.wm svg{width:clamp(54px,6.4vw,78px);height:auto;display:block}
+.wm b{display:block;font-weight:700;font-size:clamp(28px,4vw,44px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;color:#F8F0E4}
+.wm span{display:block;margin-top:6px;font-size:12.5px;color:var(--stone);letter-spacing:.04em}
+.wm .d{transition:opacity .35s}
+.wm .d.off{opacity:.12}
+.washBox{min-height:0;display:flex;align-items:center;justify-content:center}
+.washBox svg{height:100%;width:auto;max-width:86vw;overflow:visible}
+#washBubbles circle{transform-box:fill-box;animation:bub 2.6s linear infinite}
+@keyframes bub{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-110px);opacity:0}}
+.washFoot,.backFoot{max-width:640px;margin:0 auto;width:100%;text-align:center}
+
+/* ═════ 6막: 오늘 저녁 — 길을 거둔다 ═════ */
 .todo{padding-top:clamp(140px,22vh,240px)}
 .todoPick{font-size:14.5px;color:var(--stone-lt);margin-top:18px}
 .todoPick em{font-style:normal;color:var(--lamp);font-weight:700}
-.todoList{list-style:none;margin:clamp(56px,9vh,96px) auto 0;padding:0;max-width:1060px;counter-reset:t}
-.todoList li{counter-increment:t;position:relative;padding:clamp(20px,3vh,28px) 0 clamp(20px,3vh,28px) clamp(48px,6vw,68px);border-top:1px solid var(--line)}
-.todoList li:last-child{border-bottom:1px solid var(--line)}
-.todoList li::before{content:counter(t);position:absolute;left:0;top:clamp(20px,3vh,28px);font-family:var(--serif);font-size:15px;color:var(--lamp);letter-spacing:.1em}
-.todoList b{display:block;font-size:clamp(17px,2vw,21px);color:#F8F0E4;font-weight:600;letter-spacing:-.01em}
-.todoList li.pick{background:linear-gradient(90deg,rgba(242,194,123,.09),transparent 70%)}
-.todoList li.pick::before{color:#F8F0E4}
+.backStage{display:grid;grid-template-rows:minmax(0,1fr) auto;row-gap:clamp(16px,3vh,32px);padding:clamp(24px,6vh,56px) var(--pad) clamp(30px,6vh,56px);background:var(--bg)}
+.backMap{min-height:0;display:flex;align-items:center;justify-content:center}
+.backMap .map{height:100%;width:auto;max-width:min(720px,92vw);max-height:100%;margin:0}
+#backMap .rev{transition:none}
+#backMap .tlb{transition:opacity .3s}
+#entryStainB{transform-origin:260px 56px}
+#backLines{min-height:8.8em}
+#backLines>div.pick b::before{content:"고른 항목";display:block;font-family:var(--sans);font-size:11px;letter-spacing:.18em;color:var(--lamp);margin-bottom:10px;text-shadow:none}
 
-/* ═════ 끝: 한 칸을 닦는다 ═════ */
+/* ═════ 끝: 한 칸을 닦는다 (표지 문장에 답한다) ═════ */
 .wipeSec{position:relative;overflow:hidden;-webkit-user-select:none;user-select:none;padding:clamp(90px,15vh,170px) var(--gut) clamp(110px,18vh,200px);background:#070605}
 .wipeSec .wipeLamp{animation:none;opacity:.85;height:80%}
 .wipeSec.dark .wipeLamp{animation:sensorOff 1.1s steps(1,end) forwards}
@@ -432,41 +443,50 @@ html.embedded .cvByline,html.hosted .cvByline{display:none}
 .wipePhoto{position:absolute;inset:0;overflow:hidden;background:none}
 .wipePhoto img{opacity:.55}
 .wuFeet{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:min(74%,560px);opacity:0;transition:opacity 1.2s .25s}
-.wipeSec.done .wuFeet{opacity:.62}
+.wipeSec.done .wuFeet{opacity:.5}
 .wipeSec.dark .wuFeet{opacity:0;transition:opacity 1.2s}
-.wipeUnder .wu1{position:relative;z-index:2;font-family:var(--serif);font-size:clamp(22px,3.4vw,42px);line-height:1.65;color:#F8F0E4;margin:0;text-shadow:0 0 40px rgba(242,194,123,.25)}
+.wuText{position:relative;z-index:2;text-align:center;padding:0 6%}
+.wu0{font-family:var(--serif);font-size:clamp(15px,1.9vw,22px);line-height:1.5;color:var(--stone-lt);margin:0 0 clamp(12px,2vh,20px)!important;max-width:none!important}
+.wu1{font-family:var(--serif);font-size:clamp(38px,6.4vw,76px);line-height:1.15;letter-spacing:-.035em;color:#F8F0E4;margin:0!important;max-width:none!important;text-shadow:0 0 40px rgba(242,194,123,.28)}
 .wipeBox canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;transition:opacity .7s;
   cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='48' viewBox='0 0 44 48'><g fill='none' stroke='%23F6E7CE' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'><path d='M17 27V9a4 4 0 0 1 8 0v14'/><path d='M25 16.5a3.6 3.6 0 0 1 7 0V24'/><path d='M32 19.5a3.6 3.6 0 0 1 7 0v11c0 8-5 15-13 15-6 0-9.5-3-12-8l-5-9a3.7 3.7 0 0 1 6-4l3 4'/></g></svg>") 20 6, pointer}
 .wipeSec.done .wipeBox canvas{opacity:0;pointer-events:none;filter:blur(6px)}
 
-/* ═════ 엔딩 크레딧 ═════ */
-.credit{background:var(--bg);border-top:1px solid rgba(207,194,174,.16);padding:clamp(120px,20vh,220px) var(--gut) clamp(56px,10vh,96px)}
-.credits{max-width:760px;margin:0 auto;display:grid;gap:clamp(56px,9vh,88px);text-align:center}
-.imgnote{display:grid;grid-template-columns:1fr;justify-items:center;gap:18px}
-.imgnote h3{font-size:11.5px;letter-spacing:.2em;color:var(--lamp);margin:0;font-weight:600}
-.imgnote p{margin:0 auto;font-size:13px;line-height:2;color:rgba(207,194,174,.75);max-width:52ch}
-.srcs{list-style:none;margin:0;padding:0;display:grid;gap:16px;max-width:56ch}
-.srcs li{font-size:13px;line-height:1.8;color:rgba(207,194,174,.75)}
-.src-card{display:grid;grid-template-columns:minmax(0,34%) 1fr;text-decoration:none;overflow:hidden;border:1px solid rgba(207,194,174,.16);background:rgba(255,255,255,.012);text-align:left;transition:border-color .4s,background .4s}
-.src-card:hover{border-color:rgba(242,194,123,.45);background:rgba(242,194,123,.05)}
-.src-thumb{position:relative;overflow:hidden;min-height:150px;background:#0B0906}
-.src-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:grayscale(.5) brightness(.5) contrast(1.06) saturate(.75);transform:scale(1.04);transition:filter .6s,transform .8s cubic-bezier(.16,1,.3,1)}
-.src-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,9,6,.1),rgba(11,9,6,.4) 60%,rgba(11,9,6,.88))}
-.src-card:hover .src-thumb img{filter:grayscale(.2) brightness(.68) contrast(1.06) saturate(.9);transform:scale(1.09)}
-.src-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,3.4vw,38px);gap:clamp(18px,2.4vw,26px)}
-.src-title{display:block;font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);line-height:1.55;color:#F8F0E4;letter-spacing:-.01em;text-wrap:balance}
-.src-go{display:inline-flex;align-items:center;gap:12px}
-.src-go b{font-size:clamp(12.5px,1.3vw,14px);letter-spacing:.1em;color:var(--lamp-lt);font-weight:600}
-.src-go i,.cat-link i{display:block;width:30px;height:1px;background:currentColor;color:var(--lamp-lt);position:relative;flex:none;transition:width .4s cubic-bezier(.16,1,.3,1)}
-.src-go i::after,.cat-link i::after{content:"";position:absolute;right:0;top:-3.5px;width:8px;height:8px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
-.src-card:hover .src-go i{width:46px}
-.cat-link{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:-30px;padding:23px 24px 22px;text-decoration:none;border-top:1px solid rgba(207,194,174,.36);border-bottom:1px solid rgba(207,194,174,.28);background:linear-gradient(90deg,rgba(242,194,123,.10),rgba(242,194,123,.02));transition:background .35s,border-color .35s}
-.cat-link span{display:flex;align-items:center;gap:13px;font-size:clamp(16px,1.7vw,19px);letter-spacing:-.015em;font-weight:680;color:#F4EADB;transition:transform .35s}
-.cat-link span::before{content:attr(data-cat);padding-right:13px;border-right:1px solid rgba(242,194,123,.4);font-size:10.5px;line-height:1;letter-spacing:.16em;font-weight:700;color:var(--lamp)}
-.cat-link i{width:42px}
-.cat-link:hover{background:linear-gradient(90deg,rgba(242,194,123,.2),rgba(242,194,123,.05));border-top-color:rgba(242,194,123,.6)}
-.cat-link:hover span{transform:translateX(2px)}
-.cat-link:hover i{width:54px}
+/* ═════ 엔딩 크레딧 (에베레스트 편 양식) ═════ */
+.credit{background:var(--bg);border-top:1px solid rgba(207,194,174,.12);padding:clamp(120px,20vh,220px) var(--gut) clamp(48px,8vh,88px);overflow:hidden}
+.credits{max-width:1060px;margin:0 auto;text-align:left}
+.imgnote{display:grid;grid-template-columns:minmax(150px,280px) 1fr;gap:clamp(18px,4vw,56px);align-items:start;padding:clamp(40px,7vh,72px) 0;border-top:1px solid rgba(207,194,174,.1)}
+.imgnote:first-child{border-top:0;padding-top:0}
+.imgnote h3{margin:0;font-size:14px;line-height:2.1;letter-spacing:.14em;font-weight:500;color:rgba(207,194,174,.6)}
+.imgnote p{margin:0;max-width:none;font-size:clamp(14px,1.2vw,16px);line-height:2.1;color:#DCD4C8;font-weight:400}
+.srcs{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.srcs li{font-size:clamp(14px,1.2vw,16px);line-height:2.1;color:#DCD4C8}
+
+/* 관련 기사 */
+.rel{display:grid;gap:clamp(18px,2.6vw,32px);padding-top:clamp(40px,7vh,72px);border-top:1px solid rgba(207,194,174,.1)}
+.src-card{display:grid;grid-template-columns:minmax(0,40%) 1fr;text-decoration:none;overflow:hidden;border:1px solid rgba(207,194,174,.14);background:rgba(255,255,255,.015);text-align:left;transition:border-color .4s,background .4s}
+.src-card:hover,.relCard:hover{border-color:rgba(242,194,123,.45);background:rgba(242,194,123,.04)}
+.src-thumb{position:relative;overflow:hidden;min-height:200px;background:#100c08}
+.src-thumb img,.relThumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:brightness(.8) saturate(.85);transform:scale(1.02);transition:filter .6s,transform .8s cubic-bezier(.16,1,.3,1)}
+.src-card:hover .src-thumb img,.relCard:hover .relThumb img{filter:brightness(.95) saturate(1);transform:scale(1.06)}
+.src-body,.relBody{display:flex;flex-direction:column;justify-content:center;padding:clamp(26px,3.4vw,40px);gap:clamp(20px,2.6vw,28px)}
+.src-title,.relTitle{display:block;font-family:var(--serif);font-size:clamp(18px,2vw,24px);line-height:1.6;color:#F8F0E4;letter-spacing:-.01em;text-wrap:balance}
+.relGrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,32px)}
+.relCard{display:flex;flex-direction:column;text-decoration:none;overflow:hidden;border:1px solid rgba(207,194,174,.14);background:rgba(255,255,255,.015);transition:border-color .4s,background .4s}
+.relThumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#100c08}
+.relBody{flex:1;justify-content:flex-start}
+.relBody .src-go{margin-top:auto}
+.src-go{display:inline-flex;align-items:center;gap:14px}
+.src-go b{font-size:clamp(13px,1.3vw,15px);letter-spacing:.1em;color:var(--lamp-lt);font-weight:500}
+.src-go i{display:block;width:44px;height:1px;background:currentColor;color:var(--lamp-lt);position:relative;flex:none;transition:width .4s cubic-bezier(.16,1,.3,1)}
+.src-go i::after{content:"";position:absolute;right:0;top:-3.5px;width:8px;height:8px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.src-card:hover .src-go i,.relCard:hover .src-go i{width:58px}
+
+/* 시리즈 마침표: 맨 끝에 크고 옅은 시리즈명. 화면 폭에 맞춰 한 줄, 아래를 자르지 않는다 */
+.seriesMark{margin:clamp(72px,12vh,130px) 0 0;text-align:center;font-family:var(--sans);font-weight:700;font-size:min(12.5vw,150px);line-height:.92;letter-spacing:-.035em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(242,194,123,.16);user-select:none;pointer-events:none}
+.seriesMark.rv{transform:translateY(28px);transition:opacity 1.8s .2s cubic-bezier(.2,.7,.3,1),transform 2s .2s cubic-bezier(.2,.7,.3,1)}
+.seriesMark.rv.on{transform:none}
+@supports not (-webkit-text-stroke:1px #000){.seriesMark{color:rgba(242,194,123,.07)}}
 
 /* 부모 기사에 삽입됐을 때 */
 html.hosted,html.hosted body{touch-action:none!important;overscroll-behavior:none!important}
@@ -474,13 +494,17 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 
 /* ═════ 모바일 ═════ */
 @media(max-width:760px){
-  .sec{padding-top:clamp(120px,20vh,200px);padding-bottom:clamp(120px,20vh,200px)}
-  .pin{margin-bottom:16svh}
+  body::after{display:none}
+  .sec{padding-top:clamp(150px,26vh,240px);padding-bottom:clamp(150px,26vh,240px)}
+  .pin{margin-bottom:28svh}
   .lines{min-height:9.2em}
   .cover{padding-top:clamp(96px,16vh,150px)}
   .cover h1{font-size:clamp(44px,13vw,62px)}
   .dek{max-width:none;font-size:14.5px;line-height:2}
   .disc{left:var(--gut);text-align:center}
+  .series{left:max(5px,env(safe-area-inset-left,0px))}
+  .series span{font-size:9.5px;letter-spacing:.34em}
+  .series::after{display:none}
   .trail{right:2px}.trail i{width:4px;height:8px}
   .trail i:nth-child(odd){transform:translateX(-5px) rotate(174deg)}
   .slate{font-size:11px}
@@ -503,32 +527,43 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   .cultBox .comp{aspect-ratio:4/3;height:auto;width:92vw;max-height:100%}
   .uv{aspect-ratio:4/3}
   .uvCtl{flex-direction:column;align-items:flex-start}
-  .crossGrid{grid-template-columns:1fr}
+  /* 그리드 한 칸 안에서는 평면도가 붙지 않는다. 블록으로 풀어야 목록을 누르는 동안 위에 붙어 있다(34차) */
+  .crossGrid{display:block}
+  .xcol{margin-top:22px}
   .mapWrap{position:sticky;top:0;background:var(--bg);z-index:2;padding:10px 0 6px}
   .map{max-height:38svh;width:auto;margin:0 auto}
   .mapMsg{font-size:14px;margin-top:8px}
   .xrow{grid-template-columns:56px 1fr 24px;gap:14px}
   .xth{width:56px;height:56px}
-  .toxLeg div{flex:1 1 130px;padding:9px 11px}
-  .toxLeg span{display:none}
-  .tscale text,.tscale .tbar text{font-size:13px}
+  .washMeters{gap:22px}
+  .wm{gap:10px}.wm svg{width:46px}.wm b{font-size:24px}.wm span{font-size:11.5px}
+  #backLines{min-height:10.4em}
   .wipeBox{aspect-ratio:4/5}
+  .wu1{font-size:clamp(34px,11vw,48px)}
+  .imgnote{grid-template-columns:1fr;gap:12px;padding:36px 0}
   .src-card{grid-template-columns:1fr}
-  .src-thumb{min-height:128px}
-  .cat-link{padding:20px 18px 19px}
-  .cat-link span{font-size:16px;gap:10px}
-  .cat-link span::before{font-size:9.5px;padding-right:10px;letter-spacing:.12em}
+  .src-thumb{min-height:0;aspect-ratio:16/9}
+  .relGrid{grid-template-columns:1fr}
+  .seriesMark{font-size:13.2vw;margin-top:64px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .rv,.gfx,.wd,.pre,h1,.dek,.cvByline,.cardNo,.cardT,.cardLog,.sensor,.motes{opacity:1!important;transform:none!important;filter:none!important}
+  .rv,.gfx,.wd,.pre,h1,.dek,.cvByline,.cardNo,.cardT,.cardLog,.sensor,.motes,.series{opacity:1!important;transform:none!important;filter:none!important}
+  .series span{transform:rotate(180deg)!important}
   .cardRule{width:60px!important}
   .petri .cl{opacity:var(--o,.8)!important;transform:none!important}
+  .uvSec.dark .sOff,.wipeSec.dark .wipeLamp{opacity:0!important}
 }
 </style>
 </head>
 <body>
-<script>if(window.self!==window.top)document.documentElement.classList.add("embedded");</script>
+<script>if(window.self!==window.top)document.documentElement.classList.add("embedded");
+/* 이미지: jpg를 먼저 찾고, 없으면 png. 둘 다 없으면 지운다 */
+function imgFb(i){
+  if(!i.dataset.f&&/\.jpg$/i.test(i.src)){ i.dataset.f=1; i.src=i.src.replace(/\.jpg$/i,'.png'); return; }
+  var p=i.parentNode; i.remove();
+  if(p&&p.classList&&p.classList.contains('xth')){ var r=p.closest('.xrow'); p.remove(); if(r) r.classList.add('noth'); }
+}</script>
 <div id="svhProbe"></div>
 <div class="trail" id="trail" aria-hidden="true"></div>
 <div class="slate" id="slate" aria-hidden="true"><b></b><span></span></div>
@@ -546,7 +581,9 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   <g id="shoeG"><path d="M0 -32C9 -32 13 -24 13 -12C13 -3 10 3 9 7L-9 7C-11 1 -13 -5 -13 -12C-13 -24 -9 -32 0 -32Z" fill="currentColor"/><path d="M-9 13L9 13C9 24 6 32 0 32C-6 32 -9 24 -9 13Z" fill="currentColor"/></g>
   <g id="print"><g filter="url(#dusty)"><path d="M0 -32C9 -32 13 -24 13 -12C13 -3 10 3 9 7L-9 7C-11 1 -13 -5 -13 -12C-13 -24 -9 -32 0 -32Z" fill="currentColor"/><path d="M-9 13L9 13C9 24 6 32 0 32C-6 32 -9 24 -9 13Z" fill="currentColor"/><path d="M0 -32C9 -32 13 -24 13 -12C13 -3 10 3 9 7L-9 7C-11 1 -13 -5 -13 -12C-13 -24 -9 -32 0 -32Z" fill="url(#treadPat)"/><path d="M-9 13L9 13C9 24 6 32 0 32C-6 32 -9 24 -9 13Z" fill="url(#treadPat)"/></g></g>
   <g id="pawF"><g fill="currentColor"><path d="M0 1C3.6 1 5.4 3.6 5.2 6C5 8.4 2.8 9 0 9C-2.8 9 -5 8.4 -5.2 6C-5.4 3.6 -3.6 1 0 1Z"/><ellipse cx="-4.6" cy="-2.2" rx="1.7" ry="2.2" transform="rotate(-20 -4.6 -2.2)"/><ellipse cx="-1.6" cy="-5" rx="1.7" ry="2.3"/><ellipse cx="1.6" cy="-5" rx="1.7" ry="2.3"/><ellipse cx="4.6" cy="-2.2" rx="1.7" ry="2.2" transform="rotate(20 4.6 -2.2)"/></g></g>
+  <g id="footF"><g fill="currentColor"><path d="M1 -24C9 -24 12 -16 12 -6C12 3 9 8 8.5 14C8 22 6 32 -1 32C-8 32 -9 23 -9 16C-9 9 -11 2 -11 -7C-11 -18 -7 -24 1 -24Z"/><ellipse cx="6" cy="-30" rx="4.2" ry="5"/><ellipse cx="-1" cy="-31.5" rx="2.8" ry="3.4"/><ellipse cx="-6" cy="-29.5" rx="2.4" ry="3"/><ellipse cx="-10" cy="-26" rx="2.1" ry="2.6"/><ellipse cx="-12.5" cy="-21.5" rx="1.8" ry="2.2"/></g></g>
   <g id="sockF"><path d="M2 -32C10 -32 13 -24 13 -13C13 -4 10 2 9.5 9C9 20 8 32 0 32C-8 32 -9 22 -9 14C-9 7 -12 -1 -12 -12C-12 -25 -7 -32 2 -32Z" fill="currentColor" opacity=".75"/><path d="M-10 -14H12M-11 -6H12M-8 2H10M-8 10H9M-8 18H9" stroke="#0B0906" stroke-width="1.2" opacity=".35"/></g>
+  <path id="solePath" d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z"/>
 </defs></svg>
 
 <div class="wrap">
@@ -554,11 +591,12 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 <!-- 표지 -->
 <header class="cover">
   <i class="sensor" aria-hidden="true"></i><canvas class="motes" id="motes" aria-hidden="true"></canvas>
-  <div class="bg ph"><img alt="어두운 현관에 벗어 둔 신발 한 켤레" src="00-cover.jpg" onerror="this.remove()"/></div>
+  <div class="bg ph"><img alt="어두운 현관에 벗어 둔 신발 한 켤레" src="00-cover.jpg" onerror="imgFb(this)"/></div>
+  <div class="series" aria-hidden="true"><span>DEEP SCROLL · 03</span></div>
   <div class="in">
     <p class="pre">우리는 신발을 벗는다. 그런데,</p>
     <h1><span>신발만</span><span>벗는다</span></h1>
-    <p class="dek">신발 한 켤레 밑창에 세균 평균 42만 마리.<br/>미국도 이제 신발을 벗기 시작했다.</p>
+    <p class="dek">새 신발을 2주만 신어도 바깥 면에 세균 평균 42만 마리.<br/>미국도 이제 신발을 벗기 시작했다.</p>
     <p class="cvByline">기획·제작 <b>오현영 기자</b></p>
     <div class="cue"><b></b>SCROLL</div>
   </div>
@@ -567,13 +605,13 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 
 <!-- 프롤로그 -->
 <section class="sec change prologue">
-  <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="this.remove()"/></div>
+  <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="imgFb(this)"/></div>
   <div class="changeCol">
     <div class="rv">
       <p class="label">프롤로그 · 미국에서 온 소식</p>
       <h2>침대까지 신발을 신고 오르던 미국이<br/>현관에서 벗기 시작했다</h2>
-      <p>CBS뉴스·유고브 조사에서 미국인 63%가 집에 오면 신발을 벗는다고 답했다.</p>
-      <p>인디애나주 보건당국은 올해 집 안에서 신발을 벗자는 캠페인을 시작했다. 신발에 묻어 들어오는 납을 줄이기 위해서다.</p>
+      <p>2023년 CBS뉴스·유고브 조사에서 미국인 63%가 집에 오면 신발을 벗는다고 답했다.</p>
+      <p>인디애나주 보건당국도 집에 들어올 때 신발을 벗으라고 권한다. 신발에 묻어 들어오는 납 먼지를 줄이기 위해서다.</p>
     </div>
     <figure class="ages rv" id="ages">
       <figcaption>손님에게도 벗어 달라고 한다</figcaption>
@@ -585,7 +623,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     </figure>
   </div>
   <div class="ask2 rv">
-    <p class="q">신발을 멈추는 자리를,<br/>우리는 원래 갖고 있다.</p>
+    <p class="q">신발이 멈추는 자리를,<br/>우리는 원래 갖고 있다.</p>
     <p class="q2">그럼 우리 집은 안전한가.</p>
   </div>
 </section>
@@ -601,9 +639,9 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 </section>
 
 <!-- 1막: 하루의 밑창 -->
-<section class="pin" id="day" style="height:680svh">
+<section class="pin" id="day" style="height:800svh">
   <div class="stage dayStage">
-    <div class="shotBg ph"><img alt="" src="14-day-bg.jpg" onerror="this.remove()"/></div>
+    <div class="shotBg ph"><img alt="" src="14-day-bg.jpg" onerror="imgFb(this)"/></div>
     <div class="cam" aria-hidden="true">
       <i class="camC tl"></i><i class="camC tr"></i><i class="camC bl"></i><i class="camC br"></i>
       <div class="camTop"><span class="camRec"><i></i>REC</span><span class="camTC" id="camTC1">00:00:00:00</span></div>
@@ -613,7 +651,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     <div class="clock"><b id="dayClock">07:48</b><span id="dayPlace">현관</span></div>
     <div class="soleBox">
       <svg id="soleSvg" viewBox="0 0 240 560" role="img" aria-label="하루 동안 신발 밑창에 쌓이는 물질을 보여주는 그림">
-        <defs><clipPath id="soleClipA"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z"/></clipPath></defs>
+        <defs><clipPath id="soleClipA"><use href="#solePath"/></clipPath></defs>
         <path id="soleA" d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z" fill="#3a3c40" stroke="#ffffff40" stroke-width="1.5"/>
         <g class="tread" clip-path="url(#soleClipA)"></g>
         <rect id="grime" x="0" y="0" width="240" height="560" filter="url(#grimeF)" clip-path="url(#soleClipA)" opacity="0"/>
@@ -624,15 +662,15 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       <div class="lines" id="dayLines">
         <div class="on"><b>오늘 아침, 현관문을 연다.</b><span>밑창은 아직 깨끗해 보인다</span></div>
         <div><b>역 화장실 바닥을 밟는다.</b><span>대변에서 나온 세균이 밑창 홈에 묻는다</span></div>
-        <div><b>퇴근길, 아스팔트를 건넌다.</b><span>타이어와 도로 포장에서 떨어진 입자가 끼어든다</span></div>
+        <div><b>퇴근길, 아스팔트를 건넌다.</b><span>도로에서 떨어져 나온 화학물질이 끼어든다</span></div>
         <div><b>골목의 먼지를 밟는다.</b><span>납 같은 중금속이 길 위 먼지에 섞여 있다</span></div>
         <div><b>다시 현관. 신발은 신은 그대로다.</b><span>오늘 하루, 밑창이 들고 온 것들</span></div>
         <div class="quiet"></div>
       </div>
       <div class="chips" id="dayChips">
         <div class="chip"><i style="background:var(--germ)"></i>대변 유래 세균</div>
-        <div class="chip"><i style="background:var(--c-road)"></i>도로 화학물질</div>
-        <div class="chip"><i style="background:var(--c-metal)"></i>중금속</div>
+        <div class="chip"><i style="background:var(--c-road)"></i>인공 화학물질</div>
+        <div class="chip"><i style="background:var(--c-metal)"></i>납 먼지</div>
       </div>
     </div>
   </div>
@@ -652,23 +690,23 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 <section class="sec stats">
   <div class="statHead rv">
     <p class="label">그 밑창을 셌다</p>
-    <h2>같은 신발인데<br/>바닥 면만 달랐다</h2>
-    <p>미국 애리조나대 찰스 거바 교수팀은 2008년, 석 달 동안 신은 신발 26켤레를 모아 세균을 셌다.</p>
-    <p>신발 안팎에서 적게는 3,600마리, 많게는 800만 마리가 나왔다.</p>
+    <h2>같은 신발인데<br/>안과 밖이 달랐다</h2>
+    <p>미국 애리조나대 찰스 거바 교수팀은 2008년 신발에 묻는 세균을 조사했다. 석 달 동안 신은 신발 26켤레의 안팎에서는 적게는 3,600마리, 많게는 800만 마리가 나왔다.</p>
+    <p>새 신발을 2주 동안 신게 한 실험도 했다. 신발 바깥 면에서는 평균 42만 마리, 안쪽에서는 2,887마리가 나왔다.</p>
   </div>
   <div class="swabAct rv" id="swabAct">
-    <p class="swabCue">실험은 여기서 시작한다. 면봉으로 밑창을 문지른다.</p>
+    <p class="swabCue">면봉으로 신발 바깥 면을 문지른다.</p>
     <svg viewBox="0 0 440 210" id="swabSvg" role="img" aria-label="면봉으로 신발 밑창 표면을 문질러 검체를 채취하는 모습">
       <defs>
-        <clipPath id="soleClipS2"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z"/></clipPath>
-        <clipPath id="soleClipS"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z" transform="translate(220 105) rotate(90) scale(.33) translate(-120 -280)"/></clipPath>
+        <clipPath id="soleClipS2"><use href="#solePath"/></clipPath>
+        <clipPath id="soleClipS"><use href="#solePath" transform="translate(220 105) rotate(90) scale(.33) translate(-120 -280)"/></clipPath>
         <mask id="m-swabWipe" maskUnits="userSpaceOnUse" x="0" y="0" width="440" height="210">
           <rect width="440" height="210" fill="#fff"/>
           <path id="wipePath" d="M86 105H354" pathLength="1" fill="none" stroke="#000" stroke-width="34" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"/>
         </mask>
       </defs>
       <g transform="translate(220 105) rotate(90) scale(.33) translate(-120 -280)">
-        <path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z" fill="#2b2926" stroke="#ffffff26" stroke-width="2"/>
+        <use href="#solePath" fill="#2b2926" stroke="#ffffff26" stroke-width="2"/>
         <g class="tread" clip-path="url(#soleClipS2)"></g>
       </g>
       <g mask="url(#m-swabWipe)">
@@ -680,31 +718,31 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
         <ellipse id="swabTip" cx="0" cy="0" rx="13" ry="10" fill="#F4ECDD"/>
       </g>
     </svg>
-    <p class="swabDone">채취한 면봉을 배양 접시에 옮긴다. 48시간 뒤.</p>
+    <p class="swabDone">채취한 면봉을 배양 접시에 옮긴다.</p>
   </div>
   <div class="bento rv locked" id="bento">
-    <div class="swab hero dish"><em>검체 A — 밑창 바닥 면<i>배양 48시간</i></em>
+    <div class="swab hero dish"><em>검체 A — 바깥 면<i>2주 착용</i></em>
       <svg class="petri big" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="142" fill="url(#petriG)"/><circle cx="150" cy="150" r="128" fill="none" stroke="#ffffff10"/><g class="cols"></g><circle cx="150" cy="150" r="142" fill="none" stroke="#ffffff1f" stroke-width="2"/></svg>
-      <b data-n="421000">0</b><span>한 켤레 바깥 면, 평균(마리)</span></div>
-    <div class="swab dish"><em>검체 B — 신발 안쪽<i>같은 조건</i></em>
+      <b data-n="421000">0</b><span>새 신발을 2주 신은 뒤, 바깥 면 평균(마리)</span></div>
+    <div class="swab dish"><em>검체 B — 신발 안쪽<i>같은 신발</i></em>
       <svg class="petri mini" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="138" fill="url(#petriG)"/><circle cx="150" cy="150" r="124" fill="none" stroke="#ffffff10"/><g class="cols"></g><circle cx="150" cy="150" r="138" fill="none" stroke="#ffffff1f" stroke-width="2"/></svg>
-      <b data-n="2887">0</b><span>같은 신발 안쪽. 바깥의 146분의 1</span></div>
-    <div class="swab"><em>검체 A 중</em><b data-n="80" data-suffix="%">0</b><svg class="tenrow" viewBox="0 0 252 96" data-on="8" aria-hidden="true"></svg><span>열 켤레 중 여덟. 밑창에 대변 세균</span></div>
-    <div class="swab"><em>휴스턴대 별도 연구</em><b data-n="40" data-suffix="%">0</b><svg class="tenrow" viewBox="0 0 252 96" data-on="4" aria-hidden="true"></svg><span>열 켤레 중 넷. 설사를 일으키는 C. difficile</span></div>
+      <b data-n="2887">0</b><span>같은 신발 안쪽. 바깥 면의 146분의 1</span></div>
+    <div class="swab"><em>거바 교수</em><b data-n="80" data-suffix="%">0</b><svg class="tenrow" viewBox="0 0 252 96" data-on="8" aria-hidden="true"></svg><span>열 켤레 중 여덟. 밑창에 대변 세균</span></div>
+    <div class="swab"><em>휴스턴대 연구</em><b data-n="40" data-suffix="%">0</b><svg class="tenrow" viewBox="0 0 252 96" data-on="4" aria-hidden="true"></svg><span>신발 바닥 시료 열 개 중 넷. 설사를 일으키는 C. difficile</span></div>
   </div>
 </section>
 
 <!-- 2막: 키 재기 -->
-<section class="pin" id="grid" style="height:540svh">
+<section class="pin" id="grid" style="height:660svh">
   <div class="stage gridStage">
     <div class="ratio"><b id="ratioNum">×1</b><span>같은 신발 안쪽 대비</span></div>
     <div class="rulerBox">
-      <div class="chart" role="img" aria-label="신발 안쪽 세균을 1cm로 세우면 밑창 세균은 146cm로, 키 170cm 어른의 어깨까지 올라온다">
+      <div class="chart" role="img" aria-label="신발 안쪽 세균을 1cm로 세우면 바깥 면 세균은 146cm로, 키 170cm 어른의 어깨까지 올라온다">
         <div class="lm" data-h="50" style="bottom:calc(50/180*100%)"><span>무릎</span></div>
         <div class="lm" data-h="100" style="bottom:calc(100/180*100%)"><span>허리</span></div>
         <div class="lm" data-h="140" style="bottom:calc(140/180*100%)"><span>어깨</span></div>
         <div class="bar2 toilet"><i></i><em>1cm</em><small>신발 안쪽<br/>2,887마리</small></div>
-        <div class="bar2 sole"><i id="soleBar"></i><em id="soleTop">0cm</em><small>신발 밑창<br/>421,000마리</small></div>
+        <div class="bar2 sole"><i id="soleBar"></i><em id="soleTop">0cm</em><small>신발 바깥 면<br/>421,000마리</small></div>
         <div class="person" aria-hidden="true">
           <svg viewBox="0 0 60 170" class="pBase"><rect x="15" y="80" width="13.5" height="90" rx="6.5"/><rect x="31.5" y="80" width="13.5" height="90" rx="6.5"/><rect x="13" y="29" width="34" height="56" rx="9"/><rect x="2" y="31" width="9" height="47" rx="4.5"/><rect x="49" y="31" width="9" height="47" rx="4.5"/><circle cx="30" cy="13" r="11"/></svg>
           <svg viewBox="0 0 60 170" class="pFill" id="pFill"><rect x="15" y="80" width="13.5" height="90" rx="6.5"/><rect x="31.5" y="80" width="13.5" height="90" rx="6.5"/><rect x="13" y="29" width="34" height="56" rx="9"/><rect x="2" y="31" width="9" height="47" rx="4.5"/><rect x="49" y="31" width="9" height="47" rx="4.5"/><circle cx="30" cy="13" r="11"/></svg>
@@ -716,24 +754,24 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     <div class="gridFoot">
       <div class="lines" id="gridLines">
         <div class="on"><b>같은 신발의 안쪽 세균을 1cm로 세운다.</b><span>새끼손톱만 한 높이다</span></div>
-        <div><b>밑창을 같은 비율로 세우면,</b><span>무릎을 지나 허리를 넘는다</span></div>
-        <div><b>146cm. 어른 어깨까지 올라온다.</b><span>대부분 공중화장실 바닥에서 묻어 온 것이다</span></div>
-        <div><b>그 화장실 변기 시트보다도 130배 넘게 많다.</b><span>측정 방식이 달라 단순 비교다</span></div>
+        <div><b>바깥 면을 같은 비율로 세우면,</b><span>무릎을 지나 허리를 넘는다</span></div>
+        <div><b>146cm. 어른 어깨까지 올라온다.</b><span>거바 교수는 대부분 공중화장실 바닥에서 묻는다고 설명한다</span></div>
+        <div><b>공중화장실 변기 시트보다도 130배 넘게 많다.</b><span>측정 방식이 달라 단순 비교다</span></div>
         <div class="quiet"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2막: 배율 -->
-<section class="pin" id="zoom" style="height:680svh">
+<!-- 2막: 배율 — 밑창·홈은 사진, 세균은 그림(34차) -->
+<section class="pin" id="zoom" style="height:800svh">
   <div class="stage zoomStage">
-    <div class="scale">배율<b id="zScale">×1</b></div>
+    <div class="scale">배율<b id="zScale">×1</b><span class="zTag"><em>재현</em>실제 밑창·현미경 사진이 아닙니다</span></div>
     <div class="zBox">
       <div class="zwrap" aria-hidden="true">
-        <div class="zl zl0"><svg viewBox="0 0 400 400"><defs><clipPath id="soleClipB"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z"/></clipPath></defs><rect width="400" height="400" fill="#0f0c08"/><g transform="translate(200 200) rotate(-16) scale(.66) translate(-120 -286)"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z" fill="#161d24" stroke="#ffffff30" stroke-width="1.5"/><g class="tread" clip-path="url(#soleClipB)"></g></g></svg><img class="zimg" src="01-sole.jpg" alt="" onerror="this.remove()"/><svg class="zring" viewBox="0 0 400 400"><circle cx="200" cy="200" r="16" fill="none" stroke="#F6DDB5" stroke-width="1.2" stroke-dasharray="3 3"/></svg></div>
-        <div class="zl zl1" style="opacity:0"><svg viewBox="0 0 400 400" id="zGroove"></svg><img class="zimg" src="02-groove.jpg" alt="" onerror="this.remove()"/></div>
-        <div class="zl zl2" style="opacity:0"><svg viewBox="0 0 400 400" id="zGerm"></svg><img class="zimg" src="03-germ.jpg" alt="" onerror="this.remove()"/></div>
+        <div class="zl zl0"><svg viewBox="0 0 400 400"><defs><clipPath id="soleClipB"><use href="#solePath"/></clipPath></defs><rect width="400" height="400" fill="#0f0c08"/><g transform="translate(200 200) rotate(-16) scale(.66) translate(-120 -286)"><use href="#solePath" fill="#161d24" stroke="#ffffff30" stroke-width="1.5"/><g class="tread" clip-path="url(#soleClipB)"></g></g></svg><img class="zimg" src="01-sole.jpg" alt="" onerror="imgFb(this)"/><svg class="zring" viewBox="0 0 400 400"><circle cx="200" cy="200" r="16" fill="none" stroke="#F6DDB5" stroke-width="1.2" stroke-dasharray="3 3"/></svg></div>
+        <div class="zl zl1" style="opacity:0"><svg viewBox="0 0 400 400" id="zGroove"></svg><img class="zimg" src="02-groove.jpg" alt="" onerror="imgFb(this)"/></div>
+        <div class="zl zl2" style="opacity:0"><svg viewBox="0 0 400 400" id="zGerm"></svg></div>
       </div>
     </div>
     <div class="zoomFoot">
@@ -741,9 +779,9 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
         <div class="on"><b>밑창을 들여다본다.</b><span>표시한 곳으로, 더 가까이</span></div>
         <div><b>홈 사이에 흙과 모래, 섬유가 박혀 있다.</b><span>걸을 때마다 새로 채워지는 틈이다</span></div>
         <div><b>그 틈에 세균이 산다.</b><span>이름은 낯설지만, 병원에서는 익숙한 이름들이다</span></div>
-        <div><b>대장균<em>Escherichia coli</em></b><span>장염과 요로감염을 일으킨다. 밑창에서 가장 흔했다</span></div>
-        <div><b>폐렴간균<em>Klebsiella pneumoniae</em></b><span>폐렴과 혈류 감염의 원인이 되는 병원 감염균</span></div>
-        <div><b>세라티아<em>Serratia ficaria</em></b><span>호흡기와 상처 감염을 일으킨다</span></div>
+        <div><b>대장균<em>Escherichia coli</em></b><span>장염과 요로감염을 일으킨다. 가장 흔하게 검출됐다</span></div>
+        <div><b>폐렴간균<em>Klebsiella pneumoniae</em></b><span>폐렴과 혈류 감염의 원인이 되는 균</span></div>
+        <div><b>세라티아<em>Serratia ficaria</em></b><span>드물게 호흡기와 상처 감염을 일으킨다</span></div>
         <div class="quiet"></div>
       </div>
     </div>
@@ -765,13 +803,13 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   <div class="traceIn rv">
     <p class="label">신발을 신고 들어가면</p>
     <h2>집에서 가장 더러운 곳은<br/>화장실이 아니다</h2>
-    <p class="rv">2008년 실험에서 오염된 신발로 깨끗한 타일을 밟자,<br/>세균의 90~99%가 바닥으로 옮겨 갔다.</p>
-    <p class="rv">2009년 알래스카 실험에서는 오염된 부츠로 살균한 바닥을 걷자,<br/>절반가량에서 세균이 바닥에 남았다.</p>
+    <p class="rv">2008년 실험에서 세균이 묻은 신발로 깨끗한 타일을 밟자,<br/>90%가 넘는 경우 세균이 타일로 옮겨 갔다.</p>
+    <p class="rv">2009년 알래스카 실험에서는 살균한 부츠로 마을 길을 걸은 뒤 살균한 바닥을 한 걸음 밟자,<br/>실험의 절반가량에서 대변 지표 세균이 바닥으로 옮겨 갔다.</p>
   </div>
 </section>
 
 <!-- 3막: 네 걸음 -->
-<section class="pin" id="steps" style="height:560svh">
+<section class="pin" id="steps" style="height:680svh">
   <div class="stage stepStage">
     <div class="floor">
       <svg viewBox="0 22 520 504" role="img" aria-label="현관에서 거실로 번지는 오염을 보여주는 도면">
@@ -796,10 +834,10 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     </div>
     <div class="stepFoot">
       <div class="lines" id="stepLines">
-        <div class="on"><b>신발을 신은 채 문을 열고 들어선다.</b><span>현관에서 처음 서너 걸음</span></div>
+        <div class="on"><b>신발을 신은 채 문을 열고 들어선다.</b><span>현관에서 처음 네 걸음</span></div>
         <div><b>한 걸음.</b><span>밑창에 묻은 것이 바닥에 닿는다</span></div>
         <div><b>두 걸음, 세 걸음.</b><span>자국은 걸음을 따라 이어진다</span></div>
-        <div><b>네 걸음.</b><span>거바 교수는 이 서너 걸음이 집에서 가장 더러운 곳이라고 말한다</span></div>
+        <div><b>네 걸음.</b><span>거바 교수는 현관의 첫 네 걸음이 집에서 세균이 가장 많은 바닥이라고 말한다</span></div>
         <div class="quiet"></div>
       </div>
     </div>
@@ -808,7 +846,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 
 <section class="sec quoteSec">
   <div class="traceIn rv">
-    <p class="big">역 화장실 바닥에서 묻힌 것을,<br/>거실 마룻바닥에 내려놓는 셈이다.</p>
+    <p class="big">역 화장실 바닥에서 묻혀 온 것을,<br/>거실 마룻바닥에 내려놓는 셈이다.</p>
   </div>
 </section>
 
@@ -823,7 +861,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 </section>
 
 <!-- 4막: 문화 비교 -->
-<section class="pin" id="culture" style="height:380svh">
+<section class="pin" id="culture" style="height:500svh">
   <div class="stage cultStage">
     <div class="cultHead">
       <p class="label">우리 집</p>
@@ -831,10 +869,11 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     </div>
     <div class="cultBox">
       <div class="comp" id="comp" role="slider" aria-label="바닥에 앉는 집과 바닥을 걷는 집 비교" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92" tabindex="0">
-        <div class="side l ph"><svg class="fb" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="400" fill="#100c08"/><rect x="0" y="250" width="240" height="150" fill="#1a150f"/><g stroke="#ffffff10"><line x1="40" y1="250" x2="40" y2="400"/><line x1="80" y1="250" x2="80" y2="400"/><line x1="120" y1="250" x2="120" y2="400"/><line x1="160" y1="250" x2="160" y2="400"/><line x1="200" y1="250" x2="200" y2="400"/><line x1="0" y1="290" x2="240" y2="290"/><line x1="0" y1="330" x2="240" y2="330"/><line x1="0" y1="370" x2="240" y2="370"/></g><rect x="240" y="236" width="360" height="164" fill="#241a10"/><g stroke="#ffffff0d"><line x1="240" y1="266" x2="600" y2="266"/><line x1="240" y1="292" x2="600" y2="292"/><line x1="240" y1="318" x2="600" y2="318"/><line x1="240" y1="344" x2="600" y2="344"/><line x1="240" y1="370" x2="600" y2="370"/></g><rect x="236" y="228" width="368" height="12" fill="#3a2b1c"/><rect x="0" y="0" width="600" height="236" fill="#0c0906"/><rect x="240" y="120" width="360" height="118" fill="#150f0a"/><rect x="286" y="196" width="150" height="10" rx="3" fill="#4a3826"/><rect x="292" y="206" width="8" height="28" fill="#3a2b1c"/><rect x="422" y="206" width="8" height="28" fill="#3a2b1c"/><rect x="452" y="188" width="86" height="46" rx="6" fill="#2a2018"/><g style="color:#8A7A66"><use href="#print" transform="translate(70 320) rotate(6) scale(.9)"/><use href="#print" transform="translate(112 330) rotate(-6) scale(-.9 .9)"/><use href="#print" transform="translate(168 316) rotate(4) scale(.82)"/></g><text x="120" y="388" text-anchor="middle" fill="#6f675c" font-size="15" letter-spacing="6">현관</text></svg><img alt="한국 아파트 현관, 턱 아래 신발이 놓인 모습" src="06-genkan.jpg" onload="this.parentNode.classList.add('has')" onerror="this.remove()"/></div>
-        <div class="side r ph"><svg class="fb" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="400" fill="#100c08"/><rect x="0" y="0" width="600" height="250" fill="#0c0906"/><rect x="0" y="250" width="600" height="150" fill="#241c14"/><g stroke="#ffffff08"><line x1="0" y1="276" x2="600" y2="276"/><line x1="0" y1="304" x2="600" y2="304"/><line x1="0" y1="332" x2="600" y2="332"/><line x1="0" y1="360" x2="600" y2="360"/><line x1="0" y1="388" x2="600" y2="388"/></g><rect x="330" y="146" width="250" height="104" rx="10" fill="#2b2119"/><rect x="314" y="190" width="282" height="62" rx="12" fill="#342820"/><rect x="330" y="120" width="120" height="26" rx="6" fill="#241b14"/><g style="color:#6E6152"><use href="#shoeG" transform="translate(420 302) rotate(96) scale(1.15)"/><use href="#shoeG" transform="translate(500 336) rotate(92) scale(1.15)"/><use href="#shoeG" transform="translate(348 340) rotate(94) scale(1.05)" opacity=".6"/><use href="#shoeG" transform="translate(556 296) rotate(90) scale(1.05)" opacity=".45"/></g><text x="470" y="388" text-anchor="middle" fill="#6f675c" font-size="15" letter-spacing="6">거실</text></svg><img alt="카펫 위를 신발을 신고 걷는 서구식 거실" src="07-carpet.jpg" onload="this.parentNode.classList.add('has')" onerror="this.remove()"/></div>
+        <div class="side l ph"><svg class="fb" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="400" fill="#100c08"/><rect x="0" y="250" width="240" height="150" fill="#1a150f"/><g stroke="#ffffff10"><line x1="40" y1="250" x2="40" y2="400"/><line x1="80" y1="250" x2="80" y2="400"/><line x1="120" y1="250" x2="120" y2="400"/><line x1="160" y1="250" x2="160" y2="400"/><line x1="200" y1="250" x2="200" y2="400"/><line x1="0" y1="290" x2="240" y2="290"/><line x1="0" y1="330" x2="240" y2="330"/><line x1="0" y1="370" x2="240" y2="370"/></g><rect x="240" y="236" width="360" height="164" fill="#241a10"/><g stroke="#ffffff0d"><line x1="240" y1="266" x2="600" y2="266"/><line x1="240" y1="292" x2="600" y2="292"/><line x1="240" y1="318" x2="600" y2="318"/><line x1="240" y1="344" x2="600" y2="344"/><line x1="240" y1="370" x2="600" y2="370"/></g><rect x="236" y="228" width="368" height="12" fill="#3a2b1c"/><rect x="0" y="0" width="600" height="236" fill="#0c0906"/><rect x="240" y="120" width="360" height="118" fill="#150f0a"/><rect x="286" y="196" width="150" height="10" rx="3" fill="#4a3826"/><rect x="292" y="206" width="8" height="28" fill="#3a2b1c"/><rect x="422" y="206" width="8" height="28" fill="#3a2b1c"/><rect x="452" y="188" width="86" height="46" rx="6" fill="#2a2018"/><g style="color:#8A7A66"><use href="#print" transform="translate(70 320) rotate(6) scale(.9)"/><use href="#print" transform="translate(112 330) rotate(-6) scale(-.9 .9)"/><use href="#print" transform="translate(168 316) rotate(4) scale(.82)"/></g><text x="120" y="388" text-anchor="middle" fill="#6f675c" font-size="15" letter-spacing="6">현관</text></svg><img alt="한국 아파트 현관, 턱 아래 신발이 놓인 모습" src="06-genkan.jpg" onload="this.parentNode.classList.add('has')" onerror="imgFb(this)"/></div>
+        <div class="side r ph"><svg class="fb" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="400" fill="#100c08"/><rect x="0" y="0" width="600" height="250" fill="#0c0906"/><rect x="0" y="250" width="600" height="150" fill="#241c14"/><g stroke="#ffffff08"><line x1="0" y1="276" x2="600" y2="276"/><line x1="0" y1="304" x2="600" y2="304"/><line x1="0" y1="332" x2="600" y2="332"/><line x1="0" y1="360" x2="600" y2="360"/><line x1="0" y1="388" x2="600" y2="388"/></g><rect x="330" y="146" width="250" height="104" rx="10" fill="#2b2119"/><rect x="314" y="190" width="282" height="62" rx="12" fill="#342820"/><rect x="330" y="120" width="120" height="26" rx="6" fill="#241b14"/><g style="color:#6E6152"><use href="#shoeG" transform="translate(420 302) rotate(96) scale(1.15)"/><use href="#shoeG" transform="translate(500 336) rotate(92) scale(1.15)"/><use href="#shoeG" transform="translate(348 340) rotate(94) scale(1.05)" opacity=".6"/><use href="#shoeG" transform="translate(556 296) rotate(90) scale(1.05)" opacity=".45"/></g><text x="470" y="388" text-anchor="middle" fill="#6f675c" font-size="15" letter-spacing="6">거실</text></svg><img alt="카펫 위를 신발을 신고 걷는 서구식 거실" src="07-carpet.jpg" onload="this.parentNode.classList.add('has')" onerror="imgFb(this)"/></div>
         <span class="who l">바닥에 앉는 집</span><span class="who r">바닥을 걷는 집</span>
-        <div class="bar" id="compBar"></div><div class="knob" id="compKnob">↔</div>
+        <span class="tag ctag"><b>재현 이미지</b>실제 가정의 사진이 아닙니다</span>
+        <div class="bar"></div><div class="knob">↔</div>
       </div>
     </div>
     <div class="cultFoot">
@@ -848,18 +887,16 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   </div>
 </section>
 
-<!-- 4막: 자외선 -->
+<!-- 4막: 자외선 — 사진 없이 재현 그래픽만(34차) -->
 <section class="sec uvSec" id="uvSec"><i class="sensor sOff" aria-hidden="true"></i>
   <div class="inner rv">
     <p class="label">한 칸</p>
     <h2>불을 끄면,<br/>그 한 칸이 보인다</h2>
-    <p>그래서 밑창이 내려놓는 것도 현관 한 칸에 모인다. 밑창에 형광 염료가 묻어 있다고 해 보자. 불을 끄고 자외선 등을 비추면, 깨끗해 보이던 타일이 먼저 떠오른다.</p>
+    <p>거바 교수팀은 신발 바닥에 염료와 추적용 바이러스를 묻혀 걸어 보게 했다. 신발이 지나간 자리마다 바닥에 흔적이 남았다. 같은 방법을 우리 집 현관에 대 보자. 불을 끄고 자외선 등을 비추면, 깨끗해 보이던 타일이 먼저 떠오른다. 턱 너머로 옅게 이어지는 건 신발이 아니라 양말 자국이다.</p>
   </div>
-  <div class="uv rv" id="uv" role="img" aria-label="자외선 등으로 바닥을 비추는 재현 그래픽. 현관 타일 한 칸에 자국이 가장 짙다">
+  <div class="uv rv" id="uv" role="img" aria-label="자외선 등으로 바닥을 비추는 재현 그래픽. 현관 타일 한 칸에 자국이 가장 짙고, 턱 너머로 양말 자국이 옅게 이어진다">
     <svg class="uvBase" viewBox="0 0 1000 560" preserveAspectRatio="xMinYMid slice" aria-hidden="true"></svg>
     <svg class="uvGlow" viewBox="0 0 1000 560" preserveAspectRatio="xMinYMid slice" aria-hidden="true"></svg>
-    <img class="uvImg base" src="04-entry-top.jpg" alt="" onload="this.parentNode.classList.add('hasBase')" onerror="this.remove()"/>
-    <img class="uvImg glow" src="04-entry-uv.jpg" alt="" onload="this.parentNode.classList.add('hasGlow')" onerror="this.remove()"/>
     <i class="uvLamp" aria-hidden="true"></i>
     <span class="uvTag"><b>재현 그래픽</b>실제 자외선 촬영이 아닙니다</span>
   </div>
@@ -871,7 +908,6 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   <div class="crossHead rv">
     <h2>그 한 칸을<br/>넘어오는 것들</h2>
     <p>신발은 현관에서 멈추지만, 한 칸을 밟고 집 안까지 들어오는 것들이 있다.</p>
-    <p class="small">우리 집에서 하는 것을 골라 보세요.</p>
   </div>
   <div class="crossGrid rv">
     <div class="mapWrap"><svg class="map" viewBox="0 0 520 420" role="img" aria-label="우리 집 평면도. 고른 항목이 현관에서 집 안으로 지나간 길이 그려진다">
@@ -891,12 +927,15 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       </svg>
       <p class="mapMsg" id="xMsg" aria-live="polite">아직은 현관 한 칸에서 멈춰 있습니다.</p>
     </div>
-    <div class="xlist" id="xgrid">
-      <button type="button" class="xrow" aria-pressed="false" data-k="box"><span class="xth ph"><img src="10-box.jpg" alt="" onerror="this.remove()"/></span><span class="xtx"><b>택배 상자</b><span>현관 바닥에 뒀던 상자를 그대로 식탁에</span></span><i class="xchk" aria-hidden="true"></i></button>
-      <button type="button" class="xrow" aria-pressed="false" data-k="wheel"><span class="xth ph"><img src="11-wheel.jpg" alt="" onerror="this.remove()"/></span><span class="xtx"><b>바퀴</b><span>캐리어·유모차를 닦지 않고 방까지</span></span><i class="xchk" aria-hidden="true"></i></button>
-      <button type="button" class="xrow" aria-pressed="false" data-k="paw"><span class="xth ph"><img src="12-paw.jpg" alt="" onerror="this.remove()"/></span><span class="xtx"><b>반려견 발</b><span>산책한 발 그대로 집 안을</span></span><i class="xchk" aria-hidden="true"></i></button>
-      <button type="button" class="xrow" aria-pressed="false" data-k="sock"><span class="xth ph"><img src="13-sock.jpg" alt="" onerror="this.remove()"/></span><span class="xtx"><b>양말</b><span>현관 타일을 디딘 양말로 침실까지</span></span><i class="xchk" aria-hidden="true"></i></button>
-      <button type="button" class="xrow" aria-pressed="false" data-k="mop"><span class="xth ph xtile"></span><span class="xtx"><b>현관 바닥</b><span>마지막으로 닦은 날이 기억나지 않는다</span></span><i class="xchk" aria-hidden="true"></i></button>
+    <div class="xcol">
+      <p class="xCue"><i aria-hidden="true"></i>눌러서 골라 보세요 <b id="xCount">0 / 5</b></p>
+      <div class="xlist idle" id="xgrid">
+        <button type="button" class="xrow" aria-pressed="false" data-k="box"><span class="xth ph"><img src="10-box.jpg" alt="" onerror="imgFb(this)"/></span><span class="xtx"><b>택배 상자</b><span>현관 바닥에 뒀던 상자를 그대로 식탁에</span></span><i class="xchk" aria-hidden="true"></i></button>
+        <button type="button" class="xrow" aria-pressed="false" data-k="wheel"><span class="xth ph"><img src="11-wheel.jpg" alt="" onerror="imgFb(this)"/></span><span class="xtx"><b>바퀴</b><span>캐리어·유모차를 닦지 않고 방까지</span></span><i class="xchk" aria-hidden="true"></i></button>
+        <button type="button" class="xrow" aria-pressed="false" data-k="paw"><span class="xth ph"><img src="12-paw.jpg" alt="" onerror="imgFb(this)"/></span><span class="xtx"><b>반려견 발</b><span>산책한 발 그대로 집 안을</span></span><i class="xchk" aria-hidden="true"></i></button>
+        <button type="button" class="xrow" aria-pressed="false" data-k="sock"><span class="xth ph"><img src="13-sock.jpg" alt="" onerror="imgFb(this)"/></span><span class="xtx"><b>양말</b><span>현관 타일을 디딘 양말로 침실까지</span></span><i class="xchk" aria-hidden="true"></i></button>
+        <button type="button" class="xrow" aria-pressed="false" data-k="mop"><span class="xth ph xtile"></span><span class="xtx"><b>현관 바닥</b><span>마지막으로 닦은 날이 기억나지 않는다</span></span><i class="xchk" aria-hidden="true"></i></button>
+      </div>
     </div>
   </div>
 </section>
@@ -914,47 +953,13 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 <!-- 5막: 아기 -->
 <section class="sec baby">
   <div class="babyGrid">
-    <div class="ph rv"><span class="tag"><b>재현 이미지</b>실제 인물이 아닙니다</span><img alt="마룻바닥을 기어가는 아기의 손과 무릎" src="05-baby.jpg" onerror="this.remove()"/></div>
+    <div class="ph rv"><span class="tag"><b>재현 이미지</b>실제 인물이 아닙니다</span><img alt="마룻바닥을 기어가는 아기의 손과 무릎" src="05-baby.jpg" onerror="imgFb(this)"/></div>
     <div class="rv">
       <p class="label">바닥에 사는 집</p>
       <h2>우리 집 바닥은<br/>앉고, 눕고, 기는 자리다</h2>
-      <p>그 바닥과 가장 오래 닿는 사람은 기어다니는 아기다. 손으로 바닥을 짚고, 그 손을 입에 넣는다.</p>
-      <p>밑창 세균이 실제 감염으로 이어진 사례는 문헌에 없다고 거바 교수는 말한다. 다만 바닥을 짚은 손을 입에 넣는 아기는 사정이 다르다.</p>
+      <p>그 바닥과 가장 오래 닿는 사람은 기어다니는 아기다. 바닥을 기어 다니는 영유아는 신발로 들어온 오염 물질에 노출되기 쉽다.</p>
+      <p>휴스턴대 개리 교수는 신발 바닥의 세균이 건강한 사람에게는 위험이 없거나 미미할 것이라고 말한다. 다만 바닥을 짚은 손을 입에 넣는 아기는 이야기가 다르다.</p>
       <p class="big">그래서 현관 한 칸 너머로<br/>무엇이 넘어오는지가 중요하다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 5막: 남는 것 -->
-<section class="pin" id="persist" style="height:660svh">
-  <div class="stage perStage">
-    <div class="when"><small>바닥에 떨어진 뒤</small><span id="perWhen">들여온 직후</span></div>
-    <div class="perBox"><svg viewBox="0 0 600 250" id="perSvg" role="img" aria-label="시간이 지나도 세균과 화학물질이 바닥에 남는 모습"></svg></div>
-    <div class="toxLeg" id="toxLeg">
-      <div><b><i style="background:var(--c-road)"></i>도로 화학물질</b><span>아스팔트와 타이어에서 떨어져 나온 입자</span></div>
-      <div><b><i style="background:var(--c-metal)"></i>중금속</b><span>납을 비롯해 길 위 먼지에 섞인 금속</span></div>
-      <div><b><i style="background:var(--c-pest)"></i>잔디 제초제</b><span>신발로 들어와 카펫 먼지에 남는다</span></div>
-    </div>
-    <div class="tscale">
-      <svg viewBox="0 0 620 150" role="img" aria-label="바닥에 떨어진 뒤 무엇이 얼마나 오래 남는지 보여주는 시간 눈금">
-        <g class="tk"><line x1="130" y1="26" x2="130" y2="34" stroke="#ffffff33"/><text x="130" y="16" text-anchor="middle">직후</text><line x1="196" y1="26" x2="196" y2="34" stroke="#ffffff33"/><text x="196" y="16" text-anchor="middle">1시간</text><line x1="268" y1="26" x2="268" y2="34" stroke="#ffffff33"/><text x="268" y="16" text-anchor="middle">하루</text><line x1="340" y1="26" x2="340" y2="34" stroke="#ffffff33"/><text x="340" y="16" text-anchor="middle">일주일</text><line x1="412" y1="26" x2="412" y2="34" stroke="#ffffff33"/><text x="412" y="16" text-anchor="middle">한 달</text><line x1="498" y1="26" x2="498" y2="34" stroke="#ffffff33"/><text x="498" y="16" text-anchor="middle">5개월</text><line x1="584" y1="26" x2="584" y2="34" stroke="#ffffff33"/><text x="584" y="16" text-anchor="middle">1년</text></g>
-        <line x1="130" y1="30" x2="590" y2="30" stroke="#ffffff22"/>
-        <g class="tbars">
-          <g class="tbar" data-end="498"><text x="118" y="70" text-anchor="end">대장균·폐렴간균·세라티아</text><rect x="130" y="62" width="368" height="8" rx="4" fill="#ffffff10"/><rect class="fill" x="130" y="62" width="0" height="8" rx="4" fill="#CFC2AE"/></g>
-          <g class="tbar" data-end="498"><text x="118" y="102" text-anchor="end">C. difficile 포자</text><rect x="130" y="94" width="368" height="8" rx="4" fill="#ffffff10"/><rect class="fill" x="130" y="94" width="0" height="8" rx="4" fill="#E7B36A"/></g>
-          <g class="tbar" data-end="584"><text x="118" y="134" text-anchor="end">잔디 제초제 (추정)</text><rect x="130" y="126" width="454" height="8" rx="4" fill="#ffffff10"/><rect class="fill" x="130" y="126" width="0" height="8" rx="4" fill="#8E8A63"/></g>
-        </g>
-        <g id="tHead"><line x1="130" y1="10" x2="130" y2="142" stroke="#F2C27B" stroke-width="1.2" opacity=".8"/><circle cx="130" cy="30" r="3.5" fill="#F2C27B"/></g>
-      </svg>
-    </div>
-    <div class="perFoot">
-      <div class="lines" id="perLines">
-        <div class="on"><b>그 한 칸에 내려놓은 것들.</b><span>세균, 그리고 세균이 아닌 것들</span></div>
-        <div><b>마르면 죽을 것 같지만, 아니다.</b><span>대장균과 폐렴간균은 마른 표면에서도 몇 달씩 산다</span></div>
-        <div><b>길 위의 화학물질은 더 오래 간다.</b><span>햇빛도 비도 없는 실내에선 잘 분해되지 않는다</span></div>
-        <div><b>먼지에 섞여 바닥에 남는다.</b><span>제초제가 1년 뒤에도 남을 수 있다는 연구가 있다</span></div>
-        <div class="quiet"></div>
-      </div>
     </div>
   </div>
 </section>
@@ -969,40 +974,53 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   </div>
 </section>
 
-<!-- 6막: 세탁 -->
-<section class="pin" id="wash" style="height:700svh">
+<!-- 6막: 세탁기 -->
+<section class="pin" id="wash" style="height:620svh">
   <div class="stage washStage">
-    <div class="washNum"><b id="washNum">421,000</b><span id="washSub">밑창 바닥 면 세균 (마리)</span></div>
-    <div class="drumBox">
-      <svg id="drum" viewBox="0 0 400 400" role="img" aria-label="세탁기 안에서 도는 밑창. 돌수록 때가 빠지고 세균 수가 줄어든다">
+    <div class="washMeters">
+      <div class="wm"><svg viewBox="0 0 120 120" id="wmOut" aria-hidden="true"></svg><div><b id="wmOutN">0%</b><span>바깥 면</span></div></div>
+      <div class="wm"><svg viewBox="0 0 120 120" id="wmIn" aria-hidden="true"></svg><div><b id="wmInN">0%</b><span>안쪽</span></div></div>
+    </div>
+    <div class="washBox">
+      <svg viewBox="0 0 400 470" role="img" aria-label="세탁기 드럼 안에서 운동화가 돌며 밑창의 때가 빠지는 그림. 바깥 면 세균 99%, 안쪽 90%가 줄었다">
         <defs>
-          <clipPath id="drumClip"><circle cx="200" cy="200" r="150"/></clipPath>
-          <clipPath id="soleClipW"><path d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z"/></clipPath>
-          <radialGradient id="glassG" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#1c1712"/><stop offset="1" stop-color="#070605"/></radialGradient>
+          <clipPath id="glassClip"><circle cx="200" cy="282" r="118"/></clipPath>
+          <radialGradient id="glassG" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#1f1a14"/><stop offset="1" stop-color="#090705"/></radialGradient>
+          <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FA7B0" stop-opacity=".3"/><stop offset="1" stop-color="#5E7C88" stop-opacity=".14"/></linearGradient>
+          <clipPath id="soleClipWash"><use href="#solePath"/></clipPath>
         </defs>
-        <circle cx="200" cy="200" r="188" fill="#15110c" stroke="#2c251d" stroke-width="3"/>
-        <circle cx="200" cy="200" r="168" fill="none" stroke="#3a3128" stroke-width="16"/>
-        <circle cx="200" cy="200" r="150" fill="url(#glassG)"/>
-        <g clip-path="url(#drumClip)">
-          <g id="drumHoles" fill="#ffffff08"></g>
-          <rect id="water" x="40" y="360" width="320" height="320" fill="rgba(170,190,200,.10)"/>
-          <g id="drumSole" transform="rotate(0 200 200) translate(200 200) scale(.56) rotate(-18) translate(-120 -280)">
-            <path id="soleW" d="M120 18C175 18 208 70 212 140C216 210 198 262 190 300C182 338 186 380 188 430C190 500 162 542 120 542C78 542 50 500 52 430C54 380 58 338 50 300C42 262 24 210 28 140C32 70 65 18 120 18Z" fill="#221f1c" stroke="#ffffff30" stroke-width="2"/>
-            <g class="tread" clip-path="url(#soleClipW)"></g>
-            <rect id="grimeW" x="0" y="0" width="240" height="560" filter="url(#grimeF)" clip-path="url(#soleClipW)" opacity=".95"/>
-            <g id="washSpecks"></g>
+        <rect x="20" y="10" width="360" height="450" rx="22" fill="#1a1611" stroke="#ffffff1a" stroke-width="1.5"/>
+        <path d="M20 112H380" stroke="#ffffff14"/>
+        <rect x="44" y="40" width="120" height="44" rx="6" fill="#0d0b08" stroke="#ffffff12"/>
+        <text id="washTime" x="104" y="69" text-anchor="middle" fill="#F2C27B" font-size="18" font-weight="700" letter-spacing="2" font-family="Pretendard Variable,sans-serif">0:45</text>
+        <circle id="washLed" cx="250" cy="62" r="5" fill="#F2C27B" opacity=".3"/>
+        <circle cx="320" cy="62" r="24" fill="#120f0b" stroke="#ffffff22" stroke-width="1.5"/>
+        <line id="washKnob" x1="320" y1="62" x2="320" y2="44" stroke="#F2C27B" stroke-width="2.5" stroke-linecap="round" transform="rotate(-120 320 62)"/>
+        <circle cx="200" cy="282" r="146" fill="#14110d" stroke="#ffffff24" stroke-width="3"/>
+        <circle cx="200" cy="282" r="132" fill="none" stroke="#ffffff10" stroke-width="10"/>
+        <circle cx="200" cy="282" r="118" fill="url(#glassG)"/>
+        <g clip-path="url(#glassClip)">
+          <g id="drumHoles"></g>
+          <rect id="washWater" x="70" y="400" width="260" height="160" fill="url(#waterG)"/>
+          <g id="washBubbles" opacity="0"></g>
+          <g id="washShoe" transform="translate(200 290)">
+            <g transform="scale(.36) translate(-120 -280)">
+              <use href="#solePath" fill="#2b2926" stroke="#ffffff30" stroke-width="3"/>
+              <g class="tread" clip-path="url(#soleClipWash)"></g>
+              <rect id="washGrime" x="0" y="0" width="240" height="560" filter="url(#grimeF)" clip-path="url(#soleClipWash)" opacity=".95"/>
+            </g>
           </g>
-          <g id="bubbles" fill="none" stroke="#ffffff40" stroke-width="1.2" opacity="0"></g>
         </g>
-        <path d="M92 132A130 130 0 0 1 176 72" fill="none" stroke="#ffffff1c" stroke-width="6" stroke-linecap="round"/>
+        <path d="M120 200 A118 118 0 0 1 248 176" fill="none" stroke="#ffffff22" stroke-width="5" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="washFoot">
       <div class="lines" id="washLines">
-        <div class="on"><b>그날 밤, 밑창을 세탁기에 넣는다.</b><span>연구팀은 신발을 제조사 권장 방식대로 빨았다</span></div>
-        <div><b>도는 동안, 밑창이 드러난다.</b><span>홈 사이에 끼어 있던 것들이 빠져나간다</span></div>
-        <div><b>42만 마리가 4천 마리대로.</b><span>바깥 면 세균이 99% 줄었다</span></div>
-        <div><b>146cm로 솟았던 막대가, 1.5cm로 내려온다.</b><span>신발 안쪽과 거의 같은 높이다</span></div>
+        <div class="on"><b>그래서, 빨았다.</b><span>연구팀은 신발을 제조사 권장 방식대로 세탁기에 넣었다</span></div>
+        <div><b>드럼이 돈다.</b><span>물과 세제가 밑창 홈 사이로 스민다</span></div>
+        <div><b>바깥 면 세균은 99% 줄었다.</b><span>100마리 중 1마리만 남는 셈이다</span></div>
+        <div><b>안쪽은 90%.</b><span>100마리 중 10마리가 남는다</span></div>
+        <div><b>신발은 빨면 된다.</b><span>남은 건 신발이 멈췄던 자리다</span></div>
         <div class="quiet"></div>
       </div>
     </div>
@@ -1017,24 +1035,39 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     <p>밑창이 내려놓는 자리는 정해져 있다.</p>
     <p class="todoPick" id="todoPick"></p>
   </div>
-  <ol class="todoList">
-    <li class="rv" data-k="mop"><b>현관 타일부터 물걸레로 닦는다</b></li>
-    <li class="rv" data-k="sock"><b>실내화는 현관에 둔다</b></li>
-    <li class="rv" data-k="box"><b>택배 상자는 현관에서 연다</b></li>
-    <li class="rv" data-k="wheel"><b>바퀴는 현관에서 닦는다</b></li>
-    <li class="rv" data-k="paw"><b>산책한 발은 현관에서 닦는다</b></li>
-  </ol>
 </section>
 
-<!-- 끝: 한 칸을 닦는다 -->
+<!-- 6막: 길을 거둔다 -->
+<section class="pin" id="back" style="height:640svh">
+  <div class="stage backStage">
+    <div class="backMap" id="backMap"></div>
+    <div class="backFoot">
+      <div class="lines" id="backLines">
+        <div class="on"><b>한 칸을 건너온 길들이다.</b><span>하나씩 현관으로 거둔다</span></div>
+        <div data-k="mop"><b>현관 타일부터 물걸레로 닦는다.</b><span>신발 자국이 모두 모이는 자리다</span></div>
+        <div data-k="sock"><b>실내화는 현관에 둔다.</b><span>타일을 디딘 양말이 침실까지 가지 않게</span></div>
+        <div data-k="box"><b>택배 상자는 현관에서 연다.</b><span>바닥에 닿았던 밑면을 식탁에 올리지 않는다</span></div>
+        <div data-k="wheel"><b>바퀴는 현관에서 닦는다.</b><span>캐리어와 유모차 바퀴도 길을 밟고 온다</span></div>
+        <div data-k="paw"><b>산책한 발은 현관에서 닦는다.</b><span>반려견의 발도 밑창처럼 길을 밟고 온다</span></div>
+        <div><b>이제 모두 한 칸에서 멈춘다.</b><span>신발을 벗던 그 자리에서</span></div>
+        <div class="quiet"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 끝: 한 칸을 닦는다 — 표지 "우리는 신발을 벗는다. 그런데, 신발만 벗는다"에 답한다 -->
 <section class="wipeSec" id="wipeSec">
   <i class="sensor wipeLamp" aria-hidden="true"></i>
   <div class="wipeStage">
     <div class="wipeBox" id="wipeBox">
       <div class="wipeUnder">
-        <div class="wipePhoto ph"><img alt="" src="15-tile.jpg" onerror="this.remove()"/></div>
-        <svg class="wuFeet" viewBox="0 0 400 240" aria-hidden="true"><g style="color:#EFE6D6"><use href="#sockF" transform="translate(158 132) rotate(186) scale(-1.5 1.5)" opacity=".7"/><use href="#sockF" transform="translate(240 150) rotate(174) scale(1.5)" opacity=".85"/></g></svg>
-        <p class="wu1">신발이 멈춘 그 자리를,<br/>우리는 맨발로 딛는다.</p>
+        <div class="wipePhoto ph"><img alt="" src="15-tile.jpg" onerror="imgFb(this)"/></div>
+        <svg class="wuFeet" viewBox="0 0 400 240" aria-hidden="true"><g style="color:#EFE6D6"><use href="#footF" transform="translate(158 132) rotate(186) scale(-1.5 1.5)" opacity=".6"/><use href="#footF" transform="translate(240 150) rotate(174) scale(1.5)" opacity=".75"/></g></svg>
+        <div class="wuText">
+          <p class="wu0">우리는 신발을 벗는다. 그리고,</p>
+          <p class="wu1">한 칸을 닦는다</p>
+        </div>
       </div>
       <canvas id="wipeCv" aria-label="문질러 닦을 수 있는 현관 타일"></canvas>
     </div>
@@ -1045,37 +1078,52 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   <div class="credits">
     <div class="imgnote">
       <h3>이미지, 소리에 대하여</h3>
-      <p>화면에 쓰인 사진은 기사 내용을 바탕으로 생성형 AI로 제작한 재현 이미지이며, 특정 인물이나 가정의 실제 사진이 아닙니다(맨 아래 원 기사 사진은 제외). 하루 동선, 배율, 자외선, 바닥 입자 장면은 연구 내용을 이해하기 쉽게 재구성한 그래픽으로 형태와 수량을 단순화했습니다. 발소리 등 콘텐츠에 포함된 모든 소리는 실제 현장에서 녹음한 것이 아니라, AI를 활용해 합성한 재현음입니다.</p>
+      <p>화면에 쓰인 사진은 기사 내용을 바탕으로 생성형 AI로 제작한 재현 이미지이며, 특정 인물이나 가정의 실제 사진이 아닙니다(관련 기사 사진은 제외). 하루 동선, 배율 장면의 세균, 자외선, 세탁기, 평면도 장면은 연구 내용을 이해하기 쉽게 그린 재현 그래픽으로, 형태와 수량을 단순화했으며 실제 실험·현미경 사진이 아닙니다. 발소리 등 콘텐츠에 포함된 모든 소리는 실제 현장에서 녹음한 것이 아니라, AI를 활용해 합성한 재현음입니다.</p>
+    </div>
+    <div class="imgnote">
+      <h3>계산에 대하여</h3>
+      <p>세균 수는 연구에서 쓴 집락형성단위(CFU)를 기사에서 '마리'로 옮긴 것입니다. 키 재기의 146cm는 같은 2주 착용 실험의 바깥 면 42만1000을 안쪽 2,887로 나눈 값(약 145.8배)을 1cm 기준에 적용한 것입니다. 변기 시트와의 비교(약 131배)는 42만1000을 3,200으로 나눈 값이며, 두 수치는 측정 방식이 달라 단순 비교입니다. 세탁기 장면의 점 100개는 감소율(바깥 면 99%, 안쪽 90%)을 그대로 옮긴 것입니다.</p>
     </div>
     <div class="imgnote">
       <h3>출처</h3>
       <ul class="srcs">
-        <li>신발 바깥 면 평균 42만1000마리·안쪽 2,887마리, 대장균·폐렴간균·세라티아 검출, 세탁 시 바깥 면 99% 감소: 애리조나대 찰스 거바 교수팀·록포트(2008년 발표, 신발업체 공동 연구)</li>
-        <li>신발 26켤레(3개월 착용) 안팎에서 3,600~800만 마리, 오염된 신발에서 깨끗한 타일로 세균 90~99% 이동: 같은 연구(2008). 밑창 약 80%에서 대변 세균, 처음 서너 걸음이 가장 오염: 거바 교수 발언(타임 2026년 9월 등)</li>
-        <li>공중화장실 변기 시트 평균 3,200마리: 타임 보도(2026년 9월). 신발 수치와 측정 방식이 달라 단순 비교</li>
-        <li>살균 부츠 실험(부츠의 70%에서 장내 세균, 절반가량에서 바닥으로 이동): 알래스카 실험(2009), 아시아경제 보도 인용</li>
-        <li>신발의 약 40%에서 C. difficile 검출: 휴스턴대 알람·개리 연구팀(2014)</li>
-        <li>미국인 63%가 집에서 신발을 벗고, 24%가 손님에게도 요청·연령대별 응답: CBS뉴스·유고브 여론조사(2023)</li>
-        <li>집 안 신발 벗기 캠페인(납 유입 감소): 미국 인디애나주 보건당국(2026), 아시아경제 보도 인용</li>
-        <li>보도 웅덩이·신발 밑창·실내 바닥의 대변 세균: 레리 교수팀(2023, 당시 메리마운트맨해튼칼리지). "밑창은 대변 세균을 실내로 옮기는 주요 매개체": 레리 노스이스턴대 교수(타임 2026년 9월)</li>
-        <li>대장균·폐렴간균 등이 마른 표면에서 몇 달씩 생존: Kramer 외, BMC Infectious Diseases(2006)</li>
-        <li>실내 농약 잔류와 신발로 유입된 제초제(2,4-D)의 카펫 먼지 잔류 추정: Nishioka 외, Environmental Science &amp; Technology(2001) 등</li>
+        <li>신발 세균 수(2주·3개월 착용), 타일 이동, 세탁 효과: 애리조나대 거바 교수팀·록포트(2008, 업체 공동 연구)</li>
+        <li>대변 세균 80%, 첫 네 걸음, 염료 추적 실험, 변기 시트 비교: 타임(2026.9.14)</li>
+        <li>부츠에서 바닥으로 한 걸음 이동: Chambers 외, 『Journal of Environmental Management』(2009)</li>
+        <li>신발 바닥의 C. difficile: 휴스턴대 알람·개리 외, 『Anaerobe』(2014)</li>
+        <li>밑창을 거쳐 실내 바닥에 쌓이는 세균: Leri·Khan, 『Indoor and Built Environment』(2023)</li>
+        <li>미국인 신발 벗기 응답: CBS뉴스·유고브(2023)</li>
+        <li>납 먼지와 신발 벗기 권고: 인디애나주 보건당국 안내문</li>
       </ul>
     </div>
-    <div class="imgnote">
-      <h3>계산에 대하여</h3>
-      <p>키 재기의 146cm는 밑창 바깥 면 42만1000마리를 같은 연구의 신발 안쪽 2,887마리로 나눈 값(약 145.8배)을 1cm 기준에 적용한 것입니다. 세탁 후 '4천 마리대'는 99% 감소를 적용한 약 4,210마리이고, 같은 기준으로 세우면 약 1.5cm입니다. 변기 시트와의 비교(약 131배)는 42만1000을 3,200으로 나눈 값이며, 두 수치는 측정 방식이 달라 단순 비교입니다.</p>
+
+    <div class="rel">
+      <a class="src-card" href="https://www.asiae.co.kr/article/2026091609041640135" target="_blank" rel="noopener">
+        <span class="src-thumb"><img src="./09-thumb.jpg" alt="" aria-hidden="true" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='./00-cover.jpg'}else{this.remove()}"></span>
+        <span class="src-body">
+          <span class="src-title">“제발 좀 벗어줄래” 기어이 침대까지 오르더니…젊은층부터 달라진다는 美</span>
+          <span class="src-go"><b>기사 전문 보기</b><i></i></span>
+        </span>
+      </a>
+      <div class="relGrid">
+        <a class="relCard" href="https://www.asiae.co.kr/visual-news/article/2026100208140277844" target="_blank" rel="noopener">
+          <span class="relThumb"><img src="./20-rel-everest.jpg" alt="" aria-hidden="true" loading="lazy" onerror="imgFb(this)"></span>
+          <span class="relBody">
+            <span class="relTitle">“하루 6000L 소변, 얼음을 파고든다”…에베레스트 빙하 지금도 녹는 중</span>
+            <span class="src-go"><b>비주얼뉴스 더 보기</b><i></i></span>
+          </span>
+        </a>
+        <a class="relCard" href="https://www.asiae.co.kr/visual-news/article/2026091508190120598" target="_blank" rel="noopener">
+          <span class="relThumb"><img src="./21-rel-cryo.jpg" alt="" aria-hidden="true" loading="lazy" onerror="imgFb(this)"></span>
+          <span class="relBody">
+            <span class="relTitle">“250년 뒤 깨워줘” 2억원 베팅 냉동인간…깨우는 기술은 없다</span>
+            <span class="src-go"><b>비주얼뉴스 더 보기</b><i></i></span>
+          </span>
+        </a>
+      </div>
     </div>
-    <a class="src-card" href="https://www.asiae.co.kr/article/2026091609041640135" target="_blank" rel="noopener">
-      <span class="src-thumb"><img src="./09-thumb.jpg" alt="" aria-hidden="true" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='./00-cover.jpg'}else{this.remove()}"></span>
-      <span class="src-body">
-        <span class="src-title">“제발 좀 벗어줄래” 기어이 침대까지 오르더니…젊은층부터 달라진다는 美</span>
-        <span class="src-go"><b>기사 전문 보기</b><i></i></span>
-      </span>
-    </a>
-    <a class="cat-link" href="https://www.asiae.co.kr/list/science" target="_blank" rel="noopener">
-      <span data-cat="SCIENCE">과학 기사 더 보기</span><i></i>
-    </a>
+
+    <div class="seriesMark rv" aria-hidden="true">DEEP SCROLL</div>
   </div>
 </footer>
 
@@ -1091,18 +1139,17 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   var rnd=function(a,b){return a+Math.random()*(b-a)};
   function srand(s){ return function(){ s=(s*16807)%2147483647; return s/2147483647; }; }
   function showLine(box,i){ if(!box||box._i===i) return; box._i=i; Array.prototype.forEach.call(box.children,function(c,k){ c.classList.toggle('on',k===i); }); }
-  function quiet(box,p){ if(box && p>=.93) showLine(box, box.children.length-1); }
+  function quiet(box,p){ if(box && p>=.95) showLine(box, box.children.length-1); }
 
   /* ═════════ 현관 소리: 파일 없이 합성한다 ═════════
-     밖에서 안으로. 1막의 거리 소음은 현관문이 닫히며 끊기고, 이후로는 낮은 집 안 공기만 남는다.
-     사건음은 다섯 가지: 센서등 딸깍, 1막 발소리와 문 닫힘, 네 걸음, 세탁기, 닦기. */
+     밖에서 안으로. 1막의 거리 소음은 현관문이 닫히며 끊기고, 이후로는 낮은 집 안 공기만 남는다. */
   var SFX=(function(){
     var btn=q('#sound'), hint=q('#soundHint'), AC=window.AudioContext||window.webkitAudioContext, noop=function(){};
-    var api={step:noop,door:noop,click:noop,washStop:noop,rub:noop,wash:noop,setState:noop};
+    var api={step:noop,door:noop,click:noop,rub:noop,setState:noop};
     if(!AC){ if(btn) btn.hidden=true; if(hint) hint.remove(); return api; }
     var ac=null, on=true, hintOk=false, timer=0, wasLive=false, stateFn=null;
-    var master, sfx, white, brown, street, room, lamp, buzz, wG, wLfo, rubG;
-    var amb={street:0,room:0,lamp:0,buzz:0}, wst={g:0,f:1};
+    var master, sfx, white, brown, street, room, lamp, buzz, rubG;
+    var amb={street:0,room:0,lamp:0,buzz:0};
     function buf(fn){ var len=ac.sampleRate*4, b=ac.createBuffer(1,len,ac.sampleRate); fn(b.getChannelData(0)); return b; }
     function loopSrc(b){ var s=ac.createBufferSource(); s.buffer=b; s.loop=true; s.start(0,Math.random()*3); return s; }
     function gain(v,to){ var g=ac.createGain(); g.gain.value=v; if(to) g.connect(to); return g; }
@@ -1112,14 +1159,12 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       white=buf(function(d){ for(var i=0;i<d.length;i++) d[i]=Math.random()*2-1; });
       brown=buf(function(d){ var b=0; for(var i=0;i<d.length;i++){ b=(b+.02*(Math.random()*2-1))/1.02; d[i]=b*3.5; } });
       master=gain(0,ac.destination); sfx=gain(.9,master);
-      street=gain(0,master); loopSrc(brown).connect(filt('lowpass',520)).connect(street);            // 먼 차 소리
-      room=gain(0,master); loopSrc(brown).connect(filt('lowpass',170)).connect(room);                // 집 안 공기
-      var hum=ac.createOscillator(); hum.frequency.value=60; hum.connect(gain(.06,room)); hum.start(); // 냉장고 웅웅거림
+      street=gain(0,master); loopSrc(brown).connect(filt('lowpass',520)).connect(street);
+      room=gain(0,master); loopSrc(brown).connect(filt('lowpass',170)).connect(room);
+      var hum=ac.createOscillator(); hum.frequency.value=60; hum.connect(gain(.06,room)); hum.start();
       lamp=gain(0,master); var lo=ac.createOscillator(); lo.type='triangle'; lo.frequency.value=120; lo.connect(filt('bandpass',240,6)).connect(lamp); lo.start();
       buzz=gain(0,master); var bo=ac.createOscillator(); bo.type='sawtooth'; bo.frequency.value=120; bo.connect(filt('bandpass',1800,3)).connect(buzz); bo.start();
-      wG=gain(0,master); var wa=gain(.55,wG); loopSrc(brown).connect(filt('bandpass',230,.9)).connect(wa);   // 세탁기 드럼
-      wLfo=ac.createOscillator(); wLfo.frequency.value=1; var wl=gain(.45); wLfo.connect(wl); wl.connect(wa.gain); wLfo.start();
-      rubG=gain(0,sfx); loopSrc(white).connect(filt('bandpass',1100,2.5)).connect(rubG);              // 물걸레 마찰
+      rubG=gain(0,sfx); loopSrc(white).connect(filt('bandpass',1100,2.5)).connect(rubG);
     }
     var running=function(){ return !!ac && ac.state==='running'; };
     var live=function(){ return on && running(); };
@@ -1145,22 +1190,18 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     api.step=function(kind,v,pair){ var fn=STEP[kind]; if(!fn) return; v=v||1; fn(v,0); if(pair) fn(v*.85,.36); };
     api.click=function(){ burst(3200,6,.02,.4); burst(1100,3,.035,.22,.012); };
     api.door=function(at){ at=at||0; thump(52,.38,.9,at); burst(1600,4,.05,.3,at+.07); burst(500,1,.25,.12,at); };
-    api.washStop=function(){ api.click(); thump(60,.22,.4,.05); };
     api.rub=function(d){ if(!live()) return; var t=ac.currentTime; rubG.gain.cancelScheduledValues(t); rubG.gain.setTargetAtTime(Math.min(.22,d*.012),t,.01); rubG.gain.setTargetAtTime(0,t+.06,.06); };
-    api.wash=function(g,f){ wst.g=g; wst.f=f; };
     api.setState=function(fn){ stateFn=fn; };
     function steer(){
       if(stateFn) stateFn(amb);
       if(!ac) return;
-      if(live() && !wasLive){ wasLive=true; if(amb.lamp>.5) api.click(); }   // 처음 소리가 열리는 순간, 표지라면 센서등이 딸깍
+      if(live() && !wasLive){ wasLive=true; if(amb.lamp>.5) api.click(); }
       var t=ac.currentTime;
       master.gain.setTargetAtTime(on?.85:0,t,.4);
       street.gain.setTargetAtTime(amb.street*.32,t,.5);
       room.gain.setTargetAtTime(amb.room*.14,t,.8);
       lamp.gain.setTargetAtTime(amb.lamp*.035,t,.15);
       buzz.gain.setTargetAtTime(amb.buzz*.02,t,.3);
-      wG.gain.setTargetAtTime(wst.g*.5,t,.25);
-      wLfo.frequency.setTargetAtTime(wst.f,t,.3);
       Q('.bars i',btn).forEach(function(b,k){ b.style.setProperty('--g', live()? (.25+.75*Math.abs(Math.sin(performance.now()/340+k*1.7))*(.4+amb.room*.6)).toFixed(2) : 0); });
     }
     function apply(){
@@ -1168,7 +1209,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       var armed=on && !running();
       btn.classList.toggle('armed',armed);
       hint.classList.toggle('show', armed && hintOk && scrollY<innerHeight*1.2);
-      clearInterval(timer); timer=setInterval(steer,200); steer();
+      clearInterval(timer); if(on) timer=setInterval(steer,200); steer();
     }
     var EVT=['pointerup','keydown','touchend','click'];
     function done(){ EVT.forEach(function(t){ document.removeEventListener(t,unlock,true); }); }
@@ -1196,14 +1237,15 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   }
   addEventListener('scroll',function(){ if(!gfxTick){ gfxTick=true; requestAnimationFrame(gfxPar);} },{passive:true});
   var ioG=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('gon'); ioG.unobserve(e.target);} }); },{threshold:.18});
-  Q('.bento, .ages, .tscale, .toxLeg, .babyGrid>.ph').forEach(function(e){ e.classList.add('gfx'); ioG.observe(e); gfxEls.push(e); });
+  Q('.bento, .ages, .babyGrid>.ph').forEach(function(e){ e.classList.add('gfx'); ioG.observe(e); gfxEls.push(e); });
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);} }); },{threshold:.15});
   Q('.rv').forEach(function(e){ io.observe(e); });
 
-  /* 큰 문장: 단어가 하나씩 떠오른다 */
-  Q('.quoteSec .big, .ask2 .q, .crossHead h2, .wipeUnder .wu1').forEach(function(el){
+  /* 큰 문장: 단어가 하나씩 떠오른다. 마지막 장면은 작은 줄 다음에 큰 줄 */
+  Q('.quoteSec .big, .ask2 .q, .crossHead h2, .wipeUnder .wu0, .wipeUnder .wu1').forEach(function(el){
     el.innerHTML=el.innerHTML.split(/(<br\s*\/?>)/i).map(function(c){ if(/^<br/i.test(c)) return c; return c.split(/(\s+)/).map(function(w){ return /^\s+$/.test(w)||!w ? w : '<span class="wd">'+w+'</span>'; }).join(''); }).join('');
-    Q('.wd',el).forEach(function(w,i){ w.style.transitionDelay=(i*.075)+'s'; });
+    var off=el.classList.contains('wu1')?.6:0, step=el.classList.contains('wu1')?.14:.075;
+    Q('.wd',el).forEach(function(w,i){ w.style.transitionDelay=(off+i*step).toFixed(2)+'s'; });
   });
   var ioW2=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('won'); ioW2.unobserve(e.target);} }); },{threshold:.35});
   Q('.quoteSec .big, .ask2 .q, .crossHead h2').forEach(function(e){ ioW2.observe(e); });
@@ -1242,7 +1284,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     swabTool.setAttribute('transform','translate(354 105)'); swabTip.setAttribute('fill','#7A6647');
     setTimeout(openBento,1500);
   }
-  var ioB=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ ioB.unobserve(e.target); setTimeout(doSwab,500); } }); },{threshold:.5});
+  var ioB=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ ioB.unobserve(e.target); setTimeout(doSwab,1200); } }); },{threshold:.5});
   ioB.observe(swabAct);
 
   /* ═════════ 밑창 홈 ═════════ */
@@ -1283,10 +1325,10 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     var px=Math.max(18,a.width*.22), py=Math.max(14,a.height*.05);
     camFocusEl.style.cssText='left:'+(a.left-b.left-px)+'px;top:'+(a.top-b.top-py)+'px;width:'+(a.width+px*2)+'px;height:'+(a.height+py*2)+'px;transform:none';
   }
-  addEventListener('resize',fitFocus);
+  var focusOk=false; addEventListener('resize',fitFocus); addEventListener('load',function(){ focusOk=false; }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ focusOk=false; });
   function tc(t){ function z(n){ return (n<10?'0':'')+n; } return z(Math.floor(t/3600))+':'+z(Math.floor(t%3600/60))+':'+z(Math.floor(t%60))+':'+z(Math.floor((t%1)*24)); }
   function dayScene(p){
-    camTC1.textContent=tc(p*742); fitFocus();
+    camTC1.textContent=tc(p*742); if(!focusOk){ focusOk=true; fitFocus(); }
     var N=STOPS.length, x=seg(p,.05,.9)*N, i=Math.min(N-1,Math.floor(x)), f=x-i, m=mins(STOPS[i][0]);
     if(i<N-1) m+=(mins(STOPS[i+1][0])-m)*seg(f,.6,1);
     dayClock.textContent=hhmm(m);
@@ -1308,7 +1350,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   var ratioNum=q('#ratioNum'), gridLines=q('#gridLines'), soleBar=q('#soleBar'), soleTop=q('#soleTop'), pFill=q('#pFill'), lms=Q('#grid .lm');
   var RATIO=421000/2887, lastV=-1;
   function gridScene(p){
-    var v=ease(seg(p,.12,.6))*RATIO;
+    var v=ease(seg(p,.1,.5))*RATIO;
     if(Math.abs(v-lastV)>.02){
       lastV=v;
       soleBar.style.transform='scaleY('+(v/RATIO).toFixed(4)+')';
@@ -1318,7 +1360,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       ratioNum.textContent='×'+Math.max(1,Math.round(v));
       lms.forEach(function(el){ el.classList.toggle('on', v>=+el.dataset.h); });
     }
-    showLine(gridLines, p<.12?0 : p<.6?1 : p<.78?2 : 3);
+    showLine(gridLines, p<.1?0 : p<.52?1 : p<.74?2 : 3);
     quiet(gridLines,p);
   }
 
@@ -1338,14 +1380,14 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   })();
   var zl0=q('.zl0'), zl1=q('.zl1'), zl2=q('.zl2'), zScale=q('#zScale'), zoomLines=q('#zoomLines');
   function zoomScene(p){
-    var t1=ease(seg(p,.10,.26)), t2=ease(seg(p,.36,.50));
-    zl0.style.transform='scale('+(1+9*t1).toFixed(3)+')'; zl0.style.opacity=(1-seg(p,.14,.26)).toFixed(3);
-    zl1.style.transform='scale('+((.2+.8*t1)*(1+9*t2)).toFixed(3)+')'; zl1.style.opacity=(seg(p,.13,.24)*(1-seg(p,.41,.50))).toFixed(3);
-    zl2.style.transform='scale('+(.2+.8*t2).toFixed(3)+')'; zl2.style.opacity=seg(p,.39,.48).toFixed(3);
-    var s=p<.36?Math.pow(40,seg(p,.10,.26)):40*Math.pow(25,seg(p,.36,.50));
+    var t1=ease(seg(p,.08,.22)), t2=ease(seg(p,.34,.46));
+    zl0.style.transform='scale('+(1+9*t1).toFixed(3)+')'; zl0.style.opacity=(1-seg(p,.12,.22)).toFixed(3);
+    zl1.style.transform='scale('+((.2+.8*t1)*(1+9*t2)).toFixed(3)+')'; zl1.style.opacity=(seg(p,.11,.20)*(1-seg(p,.38,.46))).toFixed(3);
+    zl2.style.transform='scale('+(.2+.8*t2).toFixed(3)+')'; zl2.style.opacity=seg(p,.36,.44).toFixed(3);
+    var s=p<.34?Math.pow(40,seg(p,.08,.22)):40*Math.pow(25,seg(p,.34,.46));
     s=s<10?Math.round(s):s<100?Math.round(s/5)*5:Math.round(s/50)*50;
     zScale.textContent='×'+s.toLocaleString('ko-KR');
-    var i=p<.14?0:p<.36?1:p<.50?2:p<.66?3:p<.80?4:5;
+    var i=p<.12?0:p<.34?1:p<.56?2:p<.70?3:p<.84?4:5;
     showLine(zoomLines,i);
     zl2.classList.toggle('f-e',i===3); zl2.classList.toggle('f-k',i===4); zl2.classList.toggle('f-s',i===5);
     quiet(zoomLines,p);
@@ -1355,7 +1397,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   var stain=q('#stain'), fps=Q('#steps .fp'), stepLines=q('#stepLines'), brk=q('#brk'), lastN=0;
   function stepScene(p){
     var i=Math.min(3,Math.floor(seg(p,.06,.88)*4)), n=[0,1,3,4][i];
-    if(n>lastN) SFX.step('wood',[1,.8,.65,.5][n-1]);   // 걸음마다 마룻바닥이 울리고, 점점 작아진다
+    if(n>lastN) SFX.step('wood',[1,.8,.65,.5][n-1]);
     lastN=n;
     fps.forEach(function(f){ f.classList.toggle('on', parseInt(f.dataset.i,10)<=n); });
     stain.classList.toggle('on',n>=1); stain.style.opacity=n>=1?String(Math.min(1,.35+n*.18)):'0';
@@ -1363,98 +1405,89 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     showLine(stepLines,i); quiet(stepLines,p);
   }
 
-  /* ═════════ 4막: 문화 비교 — 스크롤이 굴리고, 손으로 끌면 손이 이긴다 ═════════ */
-  var comp=q('#comp'), compCtl=null;
-  (function(){
-    var bar=q('#compBar'), knob=q('#compKnob'), right=q('.side.r',comp), drag=false, sx=0, sy=0, cur=.92;
-    function setV(v){ cur=clamp(v); right.style.clipPath='inset(0 0 0 '+(cur*100).toFixed(1)+'%)'; bar.style.left=knob.style.left=(cur*100).toFixed(1)+'%'; comp.setAttribute('aria-valuenow',Math.round(cur*100)); }
-    compCtl={set:setV,touched:false};
-    function fromX(x){ var r=comp.getBoundingClientRect(); setV((x-r.left)/r.width); }
-    comp.addEventListener('pointerdown',function(e){ sx=e.clientX; sy=e.clientY; drag=e.pointerType==='mouse'; if(drag){ compCtl.touched=true; comp.setPointerCapture(e.pointerId); fromX(e.clientX);} });
-    comp.addEventListener('pointermove',function(e){
-      if(!drag && e.pointerType!=='mouse' && sx && Math.abs(e.clientX-sx)>8 && Math.abs(e.clientX-sx)>Math.abs(e.clientY-sy)){ drag=true; compCtl.touched=true; try{comp.setPointerCapture(e.pointerId);}catch(err){} }
+  /* ═════════ 비교 창: 스크롤이 굴리고, 손으로 끌면 손이 이긴다 ═════════ */
+  function makeComp(el,init){
+    var bar=q('.bar',el), knob=q('.knob',el), right=q('.side.r',el), drag=false, sx=0, sy=0, cur=init, ctl={touched:false};
+    function setV(v){ cur=clamp(v); right.style.clipPath='inset(0 0 0 '+(cur*100).toFixed(1)+'%)'; bar.style.left=knob.style.left=(cur*100).toFixed(1)+'%'; el.setAttribute('aria-valuenow',Math.round(cur*100)); }
+    ctl.set=setV;
+    function fromX(x){ var r=el.getBoundingClientRect(); setV((x-r.left)/r.width); }
+    el.addEventListener('pointerdown',function(e){ sx=e.clientX; sy=e.clientY; drag=e.pointerType==='mouse'; if(drag){ ctl.touched=true; el.setPointerCapture(e.pointerId); fromX(e.clientX);} });
+    el.addEventListener('pointermove',function(e){
+      if(!drag && e.pointerType!=='mouse' && sx && Math.abs(e.clientX-sx)>8 && Math.abs(e.clientX-sx)>Math.abs(e.clientY-sy)){ drag=true; ctl.touched=true; try{el.setPointerCapture(e.pointerId);}catch(err){} }
       if(drag) fromX(e.clientX);
     });
     function up(){ drag=false; sx=0; }
-    comp.addEventListener('pointerup',up); comp.addEventListener('pointercancel',up);
-    comp.addEventListener('keydown',function(e){ if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight') return; compCtl.touched=true; setV(cur+(e.key==='ArrowRight'?.05:-.05)); e.preventDefault(); });
-    setV(.92);
-  })();
+    el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+    el.addEventListener('keydown',function(e){ if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight') return; ctl.touched=true; setV(cur+(e.key==='ArrowRight'?.05:-.05)); e.preventDefault(); });
+    setV(init);
+    return ctl;
+  }
+  /* 4막 문화 비교: 고정 장면 안에서 스크롤이 민다 */
+  var compCtl=makeComp(q('#comp'),.92);
   var cultLines=q('#cultLines');
   function cultScene(p){
     showLine(cultLines, p<.28?0 : p<.62?1 : 2); quiet(cultLines,p);
     if(!compCtl.touched) compCtl.set(p<.46 ? .92+(.08-.92)*ease(seg(p,.12,.46)) : .08+(.5-.08)*ease(seg(p,.6,.84)));
   }
 
-  /* ═════════ 5막: 남는 것 ═════════ */
-  var perSvg=q('#perSvg'), NARROW=innerWidth<760, RS=NARROW?1.9:1, CN=NARROW?.6:1;
+  /* ═════════ 6막: 세탁기 ═════════ */
+  function dotGrid(svg,seed){
+    var R=srand(seed), idx=[], h='', i;
+    for(i=0;i<100;i++) idx.push(i);
+    for(i=99;i>0;i--){ var j=Math.floor(R()*(i+1)), t=idx[i]; idx[i]=idx[j]; idx[j]=t; }
+    for(i=0;i<100;i++) h+='<circle class="d" cx="'+(6+(i%10)*12)+'" cy="'+(6+Math.floor(i/10)*12)+'" r="4.2" fill="#F2C27B"/>';
+    svg.innerHTML=h;
+    return Q('.d',svg).map(function(c,k){ return {el:c,r:idx[k]}; });
+  }
+  var wmO=dotGrid(q('#wmOut'),31), wmI=dotGrid(q('#wmIn'),47), wmON=q('#wmOutN'), wmIN=q('#wmInN');
   (function(){
-    var ph='<rect x="0" y="228" width="600" height="22" fill="#120e0a"/><line x1="0" y1="228" x2="600" y2="228" stroke="#ffffff30"/><rect id="dust" x="0" y="220" width="600" height="8" fill="#6a5a44" opacity="0"/><g id="bac">';
-    for(var b=0;b<Math.round(70*CN);b++) ph+='<circle cx="'+rnd(12,588).toFixed(1)+'" cy="'+(226-Math.pow(Math.random(),1.6)*110).toFixed(1)+'" r="'+(rnd(.9,1.8)*RS).toFixed(1)+'" fill="#F6D39B" filter="url(#uvGlowF)"/>';
-    ph+='</g><g id="chem" class="chem">';
-    var CC=['#8E8A63','#6E7277','#8F5E47','#B8A26C'];
-    for(var t=0;t<4;t++) for(var b2=0;b2<Math.round(46*CN);b2++){
-      var cx=rnd(12,588), cy=226-Math.pow(Math.random(),1.4)*112, r=rnd(.8,2.2)*RS, st='style="--dy:'+(224-cy-rnd(0,4)).toFixed(1)+'px" opacity="'+rnd(.5,.95).toFixed(2)+'"';
-      if(t===1) ph+='<rect class="c" '+st+' x="'+(cx-r).toFixed(1)+'" y="'+(cy-r*.7).toFixed(1)+'" width="'+(r*2).toFixed(1)+'" height="'+(r*1.4).toFixed(1)+'" fill="'+CC[t]+'"/>';
-      else if(t===2) ph+='<path class="c" '+st+' d="M'+cx.toFixed(1)+' '+(cy-r).toFixed(1)+'l'+r.toFixed(1)+' '+r.toFixed(1)+'l-'+r.toFixed(1)+' '+r.toFixed(1)+'l-'+r.toFixed(1)+' -'+r.toFixed(1)+'z" fill="'+CC[t]+'"/>';
-      else ph+='<circle class="c" '+st+' cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="'+r.toFixed(1)+'" fill="'+CC[t]+'"/>';
-    }
-    perSvg.innerHTML=ph+'</g>';
+    var h='', i, a;
+    for(i=0;i<28;i++){ a=i/28*Math.PI*2; h+='<circle cx="'+(200+Math.cos(a)*108).toFixed(1)+'" cy="'+(282+Math.sin(a)*108).toFixed(1)+'" r="2.2" fill="#ffffff14"/>'; }
+    for(i=0;i<3;i++) h+='<rect x="194" y="166" width="12" height="22" rx="4" fill="#2a241c" transform="rotate('+(i*120)+' 200 282)"/>';
+    q('#drumHoles').innerHTML=h;
+    var b='';
+    for(i=0;i<20;i++) b+='<circle cx="'+rnd(100,300).toFixed(0)+'" cy="'+rnd(330,395).toFixed(0)+'" r="'+rnd(1.5,4.5).toFixed(1)+'" fill="none" stroke="#CFE0E6" stroke-opacity=".5" style="animation-delay:'+(-Math.random()*2.6).toFixed(2)+'s"/>';
+    q('#washBubbles').innerHTML=b;
   })();
-  var bacG=q('#bac'), chemG=q('#chem'), dust=q('#dust'), perWhen=q('#perWhen'), perLines=q('#perLines'), toxLeg=Q('#toxLeg div'), tHead=q('#tHead'), tBars=Q('.tbar');
-  var WHEN=['들여온 직후','1시간 뒤','하루 뒤','일주일 뒤','한 달 뒤','다섯 달 뒤','1년 뒤'], TICKX=[130,196,268,340,412,498,584];
-  function perScene(p){
-    var fin=seg(p,0,.1), die=seg(p,.2,.52), sink=ease(seg(p,.78,.95));
-    bacG.style.opacity=(fin*(1-.45*die)).toFixed(3); chemG.style.opacity=fin.toFixed(3);
-    chemG.style.setProperty('--s',sink.toFixed(3)); dust.setAttribute('opacity',(.55*sink).toFixed(3));
-    var hx=130+ease(seg(p,.06,.94))*454, w=0;
-    for(var i=0;i<TICKX.length;i++) if(hx>=TICKX[i]-4) w=i;
-    tHead.setAttribute('transform','translate('+(hx-130).toFixed(1)+' 0)');
-    tBars.forEach(function(g){ var end=+g.dataset.end; q('.fill',g).setAttribute('width',Math.max(0,Math.min(end,hx)-130).toFixed(1)); g.classList.toggle('hit',hx>=end-2); });
-    if(perWhen._i!==w){ perWhen._i=w; perWhen.textContent=WHEN[w]; }
-    toxLeg.forEach(function(d,k){ d.classList.toggle('on', hx>=TICKX[3+k]-4); });
-    showLine(perLines, p<.2?0:p<.44?1:p<.68?2:3); quiet(perLines,p);
+  var washShoe=q('#washShoe'), washGrime=q('#washGrime'), washWater=q('#washWater'), washBub=q('#washBubbles'), drumHoles=q('#drumHoles'), washTime=q('#washTime'), washKnob=q('#washKnob'), washLed=q('#washLed'), washLines=q('#washLines'), lastO=-1, lastI=-1;
+  function setDots(arr,n,el,last){ if(n===last) return n; arr.forEach(function(d){ d.el.classList.toggle('off',d.r<n); }); el.textContent=n>0?'−'+n+'%':'0%'; return n; }
+  function washScene(p){
+    var run=seg(p,.1,.9), a=1440*ease(run), r=a*Math.PI/180;
+    var lv=seg(p,.06,.18)*(1-seg(p,.84,.95));
+    washWater.setAttribute('y',(400-lv*135).toFixed(1));
+    washBub.setAttribute('opacity',lv.toFixed(2));
+    drumHoles.setAttribute('transform','rotate('+a.toFixed(1)+' 200 282)');
+    washShoe.setAttribute('transform','translate('+(200+Math.sin(r)*30).toFixed(1)+' '+(286-Math.cos(r)*20).toFixed(1)+') rotate('+(a*1.15).toFixed(1)+')');
+    washGrime.setAttribute('opacity',(.95*(1-ease(seg(p,.28,.62))*.97)).toFixed(3));
+    var m=Math.ceil(45*(1-run)); washTime.textContent='0:'+(m<10?'0':'')+m;
+    washKnob.setAttribute('transform','rotate('+(-120+240*run).toFixed(1)+' 320 62)');
+    washLed.setAttribute('opacity',run>0&&run<1?'1':'.3');
+    lastO=setDots(wmO,Math.round(ease(seg(p,.3,.52))*99),wmON,lastO);
+    lastI=setDots(wmI,Math.round(ease(seg(p,.56,.78))*90),wmIN,lastI);
+    showLine(washLines, p<.14?0 : p<.3?1 : p<.55?2 : p<.8?3 : 4);
+    quiet(washLines,p);
   }
 
-  /* ═════════ 6막: 세탁 ═════════ */
-  var washNum=q('#washNum'), washLines=q('#washLines'), washSub=q('#washSub'), drumSole=q('#drumSole'), soleW=q('#soleW'), grimeW=q('#grimeW'), water=q('#water'), bubbles=q('#bubbles'), specksW=[], lastWK=-1, lastWP=0;
-  (function(){
-    var sp=q('#washSpecks'), cols=['#6f6b4c','#1f1d1b','#6b3f2a','#9c8750','#4a463c','#F6D39B'], h='';
-    for(var n=0,g=0;n<320&&g<4000;g++){ var gy=GROOVES[Math.floor(Math.random()*GROOVES.length)], x=rnd(34,206), y=zig(x,gy)+rnd(-3,3); if(!inSole(x,y)||!inSole(x+6,y)||!inSole(x-6,y)) continue; h+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+rnd(1.2,3.6).toFixed(1)+'" fill="'+cols[n%6]+'" data-t="'+Math.random().toFixed(3)+'"/>'; n++; }
-    sp.innerHTML=h; specksW=Q('circle',sp);
-    var hh=''; for(var a=0;a<360;a+=15) for(var rr=60;rr<=140;rr+=40) hh+='<circle cx="'+(200+Math.cos(a*Math.PI/180)*rr).toFixed(1)+'" cy="'+(200+Math.sin(a*Math.PI/180)*rr).toFixed(1)+'" r="3"/>';
-    q('#drumHoles').innerHTML=hh;
-    var bh=''; for(var b=0;b<26;b++) bh+='<circle cx="'+rnd(70,330).toFixed(0)+'" cy="'+rnd(160,340).toFixed(0)+'" r="'+rnd(2,7).toFixed(1)+'"/>';
-    bubbles.innerHTML=bh;
-  })();
-  function mixHex(a,b,t){ var pa=parseInt(a.slice(1),16), pb=parseInt(b.slice(1),16); return 'rgb('+Math.round(((pa>>16)&255)*(1-t)+((pb>>16)&255)*t)+','+Math.round(((pa>>8)&255)*(1-t)+((pb>>8)&255)*t)+','+Math.round((pa&255)*(1-t)+(pb&255)*t)+')'; }
-  function washScene(p){
-    var spin=seg(p,.08,.86), k=ease(seg(p,.18,.62)), fill=seg(p,.08,.22)*(1-seg(p,.8,.9));
-    drumSole.setAttribute('transform','rotate('+(ease(spin)*900).toFixed(1)+' 200 200) translate(200 200) scale(.56) rotate(-18) translate(-120 -280)');
-    water.setAttribute('y',(360-fill*190).toFixed(1));
-    bubbles.style.opacity=(fill*.9).toFixed(2); bubbles.setAttribute('transform','translate(0 '+(-((p*900)%60)).toFixed(1)+')');
-    SFX.wash(p<.86?fill:0, 1+4*Math.sin(Math.PI*spin));
-    if(p>.86 && lastWP<=.86) SFX.washStop();   // 드럼이 멈추며 딸깍
-    lastWP=p;
-    if(Math.abs(k-lastWK)>.003){
-      lastWK=k;
-      grimeW.setAttribute('opacity',(.95*(1-k)).toFixed(3)); soleW.setAttribute('fill',mixHex('#221f1c','#3d3f43',k));
-      specksW.forEach(function(c){ c.style.opacity=(+c.dataset.t<k*1.01)?'0':'1'; });
-      var n=421000*(1-.99*k); n=n>10000?Math.round(n/1000)*1000:Math.round(n/10)*10;
-      washNum.textContent=n.toLocaleString('ko-KR');
-    }
-    var i=p<.18?0:p<.42?1:p<.66?2:3;
-    showLine(washLines,i);
-    washSub.textContent=i===3?'신발 안쪽 2,887마리와 비슷한 수준':'밑창 바닥 면 세균 (마리)';
-    quiet(washLines,p);
+  /* ═════════ 6막: 길을 거둔다 (평면도는 아래에서 복제) ═════════ */
+  var backSvg=null, backRev={}, backTlb={}, backStain=null, backLines=q('#backLines'), BACK=['mop','sock','box','wheel','paw'];
+  function backScene(p){
+    if(!backSvg) return;
+    var x=seg(p,.08,.86)*5;
+    BACK.forEach(function(k,i){
+      var t=ease(clamp((x-i-.15)/.6));
+      if(k==='mop'){ backStain.style.opacity=(.95*(1-t)).toFixed(3); backStain.style.transform='scale('+(1.35-.35*t).toFixed(3)+')'; }
+      else { backRev[k].style.strokeDashoffset=t.toFixed(3); backTlb[k].style.opacity=(1-t).toFixed(3); }
+    });
+    var i=p<.08?0:Math.min(5,1+Math.floor(x)); if(p>=.88) i=6;
+    showLine(backLines,i); quiet(backLines,p);
   }
 
   /* ═════════ 스크롤 엔진: 짧은 관성으로 따라간다 ═════════ */
   var probe=q('#svhProbe'), SVH=0;
   function measure(){ SVH=probe.offsetHeight||innerHeight; }
-  var scenes=[['day',dayScene],['grid',gridScene],['zoom',zoomScene],['steps',stepScene],['culture',cultScene],['persist',perScene],['wash',washScene]]
+  var scenes=[['day',dayScene],['grid',gridScene],['zoom',zoomScene],['steps',stepScene],['culture',cultScene],['wash',washScene],['back',backScene]]
     .map(function(a){ return {el:document.getElementById(a[0]), fn:a[1], last:-1, ps:null}; }).filter(function(s){ return s.el; });
-  var TAU=120, running=false, lastT=0;
+  var TAU=170, running=false, lastT=0;
   function loop(now){
     var dt=Math.min(64,now-lastT); lastT=now;
     var k=1-Math.exp(-dt/TAU), more=false;
@@ -1500,7 +1533,9 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     gh+='<g filter="url(#smear)" fill="#8f7bff"><ellipse cx="125" cy="280" rx="118" ry="210" opacity=".5"/><ellipse cx="90" cy="150" rx="70" ry="60" opacity=".35"/><ellipse cx="170" cy="430" rx="80" ry="70" opacity=".35"/><path d="M230 250 C330 230 420 330 520 300 C600 280 660 250 720 300" stroke="#8f7bff" stroke-width="46" fill="none" opacity=".26"/><ellipse cx="300" cy="300" rx="60" ry="40" opacity=".3"/><ellipse cx="470" cy="300" rx="50" ry="36" opacity=".22"/></g><g filter="url(#uvb)">';
     function uvPrint(x,y,rot,sc,op){ return '<use href="#print" transform="translate('+x+' '+y+') rotate('+rot+') scale('+sc+')" style="color:#B6A6FF" opacity="'+op+'"/>'; }
     for(var k0=0;k0<34;k0++){ var s0=rnd(1.25,1.5); gh+=uvPrint(rnd(30,225).toFixed(0),rnd(50,520).toFixed(0),rnd(0,360).toFixed(0),(s0*(Math.random()<.5?1:-1)).toFixed(2)+' '+s0.toFixed(2),rnd(.35,.95).toFixed(2)); }
-    [[330,245,1],[450,318,.85],[570,245,.68],[690,318,.52],[810,245,.2],[930,318,.08]].forEach(function(s,k){ gh+=uvPrint(s[0],s[1],90,(k%2?'1.5 1.5':'1.5 -1.5'),s[2]); gh+=uvPrint(s[0]+rnd(-14,14),s[1]+rnd(-10,10),90+rnd(-12,12),(k%2?'1.45 1.45':'1.45 -1.45'),(s[2]*.45).toFixed(2)); });
+    var uvSock=function(x,y,rot,sc,op){ return '<use href="#sockF" transform="translate('+x+' '+y+') rotate('+rot+') scale('+sc+')" style="color:#B6A6FF" opacity="'+op+'"/>'; };
+    /* 양말 자국: 발끝은 모두 거실 쪽, 좌우 발만 번갈아 */
+    [[330,250,.9],[450,312,.7],[570,250,.5],[690,312,.32],[810,250,.16],[930,312,.07]].forEach(function(s,k){ gh+=uvSock(s[0],s[1],90,(k%2?'-1.3 1.3':'1.3 1.3'),s[2]); });
     gh+='</g><g filter="url(#uvb)" fill="#C9BDFF">';
     for(var k1=0;k1<260;k1++){ var zx=Math.random()<.62?rnd(10,245):260+Math.pow(Math.random(),1.8)*560; gh+='<circle cx="'+zx.toFixed(0)+'" cy="'+rnd(20,540).toFixed(0)+'" r="'+(rnd(1,3.6)*(zx<250?1:.75)).toFixed(1)+'" opacity="'+(zx<250?rnd(.4,1):rnd(.2,.8)*Math.max(.15,1-(zx-260)/600)).toFixed(2)+'"/>'; }
     gh+='</g><g filter="url(#uvb)" fill="#F0ECFF">';
@@ -1520,7 +1555,6 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     new IntersectionObserver(function(es){ es.forEach(function(e){ if(touched) return; if(e.isIntersecting){ t0=0; raf=requestAnimationFrame(sweep);} else cancelAnimationFrame(raf); }); },{threshold:.35}).observe(uv);
     if(RM) setLamp(.15,.5);
   })();
-  /* 자외선 장면에 들어서면 센서등이 딸깍 꺼진다 */
   var uvS=q('#uvSec');
   new IntersectionObserver(function(es,ob){ es.forEach(function(e){ if(e.isIntersecting){ uvS.classList.add('dark'); SFX.click(); ob.disconnect(); } }); },{threshold:.3}).observe(uvS);
 
@@ -1565,6 +1599,20 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   stampTrail('paw','pawF',13,4,.78,false);
   stampTrail('sock','sockF',21,7,.36,true);
 
+  /* 6막 되감기용으로 평면도를 복제한다(id는 겹치지 않게 바꾼다) */
+  (function(){
+    var src=q('#cross .map'), box=q('#backMap'); if(!src||!box) return;
+    box.innerHTML=src.outerHTML.replace(/m-(box|wheel|paw|sock)/g,'mb-$1').replace(/entryClipX/g,'entryClipB').replace(/entryStainX/g,'entryStainB').replace(/entryG\b/g,'entryGB');
+    backSvg=q('svg',box);
+    backSvg.setAttribute('aria-label','우리 집 평면도. 할 일을 하나씩 마칠 때마다 집 안으로 들어온 길이 현관 한 칸으로 거두어진다');
+    ['box','wheel','paw','sock'].forEach(function(k){
+      backRev[k]=q('.rev[data-k="'+k+'"]',backSvg); backTlb[k]=q('.tlb[data-k="'+k+'"]',backSvg);
+      q('.trl[data-k="'+k+'"]',backSvg).classList.add('on'); backTlb[k].classList.add('on');
+      backRev[k].style.strokeDashoffset='0';
+    });
+    backStain=q('#entryStainB',backSvg); backStain.style.opacity='.95'; backStain.style.transform='scale(1.35)';
+  })();
+
   /* ═════════ 한 칸을 넘는 것들 ═════════ */
   var xgrid=q('#xgrid'), xMsg=q('#xMsg'), cross=q('#cross'), tp=q('#todoPick');
   Q('.xrow .xth').forEach(function(th){ if(!q('img',th)&&!th.classList.contains('xtile')) th.remove(); });
@@ -1574,11 +1622,12 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
     var on=b.getAttribute('aria-pressed')!=='true', k=b.dataset.k; b.setAttribute('aria-pressed',on);
     Q('[data-k="'+k+'"]',cross).forEach(function(el){ if(el!==b) el.classList.toggle('on',on); });
     if(k==='mop') cross.classList.toggle('mop',on);
-    var picked=Q('.xrow[aria-pressed="true"]',xgrid).map(function(x){ return x.dataset.k; }), n=picked.length;
+    var picked=Q('.xrow[aria-pressed="true"]',xgrid).map(function(x){ return x.dataset.k; }), n=picked.filter(function(k){ return k!=='mop'; }).length;
     xMsg.innerHTML=n===0?'아직은 현관 한 칸에서 멈춰 있습니다.':n<3?'신발은 현관에 멈췄지만, 한 칸을 건너온 길이 <em>'+n+'개</em> 생겼습니다.':'현관에서 벗은 건 신발뿐이었습니다. 한 칸을 건너온 길이 <em>'+n+'개</em>입니다.';
-    Q('.todoList li').forEach(function(li){ li.classList.toggle('pick',picked.indexOf(li.dataset.k)>=0); });
-    tp.innerHTML=n===0?'':'앞에서 고른 <em>'+n+'개</em>에 표시해 두었습니다. 거기부터가 당신 집의 순서입니다.';
-    try{ parent.postMessage({type:PFX+':vote',value:picked.join(',')},'*'); }catch(err){}
+    Q('#backLines>div[data-k]').forEach(function(d){ d.classList.toggle('pick',picked.indexOf(d.dataset.k)>=0); });
+    q('#xCount').textContent=picked.length+' / 5';
+    xgrid.classList.remove('idle');
+    tp.innerHTML=picked.length===0?'':'앞에서 고른 <em>'+picked.length+'개</em>에 표시해 두었습니다. 거기부터 시작하면 됩니다.';
   });
 
   /* ═════════ 막 카드와 슬레이트 ═════════ */
@@ -1597,7 +1646,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 
   /* ═════════ 끝: 한 칸을 닦는다 ═════════ */
   (function(){
-    var sec=wipeSecEl, box=q('#wipeBox'), cv=q('#wipeCv'), ctx=cv.getContext('2d'), W=0, H=0, done=false, painted=false, last=null, ticking=false, autoGo=false;
+    var sec=wipeSecEl, box=q('#wipeBox'), cv=q('#wipeCv'), ctx=cv.getContext('2d'), W=0, H=0, done=false, painted=false, last=null, ticking=false, autoGo=false, userWiped=false, lastM=0;
     function paint(){
       var r=box.getBoundingClientRect(); if(!r.width) return;
       var dpr=Math.min(2,devicePixelRatio||1); W=Math.round(r.width); H=Math.round(r.height);
@@ -1620,53 +1669,53 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
       if(last){ SFX.rub(Math.hypot(x-last[0],y-last[1])); ctx.lineWidth=rad*2; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(last[0],last[1]); ctx.lineTo(x,y); ctx.stroke(); }
       ctx.beginPath(); ctx.arc(x,y,rad,0,6.283); ctx.fill(); last=[x,y];
     }
-    function measure2(){
-      if(ticking||done) return; ticking=true;
+    /* 얼마나 닦였는지 재는 일은 무겁다. 문지르는 동안엔 0.16초에 한 번, 손을 떼면 한 번 더(34차) */
+    function measure2(force){
+      if(ticking||done) return;
+      var now=performance.now(); if(!force&&now-lastM<160) return;
+      lastM=now; ticking=true;
       requestAnimationFrame(function(){
         ticking=false; var step=Math.max(6,Math.round(W/40)), d=ctx.getImageData(0,0,cv.width,cv.height).data, tot=0, clr=0;
         for(var y=0;y<cv.height;y+=step) for(var x=0;x<cv.width;x+=step){ tot++; if(d[(y*cv.width+x)*4+3]<40) clr++; }
-        if(clr/tot>=.24) finish(2200);
+        if(clr/tot>=.24) finish(3600);
       });
     }
     function pt(e){ var r=cv.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top]; }
-    cv.addEventListener('pointerdown',function(e){ if(done) return; cv.setPointerCapture(e.pointerId); last=null; var c=pt(e); erase(c[0],c[1]); measure2(); });
+    cv.addEventListener('pointerdown',function(e){ if(done) return; userWiped=true; cv.setPointerCapture(e.pointerId); last=null; var c=pt(e); erase(c[0],c[1]); measure2(); });
     cv.addEventListener('pointermove',function(e){ if(done||e.buttons===0) return; var c=pt(e); erase(c[0],c[1]); measure2(); });
-    cv.addEventListener('pointerup',function(){ last=null; }); cv.addEventListener('pointerleave',function(){ last=null; });
+    cv.addEventListener('pointerup',function(){ last=null; if(userWiped) measure2(true); }); cv.addEventListener('pointerleave',function(){ last=null; });
     function autoWipe(){
-      if(autoGo||done) return; autoGo=true;
+      if(autoGo||done||userWiped) return; autoGo=true;
       if(RM){ ctx.clearRect(0,0,W,H); finish(0); return; }
       var rows=4, t0=0, dur=2400; last=null;
       requestAnimationFrame(function step(t){
         if(done) return; if(!t0) t0=t;
         var k=Math.min(1,(t-t0)/dur), sg=k*rows, r=Math.min(rows-1,Math.floor(sg)), f=sg-r;
         erase((r%2===0?f:1-f)*(W+60)-30,(r+.5)/rows*H+Math.sin(f*Math.PI*2)*H*.04);
-        if(k<1) requestAnimationFrame(step); else { last=null; ctx.clearRect(0,0,W,H); finish(2200); }
+        if(k<1) requestAnimationFrame(step); else { last=null; ctx.clearRect(0,0,W,H); finish(3600); }
       });
     }
-    new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!painted) paint(); if(e.intersectionRatio>=.55) setTimeout(autoWipe,500); } }); },{threshold:[.2,.55]}).observe(box);
+    new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!painted) paint(); if(e.intersectionRatio>=.55) setTimeout(autoWipe,1800); } }); },{threshold:[.2,.55]}).observe(box);
     addEventListener('resize',function(){ if(!done){ painted=false; paint(); } });
     new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting&&e.boundingClientRect.top<0&&!done){ done=true; sec.classList.add('done','dark'); } }); },{threshold:0}).observe(sec);
-    /* 닦기가 끝나면 오른쪽 발자국도 깨끗해진다 */
     new MutationObserver(function(){ if(sec.classList.contains('done')) trail.classList.add('clean'); }).observe(sec,{attributes:true,attributeFilter:['class']});
     if(RM) sec.classList.add('done','dark');
   })();
 
   /* ═════════ 소리 상태: 지금 화면이 어디인지 ═════════ */
-  var coverEl=q('.cover'), washEl=q('#wash'), footEl=q('footer');
+  var coverEl=q('.cover'), footEl=q('footer');
   SFX.setState(function(a){
     var h=innerHeight/2;
     function at(el){ var r=el.getBoundingClientRect(); return r.top<=h && r.bottom>h; }
     var cover=at(coverEl), day=at(dayEl), uvIn=at(uvS), wipe=at(wipeSecEl), foot=at(footEl), dark=wipeSecEl.classList.contains('dark');
-    a.street = day && dayIdx<4 ? 1 : 0;                          // 현관문이 닫히면 거리 소음이 끊긴다
+    a.street = day && dayIdx<4 ? 1 : 0;
     a.lamp   = cover || (wipe && !dark) ? 1 : 0;
-    a.buzz   = uvIn && uvS.classList.contains('dark') ? 1 : 0;   // 블랙라이트
+    a.buzz   = uvIn && uvS.classList.contains('dark') ? 1 : 0;
     a.room   = dark && (wipe||foot) ? 0 : day && dayIdx<4 ? .25 : uvIn ? .5 : .8;
-    if(!at(washEl)) SFX.wash(0,1);
   });
 
   /* ═════════ 아시아경제 부모 기사 단일 스크롤 연동 ═════════
-     냉동인간 편과 같은 약속. 접두어(cryo:, shoes: …)는 부모가 보낸 것을 그대로 쓴다.
-     부모가 응답하기 전에는 절대 자기 스크롤을 막지 않는다. */
+     냉동인간 편과 같은 약속. 부모가 응답하기 전에는 절대 자기 스크롤을 막지 않는다. */
   var PFX='shoes', hostLinked=false;
   function notifyHeight(){ try{ parent.postMessage({type:PFX+':height',height:document.documentElement.scrollHeight},'*'); }catch(err){} }
   addEventListener('message',function(e){
