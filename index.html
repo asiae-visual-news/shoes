@@ -636,17 +636,13 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 @media(max-height:650px){.introSurveyContent h2{margin-bottom:14px;font-size:clamp(25px,3.2vw,39px)}.introSurveyContent .ages{padding:12px 20px}.introSurveyContent .age{margin-bottom:7px}.introSurveyContent .ages figcaption{margin-bottom:10px}}
 
-/* 3막 문장 카드의 사진 배경을 네 걸음 캡처 장면으로 이동. */
-.sceneTextHold.trace .sceneTextStage{background:#0B0906!important}
-.sceneTextHold.trace .sceneTextStage h2{position:relative;z-index:2;text-shadow:0 3px 28px rgba(0,0,0,.85)}
-#steps .stepStage{
-  position:sticky;
-  isolation:isolate;
+/* 3막: 현관 사진 배경은 네 걸음 도면 바로 위 문장 카드에만 적용. */
+.sceneTextHold.trace .sceneTextStage{
   background:linear-gradient(90deg,rgba(5,4,3,.83),rgba(5,4,3,.70) 50%,rgba(5,4,3,.83)),
              linear-gradient(0deg,rgba(5,4,3,.78),transparent 42%,rgba(5,4,3,.44)),
              url("16-us-entry.jpg") center center/cover no-repeat!important;
 }
-#steps .stepStage>.floor,#steps .stepStage>.stepFoot{position:relative;z-index:1}
+.sceneTextHold.trace .sceneTextStage h2{position:relative;z-index:2;text-shadow:0 3px 28px rgba(0,0,0,.85)}
 /* 원문 링크는 박스 전체를 약간 키우고, 버튼 글자만 과하게 크지 않도록. */
 .src-link{
   padding:clamp(23px,3vw,30px) clamp(16px,2.4vw,26px)!important;
@@ -755,10 +751,24 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 /* 4: 세탁 장면 — 기존 신발 사진을 낮은 농도의 분위기 배경으로만 사용 */
 #wash>.washStage{
- background:linear-gradient(90deg,rgba(11,9,6,.95),rgba(11,9,6,.82) 50%,rgba(11,9,6,.95)),
- linear-gradient(180deg,rgba(11,9,6,.83),rgba(11,9,6,.66),rgba(11,9,6,.9)),
+ background:linear-gradient(90deg,rgba(11,9,6,.76),rgba(11,9,6,.48) 50%,rgba(11,9,6,.76)),
  url("00-cover.jpg") center 52%/cover no-repeat!important;
 }
+
+/* 48차: 요청된 두 제목 정렬만 가운데로 통일 */
+.cross .crossHead{text-align:center!important;max-width:850px}
+.cross .crossHead h2{max-width:none!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+.baby .babyGrid>div:not(.ph){text-align:center!important}
+.baby .babyGrid h2{max-width:none!important;text-align:center!important}
+.baby .babyGrid .srcLine{text-align:center!important}
+/* 세탁기 장면: 사진을 겹쳐 어둡게 만드는 배경 대신, 실제 보이는 사진 레이어로 분리 */
+#wash>.washStage{position:sticky!important;isolation:isolate;background:#0B0906!important}
+#wash>.washStage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:url("00-cover.jpg") center 52%/cover no-repeat;
+ filter:brightness(2.25) saturate(.9);opacity:.94}
+#wash>.washStage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(90deg,rgba(11,9,6,.63),rgba(11,9,6,.20) 50%,rgba(11,9,6,.55)),linear-gradient(0deg,rgba(11,9,6,.55),transparent 40%,rgba(11,9,6,.30))}
+#wash>.washStage>.washMeters,#wash>.washStage>.washBox,#wash>.washStage>.washFoot{position:relative;z-index:1}
 </style>
 </head>
 <body>
