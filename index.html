@@ -595,6 +595,58 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   .uvSec.dark .sOff,.wipeSec.dark .wipeLamp{opacity:0!important}
   #dust{display:none!important}
 }
+
+/* 45차: 네 걸음 카드 한 장만 현관 사진을 전체 화면 배경으로 사용.
+   이미지 위에 어두운 그라데이션을 겹쳐 제목 가독성을 유지한다. */
+.card[data-ch="3막"] .cardStage{
+  background:linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.69) 48%,rgba(5,4,3,.81)),
+             linear-gradient(0deg,rgba(5,4,3,.82),transparent 38%,rgba(5,4,3,.50)),
+             url("16-us-entry.jpg") center center/cover no-repeat!important;
+}
+.card[data-ch="3막"] .cardIn{position:relative;z-index:2}
+
+/* 44차: 스크롤의 중앙에 걸린 장면 한 장만 전체 화면에 보인다.
+   이전 섹션의 머리/다음 섹션의 꼬리가 함께 보이지 않도록 전체화면 불투명 판 사용. */
+.introHold{height:360svh!important}
+.card{height:350svh!important}
+.sceneTextHold{position:relative!important;height:340svh!important;padding:0!important;margin:0!important;background:var(--bg)!important;overflow:visible!important}
+.sceneTextHold .sceneTextStage{position:sticky;top:0;width:100%;height:100svh;max-width:none!important;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;margin:0 auto;padding:clamp(30px,7vh,80px) var(--pad);background:var(--bg);overflow:hidden}
+.sceneTextHold h2{margin:0!important;max-width:21ch!important;text-align:center;font-size:clamp(32px,4.6vw,61px);line-height:1.45}
+.sceneTextHold .inner{max-width:none}
+.introHold .introStage,.card .cardStage,.sceneTextHold .sceneTextStage{background:#0B0906}
+.introHold .introContent{width:min(100%,790px)}
+.introHold .introQuestionContent{align-items:center;text-align:center;gap:clamp(35px,7vh,76px)}
+.introQuestionContent .q,.introQuestionContent .q2{max-width:100%;text-align:center}
+.introSurveyContent h2{font-size:clamp(27px,3.85vw,56px);margin-bottom:clamp(20px,3.5vh,46px)}
+.introSurveyContent .ages{padding:clamp(15px,2.5vh,28px) clamp(18px,2.4vw,32px)}
+.introSurveyContent .ages figcaption{margin-bottom:clamp(12px,2vh,22px)}
+.introSurveyContent .age{margin-bottom:clamp(8px,1.5vh,16px)}
+.introSurveyContent .srcLine{margin-top:10px}
+/* 레이어를 문서 흐름에서 잠깐 분리하여 이웃 섹션을 가린다. */
+.sceneLocked{z-index:54!important}
+.sceneLocked>.introStage,.sceneLocked>.cardStage,.sceneLocked>.sceneTextStage{position:fixed!important;inset:0!important;top:0!important;left:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-height:none!important;z-index:54!important;overflow:hidden!important;box-sizing:border-box!important}
+.sceneLocked.introHold>.introStage{display:flex!important}
+.sceneLocked.card>.cardStage{display:flex!important}
+.sceneLocked.sceneTextHold>.sceneTextStage{display:flex!important}
+.cardStage{background:#050403!important}
+.cardStage::before,.cardStage::after{display:none}
+.cardIn{width:100%;max-width:760px;padding:0 16px}
+@media(max-width:760px){
+ .introHold{height:380svh!important}
+ .card{height:360svh!important}
+ .sceneTextHold{height:350svh!important}
+ .sceneTextHold h2{font-size:clamp(28px,7.3vw,44px)!important}
+ .introSurveyContent h2{font-size:clamp(25px,6.4vw,37px)}
+ .introHold .introStage{padding:22px 20px}
+ .introSurveyContent .ages{padding:15px 12px}
+ .introSurveyContent .age{margin-bottom:8px}
+ .introQuestionContent .q{font-size:clamp(28px,7.5vw,42px)}
+ .introQuestionContent .q2{font-size:clamp(22px,5.8vw,32px)}
+}
+@media(max-height:650px){.introSurveyContent h2{margin-bottom:14px;font-size:clamp(25px,3.2vw,39px)}.introSurveyContent .ages{padding:12px 20px}.introSurveyContent .age{margin-bottom:7px}.introSurveyContent .ages figcaption{margin-bottom:10px}}
+
+/* 사진 카드 최종 우선순위: 전체화면 고정 상태에도 이미지 유지 */
+.card[data-ch="3막"] .cardStage{background:linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.68) 48%,rgba(5,4,3,.81)),linear-gradient(0deg,rgba(5,4,3,.78),transparent 40%,rgba(5,4,3,.48)),url("16-us-entry.jpg") center center/cover no-repeat!important}
 </style>
 </head>
 <body>
@@ -639,7 +691,6 @@ function imgFb(i){
     <h1><span>신발만</span><span>벗는다</span></h1>
   </div>
   <div class="cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
-  <span class="disc"><b>재현 이미지</b>사진·그래픽 모두 실제 촬영이 아닙니다</span>
 </header>
 
 <!-- 프롤로그: 두 장면 모두 전체 화면 고정 + 충분한 체류 -->
@@ -647,7 +698,7 @@ function imgFb(i){
   <div class="introStage">
     <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="imgFb(this)"/></div>
     <div class="introContent introSurveyContent">
-      <div class="rv"><h2>미국인 63%,<br/>집에 오면 신발을 벗는다</h2></div>
+      <div class="rv"><h2>미국인 63%,<br/>이제 집에 오면 신발을 벗는다</h2></div>
       <figure class="ages rv" id="ages">
         <figcaption>손님에게도 벗어 달라고 한다</figcaption>
         <div class="age"><span>18~29세</span><i style="--w:44"></i><b>44%</b></div>
@@ -846,8 +897,8 @@ function imgFb(i){
 </section>
 
 <!-- 3막: 옮겨 간다 -->
-<section class="sec trace">
-  <div class="traceIn rv">
+<section class="sec trace sceneTextHold">
+  <div class="traceIn rv sceneTextStage">
     <h2>집에서 가장 더러운 곳은<br/>화장실이 아니다</h2>
   </div>
 </section>
@@ -1068,8 +1119,8 @@ function imgFb(i){
 </section>
 
 <!-- 6막: 오늘 저녁 -->
-<section class="sec todo" id="todo">
-  <div class="inner rv">
+<section class="sec todo sceneTextHold" id="todo">
+  <div class="inner rv sceneTextStage">
     <h2>한 칸부터<br/>닦는다</h2>
   </div>
 </section>
@@ -1844,6 +1895,33 @@ function imgFb(i){
     addEventListener('touchend',_te,{passive:true}); addEventListener('touchcancel',_te,{passive:true});
   }
   addEventListener('load',notifyHeight);
+})();
+</script>
+<script>
+/* 44차: 현재 화면 중심을 차지한 텍스트 장면만 전체 화면에 띄운다.
+   시각 전환시 앞뒤 장면이 화면 상/하단에 걸치지 않게 한다. */
+(function(){
+ var scenes=Array.prototype.slice.call(document.querySelectorAll('.introHold,.card,.sceneTextHold'));
+ var live=null, queued=false;
+ function refresh(){
+   queued=false;
+   var middle=(window.innerHeight||document.documentElement.clientHeight)*.5;
+   var chosen=null;
+   for(var i=0;i<scenes.length;i++){
+     var r=scenes[i].getBoundingClientRect();
+     if(r.top<=middle&&r.bottom>middle){chosen=scenes[i];break;}
+   }
+   if(chosen===live)return;
+   if(live)live.classList.remove('sceneLocked');
+   live=chosen;
+   if(live)live.classList.add('sceneLocked');
+ }
+ function queue(){if(!queued){queued=true;requestAnimationFrame(refresh);}}
+ window.addEventListener('scroll',queue,{passive:true});
+ window.addEventListener('resize',queue,{passive:true});
+ window.addEventListener('orientationchange',queue,{passive:true});
+ window.addEventListener('message',function(e){if(e.data&&typeof e.data.type==='string'&&/:progress$/.test(e.data.type))queue();});
+ refresh();requestAnimationFrame(refresh);
 })();
 </script>
 </body>
