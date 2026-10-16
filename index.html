@@ -76,7 +76,7 @@ p.big{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,28px);
 @keyframes shake{0%,100%{transform:none}20%{transform:translate3d(0,5px,0)}40%{transform:translate3d(0,-3px,0)}60%{transform:translate3d(0,2px,0)}80%{transform:translate3d(0,-1px,0)}}
 
 /* ═════ 고정 장면 ═════ */
-.pin{position:relative;margin-bottom:36svh}
+.pin{position:relative;margin-bottom:0;background:var(--bg)}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .lines{position:relative;min-height:7.4em;text-align:center}
 .lines>div{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
@@ -197,6 +197,32 @@ h1 span{display:block}
 .ask2 .q{font-family:var(--serif);font-size:clamp(26px,4.4vw,52px);line-height:1.5;color:#F8F0E4;letter-spacing:-.015em;text-wrap:balance;max-width:24ch;margin:0 0 clamp(30px,5vh,48px)}
 .ask2 .q2{font-family:var(--serif);font-size:clamp(22px,3.2vw,38px);color:#F8F0E4;margin:0;letter-spacing:-.02em}
 
+/* 43차: 프롤로그 두 화면을 각각 고정하고, 완전히 중앙에 배치한다. */
+.introHold{position:relative;height:320svh;overflow:visible!important;background:var(--bg)}
+.change.introHold > .introStage{position:sticky;z-index:1;top:0;width:100%;height:100svh;min-height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(38px,5vh,60px) var(--pad);isolation:isolate;background:var(--bg)}
+.introHold .introStage .secBg{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+.introHold .introStage .secBg img{width:100%;height:100%;object-fit:cover}
+.introHold .introStage .secBg::before{background:linear-gradient(180deg,rgba(11,9,6,.9),rgba(11,9,6,.79) 45%,rgba(11,9,6,.94))}
+.introHold .introContent{position:relative;z-index:2;width:min(100%,790px);margin:0 auto;display:flex;flex-direction:column;align-items:stretch;justify-content:center;max-height:calc(100svh - 64px)}
+.introSurveyContent h2{max-width:none;margin:0 0 clamp(30px,6vh,70px);font-size:clamp(30px,4.2vw,60px);line-height:1.38}
+.introSurveyContent .ages{width:100%;margin:0;padding:clamp(22px,3vw,42px)}
+.introSurveyContent .ages figcaption{margin-bottom:clamp(15px,2.5vh,28px)}
+.introHold .introQuestionContent{max-width:790px;min-height:0;text-align:left;gap:clamp(44px,9vh,100px)}
+.introQuestionContent .q{font-size:clamp(33px,4.7vw,62px);line-height:1.45;margin:0;max-width:none}
+.introQuestionContent .q2{font-size:clamp(26px,3.2vw,42px);line-height:1.5;margin:0}
+@media(max-width:760px){
+ .introHold{height:340svh}
+ .introHold .introStage{padding:32px 24px}
+ .introSurveyContent h2{font-size:clamp(27px,7vw,39px);margin-bottom:clamp(20px,4vh,42px)}
+ .introSurveyContent .ages{padding:20px 16px}
+ .introSurveyContent .age{grid-template-columns:4.8em 1fr 2.6em;gap:8px;font-size:12px;margin-bottom:12px}
+ .introSurveyContent .ages figcaption{font-size:18px}
+ .introHold .introQuestionContent{gap:clamp(40px,8vh,80px)}
+ .introQuestionContent .q{font-size:clamp(28px,8vw,43px);line-height:1.5}
+ .introQuestionContent .q2{font-size:clamp(23px,6vw,33px)}
+}
+@media(max-height:640px){.introSurveyContent h2{font-size:clamp(25px,3.4vw,43px);margin-bottom:20px}.introSurveyContent .ages{padding:16px 24px}.introSurveyContent .age{margin-bottom:9px}.introHold .introQuestionContent{gap:28px}}
+
 /* ═════ 1막: 하루의 밑창 ═════ */
 .dayStage{display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:clamp(14px,2.6vh,28px);padding:clamp(26px,5.6vh,66px) var(--pad);background:radial-gradient(90% 70% at 50% 45%,#17120c,#0B0906 75%)}
 #day .stage::before,#day .stage::after{content:"";position:absolute;left:0;right:0;height:clamp(18px,4.4vh,54px);background:#000;z-index:5}
@@ -308,7 +334,7 @@ h1 span{display:block}
 .stain{transition:opacity .9s,transform 1.2s cubic-bezier(.2,.7,.3,1);transform-box:fill-box;transform-origin:50% 8%;transform:scale(.2);opacity:0}
 .stain.on{transform:scale(1)}
 /* 40차: 인용을 화면 가운데 잠시 세워 두고, 카드 앞에 숨 쉴 자리를 둔다 */
-.sec.quoteSec{height:170svh;padding:0 var(--pad);margin-bottom:24svh;text-align:center}
+.sec.quoteSec{height:250svh;padding:0 var(--pad);margin-bottom:0;text-align:center;background:var(--bg)}
 .quoteSec .traceIn{position:sticky;top:0;height:100svh;max-width:900px;display:flex;align-items:center;justify-content:center}
 .quoteSec .big{font-size:clamp(23px,3.4vw,40px);line-height:1.75;margin:0;max-width:none}
 
@@ -507,7 +533,7 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 @media(max-width:760px){
   body::after{display:none}
   .sec{padding-top:clamp(150px,26vh,240px);padding-bottom:clamp(150px,26vh,240px)}
-  .pin{margin-bottom:28svh}
+  .pin{margin-bottom:0}
   .lines{min-height:6.6em}
   .cover{padding-top:clamp(96px,16vh,150px);padding-bottom:clamp(160px,25vh,210px)}
   .cover h1{font-size:clamp(44px,13vw,62px)}
@@ -616,25 +642,30 @@ function imgFb(i){
   <span class="disc"><b>재현 이미지</b>사진·그래픽 모두 실제 촬영이 아닙니다</span>
 </header>
 
-<!-- 프롤로그 -->
-<section class="sec change prologue">
-  <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="imgFb(this)"/></div>
-  <div class="changeCol">
-    <div class="rv">
-      <h2>미국인 63%,<br/>집에 오면 신발을 벗는다</h2>
+<!-- 프롤로그: 두 장면 모두 전체 화면 고정 + 충분한 체류 -->
+<section class="change introHold introSurvey" aria-label="미국인의 신발 벗기 조사">
+  <div class="introStage">
+    <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="imgFb(this)"/></div>
+    <div class="introContent introSurveyContent">
+      <div class="rv"><h2>미국인 63%,<br/>집에 오면 신발을 벗는다</h2></div>
+      <figure class="ages rv" id="ages">
+        <figcaption>손님에게도 벗어 달라고 한다</figcaption>
+        <div class="age"><span>18~29세</span><i style="--w:44"></i><b>44%</b></div>
+        <div class="age"><span>45~64세</span><i style="--w:13"></i><b>13%</b></div>
+        <div class="age"><span>65세 이상</span><i style="--w:7"></i><b>7%</b></div>
+        <div class="age all"><span>전체</span><i style="--w:24"></i><b>24%</b></div>
+        <small class="srcLine">자료: CBS뉴스·유고브(2023)</small>
+      </figure>
     </div>
-    <figure class="ages rv" id="ages">
-      <figcaption>손님에게도 벗어 달라고 한다</figcaption>
-      <div class="age"><span>18~29세</span><i style="--w:44"></i><b>44%</b></div>
-      <div class="age"><span>45~64세</span><i style="--w:13"></i><b>13%</b></div>
-      <div class="age"><span>65세 이상</span><i style="--w:7"></i><b>7%</b></div>
-      <div class="age all"><span>전체</span><i style="--w:24"></i><b>24%</b></div>
-      <small class="srcLine">자료: CBS뉴스·유고브(2023)</small>
-    </figure>
   </div>
-  <div class="ask2 rv">
-    <p class="q">우리는 원래<br/>현관에서 신발을 벗는다.</p>
-    <p class="q2">그럼 우리 집은 안전할까.</p>
+</section>
+<section class="change introHold introQuestion" aria-label="우리 집의 현관 질문">
+  <div class="introStage">
+    <div class="secBg ph"><img alt="" src="16-us-entry.jpg" onerror="imgFb(this)"/></div>
+    <div class="introContent introQuestionContent ask2 rv">
+      <p class="q">우리는 원래<br/>현관에서 신발을 벗는다.</p>
+      <p class="q2">그럼 우리 집은 안전할까.</p>
+    </div>
   </div>
 </section>
 
