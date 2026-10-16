@@ -765,10 +765,14 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 #wash>.washStage{position:sticky!important;isolation:isolate;background:#0B0906!important}
 #wash>.washStage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
  background:url("00-cover.jpg") center 52%/cover no-repeat;
- filter:brightness(2.25) saturate(.9);opacity:.94}
+ filter:brightness(.54) saturate(.65);opacity:.68}
 #wash>.washStage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(11,9,6,.63),rgba(11,9,6,.20) 50%,rgba(11,9,6,.55)),linear-gradient(0deg,rgba(11,9,6,.55),transparent 40%,rgba(11,9,6,.30))}
+ background:linear-gradient(90deg,rgba(11,9,6,.86),rgba(11,9,6,.67) 50%,rgba(11,9,6,.86)),linear-gradient(0deg,rgba(11,9,6,.72),rgba(11,9,6,.44) 40%,rgba(11,9,6,.65))}
 #wash>.washStage>.washMeters,#wash>.washStage>.washBox,#wash>.washStage>.washFoot{position:relative;z-index:1}
+
+/* 49차: 미국인 63% 프롤로그 제목만 가운데 정렬. 통계 내부 정렬 유지 */
+.introSurvey .introSurveyContent h2{text-align:center!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important}
+.introSurvey .introSurveyContent .ages{margin-left:auto!important;margin-right:auto!important;text-align:left!important}
 </style>
 </head>
 <body>
@@ -1886,8 +1890,34 @@ function imgFb(i){
       for(var f=0;f<7;f++){ var fx=40+Math.random()*(W-80), fy=30+Math.random()*(H-60), fs=(W/13)*(.8+Math.random()*.5); ctx.save(); ctx.translate(fx,fy); ctx.rotate(Math.random()*6.283); ctx.fillStyle='rgba(120,104,82,.42)'; ctx.beginPath(); ctx.ellipse(0,0,fs*.36,fs*.72,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(0,fs*1.06,fs*.3,fs*.34,0,0,6.283); ctx.fill(); ctx.restore(); }
       painted=true;
     }
-    function goDark(){ sec.classList.add('dark'); SFX.click(); }
-    function finish(delay){ if(done) return; done=true; sec.classList.add('done'); setTimeout(goDark,RM?0:delay); }
+    var darkTimer=null;
+    function goDark(){
+      if(sec.classList.contains('dark')) return;
+      sec.classList.add('dark'); SFX.click();
+    }
+    function finish(delay){
+      if(done) return;
+      done=true;
+      sec.classList.add('done');
+      darkTimer=setTimeout(goDark,RM?0:delay);
+    }
+    // 마지막 장면 안에서 닦기 -> 소등을 끝내고 나서 크레딧으로 내려간다.
+    // 빠르게 스크롤해도 자동 닦기 타이머를 기다리며 검은 판만 보이지 않게 한다.
+    function wipeScrollEnd(){
+      var r=sec.getBoundingClientRect(), travel=Math.max(1,r.height-innerHeight);
+      if(r.top>innerHeight || r.bottom<0) return;
+      var progress=Math.max(0,Math.min(1,-r.top/travel));
+      if(progress>=.66 && !done){
+        if(darkTimer!==null) clearTimeout(darkTimer);
+        finish(700);
+      }
+      if(progress>=.82 && done && !sec.classList.contains('dark')){
+        if(darkTimer!==null) clearTimeout(darkTimer);
+        goDark();
+      }
+    }
+    addEventListener('scroll',wipeScrollEnd,{passive:true});
+    requestAnimationFrame(wipeScrollEnd);
     function erase(x,y){
       ctx.globalCompositeOperation='destination-out';
       var rad=Math.max(44,W/6.2);
@@ -1901,7 +1931,7 @@ function imgFb(i){
       requestAnimationFrame(function(){
         ticking=false; var step=Math.max(6,Math.round(W/40)), d=ctx.getImageData(0,0,cv.width,cv.height).data, tot=0, clr=0;
         for(var y=0;y<cv.height;y+=step) for(var x=0;x<cv.width;x+=step){ tot++; if(d[(y*cv.width+x)*4+3]<40) clr++; }
-        if(clr/tot>=.24) finish(3600);
+        if(clr/tot>=.24) finish(1700);
       });
     }
     function pt(e){ var r=cv.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top]; }
@@ -1916,7 +1946,7 @@ function imgFb(i){
         if(done) return; if(!t0) t0=t;
         var k=Math.min(1,(t-t0)/dur), sg=k*rows, r=Math.min(rows-1,Math.floor(sg)), f=sg-r;
         erase((r%2===0?f:1-f)*(W+60)-30,(r+.5)/rows*H+Math.sin(f*Math.PI*2)*H*.04);
-        if(k<1) requestAnimationFrame(step); else { last=null; ctx.clearRect(0,0,W,H); finish(3600); }
+        if(k<1) requestAnimationFrame(step); else { last=null; ctx.clearRect(0,0,W,H); finish(1700); }
       });
     }
     new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!painted) paint(); if(e.intersectionRatio>=.55) setTimeout(autoWipe,900); } }); },{threshold:[.2,.55]}).observe(box);
