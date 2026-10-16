@@ -596,15 +596,6 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
   #dust{display:none!important}
 }
 
-/* 45차: 네 걸음 카드 한 장만 현관 사진을 전체 화면 배경으로 사용.
-   이미지 위에 어두운 그라데이션을 겹쳐 제목 가독성을 유지한다. */
-.card[data-ch="3막"] .cardStage{
-  background:linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.69) 48%,rgba(5,4,3,.81)),
-             linear-gradient(0deg,rgba(5,4,3,.82),transparent 38%,rgba(5,4,3,.50)),
-             url("16-us-entry.jpg") center center/cover no-repeat!important;
-}
-.card[data-ch="3막"] .cardIn{position:relative;z-index:2}
-
 /* 44차: 스크롤의 중앙에 걸린 장면 한 장만 전체 화면에 보인다.
    이전 섹션의 머리/다음 섹션의 꼬리가 함께 보이지 않도록 전체화면 불투명 판 사용. */
 .introHold{height:360svh!important}
@@ -645,8 +636,62 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 @media(max-height:650px){.introSurveyContent h2{margin-bottom:14px;font-size:clamp(25px,3.2vw,39px)}.introSurveyContent .ages{padding:12px 20px}.introSurveyContent .age{margin-bottom:7px}.introSurveyContent .ages figcaption{margin-bottom:10px}}
 
-/* 사진 카드 최종 우선순위: 전체화면 고정 상태에도 이미지 유지 */
-.card[data-ch="3막"] .cardStage{background:linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.68) 48%,rgba(5,4,3,.81)),linear-gradient(0deg,rgba(5,4,3,.78),transparent 40%,rgba(5,4,3,.48)),url("16-us-entry.jpg") center center/cover no-repeat!important}
+/* 사진 배경은 막 카드가 아닌 3막의 문장 장면 한 곳에만 사용한다. */
+.sceneTextHold.trace .sceneTextStage{
+  background:linear-gradient(90deg,rgba(5,4,3,.83),rgba(5,4,3,.70) 50%,rgba(5,4,3,.83)),
+             linear-gradient(0deg,rgba(5,4,3,.78),transparent 42%,rgba(5,4,3,.44)),
+             url("16-us-entry.jpg") center center/cover no-repeat!important;
+}
+.sceneTextHold.trace .sceneTextStage h2{position:relative;z-index:2;text-shadow:0 3px 28px rgba(0,0,0,.85)}
+/* 원문 링크는 박스 전체를 약간 키우고, 버튼 글자만 과하게 크지 않도록. */
+.src-link{
+  padding:clamp(23px,3vw,30px) clamp(16px,2.4vw,26px)!important;
+  border:1px solid rgba(207,194,174,.28)!important;
+  background:rgba(22,17,12,.72)!important;
+  margin-top:-9px!important;
+  gap:clamp(16px,2.4vw,28px)!important;
+}
+.src-link:hover{border-color:rgba(242,194,123,.6)!important;background:rgba(28,21,14,.87)!important}
+.src-go b{font-size:clamp(14.5px,1.3vw,16.5px)!important;letter-spacing:.07em!important}
+@media(max-width:760px){
+  .src-link{padding:20px 16px!important;gap:10px!important}
+  .src-go b{font-size:14.5px!important;letter-spacing:0!important}
+}
+
+/* 45차: 화면 중앙 고정은 순수 sticky로 처리해 갑작스러운 fixed 재배치를 방지. */
+.introHold{height:275svh!important;overflow:visible!important}
+.card{height:260svh!important;overflow:visible!important}
+.sceneTextHold{height:265svh!important;overflow:visible!important}
+.introHold>.introStage,.card>.cardStage,.sceneTextHold>.sceneTextStage{
+  position:sticky!important;top:0!important;left:auto!important;right:auto!important;
+  width:100%!important;height:100svh!important;min-height:100svh!important;
+  overflow:hidden!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;
+}
+.introHold>.introStage{background:#0B0906!important}
+.sceneTextHold>.sceneTextStage{background-color:#0B0906!important}
+.sceneTextHold .sceneTextStage{padding:clamp(30px,7vh,78px) var(--gut)!important}
+.sceneTextHold .sceneTextStage h2{margin:0!important;text-align:center!important;max-width:23ch!important}
+.sceneTextHold .sceneTextStage.rv{transform:none!important}
+.sceneTextHold .sceneTextStage.rv h2{transition:opacity .65s ease-out,transform .8s cubic-bezier(.16,1,.3,1),filter .7s;opacity:0;transform:translateY(24px);filter:blur(5px)}
+.sceneTextHold.is-visible .sceneTextStage.rv h2{opacity:1;transform:none;filter:none}
+.card .cardIn{transform:translateY(18px);opacity:0;filter:blur(4px);transition:opacity .58s ease-out,transform .75s cubic-bezier(.16,1,.3,1),filter .7s}
+.card.is-visible .cardIn{transform:none;opacity:1;filter:none}
+.card .cardNo,.card .cardT,.card .cardLog{transition:opacity .48s ease-out,filter .55s ease-out!important}
+.card .cardRule{transition:width .65s .12s cubic-bezier(.16,1,.3,1)!important}
+.introHold .introContent{transform:translateY(15px);opacity:0;transition:opacity .62s ease-out,transform .82s cubic-bezier(.16,1,.3,1)}
+.introHold.is-visible .introContent{transform:none;opacity:1}
+/* 프롤로그·문장·막 카드는 불투명한 한 화면을 꽉 채움 */
+.introHold>.introStage,.card>.cardStage,.sceneTextHold>.sceneTextStage{isolation:isolate}
+/* 빠른 휠 움직임에서도 1장당 읽는 시간이 지나치게 길지 않도록 높이 조정 */
+@media(max-width:760px){
+ .introHold{height:290svh!important}
+ .card{height:275svh!important}
+ .sceneTextHold{height:275svh!important}
+ .sceneTextHold h2{font-size:clamp(28px,7.1vw,44px)!important}
+}
+@media(prefers-reduced-motion:reduce){.sceneTextHold .sceneTextStage.rv h2,.card .cardIn,.introHold .introContent{opacity:1!important;transform:none!important;filter:none!important}}
+
 </style>
 </head>
 <body>
@@ -771,8 +816,8 @@ function imgFb(i){
 </section>
 
 <!-- 2막: 검체 머리글 -->
-<section class="sec stats">
-  <div class="statHead rv">
+<section class="sec stats sceneTextHold" aria-label="같은 신발 안과 밖 비교">
+  <div class="statHead rv sceneTextStage">
     <h2>같은 신발,<br/>안과 밖이 달랐다</h2>
   </div>
 </section>
@@ -1897,31 +1942,27 @@ function imgFb(i){
   addEventListener('load',notifyHeight);
 })();
 </script>
+
 <script>
-/* 44차: 현재 화면 중심을 차지한 텍스트 장면만 전체 화면에 띄운다.
-   시각 전환시 앞뒤 장면이 화면 상/하단에 걸치지 않게 한다. */
+/* 중앙 도달 후 밝게 등장: 스크롤 애니메이션은 가볍게, 위치는 고정 유지 */
 (function(){
- var scenes=Array.prototype.slice.call(document.querySelectorAll('.introHold,.card,.sceneTextHold'));
- var live=null, queued=false;
- function refresh(){
-   queued=false;
-   var middle=(window.innerHeight||document.documentElement.clientHeight)*.5;
-   var chosen=null;
-   for(var i=0;i<scenes.length;i++){
-     var r=scenes[i].getBoundingClientRect();
-     if(r.top<=middle&&r.bottom>middle){chosen=scenes[i];break;}
-   }
-   if(chosen===live)return;
-   if(live)live.classList.remove('sceneLocked');
-   live=chosen;
-   if(live)live.classList.add('sceneLocked');
+ var blocks=Array.prototype.slice.call(document.querySelectorAll('.introHold,.card,.sceneTextHold'));
+ var queued=false;
+ function update(){
+  queued=false;
+  var vh=innerHeight||document.documentElement.clientHeight;
+  blocks.forEach(function(el){
+   var r=el.getBoundingClientRect();
+   var visible=r.top<vh*.68&&r.bottom>vh*.32;
+   el.classList.toggle('is-visible',visible);
+   if(visible&&el.classList.contains('card'))el.classList.add('on');
+  });
  }
- function queue(){if(!queued){queued=true;requestAnimationFrame(refresh);}}
- window.addEventListener('scroll',queue,{passive:true});
- window.addEventListener('resize',queue,{passive:true});
- window.addEventListener('orientationchange',queue,{passive:true});
- window.addEventListener('message',function(e){if(e.data&&typeof e.data.type==='string'&&/:progress$/.test(e.data.type))queue();});
- refresh();requestAnimationFrame(refresh);
+ function queue(){if(!queued){queued=true;requestAnimationFrame(update)}}
+ addEventListener('scroll',queue,{passive:true});
+ addEventListener('resize',queue,{passive:true});
+ addEventListener('message',function(e){if(e.data&&typeof e.data.type==='string'&&/:progress$/.test(e.data.type))queue()});
+ update();
 })();
 </script>
 </body>
