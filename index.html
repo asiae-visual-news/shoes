@@ -636,13 +636,17 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 @media(max-height:650px){.introSurveyContent h2{margin-bottom:14px;font-size:clamp(25px,3.2vw,39px)}.introSurveyContent .ages{padding:12px 20px}.introSurveyContent .age{margin-bottom:7px}.introSurveyContent .ages figcaption{margin-bottom:10px}}
 
-/* 사진 배경은 막 카드가 아닌 3막의 문장 장면 한 곳에만 사용한다. */
-.sceneTextHold.trace .sceneTextStage{
+/* 3막 문장 카드의 사진 배경을 네 걸음 캡처 장면으로 이동. */
+.sceneTextHold.trace .sceneTextStage{background:#0B0906!important}
+.sceneTextHold.trace .sceneTextStage h2{position:relative;z-index:2;text-shadow:0 3px 28px rgba(0,0,0,.85)}
+#steps .stepStage{
+  position:sticky;
+  isolation:isolate;
   background:linear-gradient(90deg,rgba(5,4,3,.83),rgba(5,4,3,.70) 50%,rgba(5,4,3,.83)),
              linear-gradient(0deg,rgba(5,4,3,.78),transparent 42%,rgba(5,4,3,.44)),
              url("16-us-entry.jpg") center center/cover no-repeat!important;
 }
-.sceneTextHold.trace .sceneTextStage h2{position:relative;z-index:2;text-shadow:0 3px 28px rgba(0,0,0,.85)}
+#steps .stepStage>.floor,#steps .stepStage>.stepFoot{position:relative;z-index:1}
 /* 원문 링크는 박스 전체를 약간 키우고, 버튼 글자만 과하게 크지 않도록. */
 .src-link{
   padding:clamp(23px,3vw,30px) clamp(16px,2.4vw,26px)!important;
@@ -692,6 +696,52 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 @media(prefers-reduced-motion:reduce){.sceneTextHold .sceneTextStage.rv h2,.card .cardIn,.introHold .introContent{opacity:1!important;transform:none!important;filter:none!important}}
 
+
+/* 46차: 글자 위계 통일 + 선택 유도 + 아기 장면 스크롤 체류 */
+:root{--story-heading:clamp(28px,3.0vw,42px);--story-subheading:clamp(23px,2.35vw,32px)}
+/* 같은 수준의 장면 제목을 동일 규격으로 */
+.sec h2,.sceneTextHold .sceneTextStage h2,
+.introSurveyContent h2,.introQuestionContent .q,
+.babyGrid h2,.crossHead h2,.cultHead h2{
+ font-family:var(--serif)!important;font-size:var(--story-heading)!important;
+ font-weight:400!important;line-height:1.48!important;letter-spacing:-.018em!important;
+}
+.introQuestionContent .q2{font-size:var(--story-subheading)!important;line-height:1.52!important}
+.quoteSec .big{font-size:var(--story-subheading)!important}
+/* 선택 안내: 시작 전 맥동하는 호박색 강조. 선택 후에는 정지 */
+.xCue{position:relative;width:fit-content;max-width:100%;padding:11px 16px!important;
+ border:1px solid rgba(242,194,123,.46);background:rgba(242,194,123,.09);
+ border-radius:5px;box-shadow:0 0 0 0 rgba(242,194,123,.24);
+ animation:chooseAttention 2.2s ease-in-out infinite;transition:opacity .3s,border-color .3s,box-shadow .3s}
+.xCue i{filter:drop-shadow(0 0 7px rgba(242,194,123,.6))}
+.xCue:not(.chosen)::after{content:"";position:absolute;inset:-5px;border:1px solid rgba(242,194,123,.3);border-radius:8px;pointer-events:none;animation:chooseRing 2.2s ease-out infinite}
+.xCue.chosen{animation:none;border-color:rgba(242,194,123,.26);background:rgba(242,194,123,.045);box-shadow:none}
+.xCue.chosen::after{display:none}
+@keyframes chooseAttention{0%,100%{border-color:rgba(242,194,123,.4);box-shadow:0 0 0 0 rgba(242,194,123,.2)}50%{border-color:#F2C27B;box-shadow:0 0 24px 5px rgba(242,194,123,.23)}}
+@keyframes chooseRing{0%{opacity:.8;transform:scale(1)}75%,100%{opacity:0;transform:scale(1.055,1.17)}}
+/* 아기 장면: 화면 한 장을 sticky 고정해 충분히 읽고 사진을 보게 한다 */
+.sec.baby{height:260svh!important;min-height:0!important;padding:0 var(--pad)!important;overflow:visible!important}
+.baby .babyGrid{position:sticky;top:0;height:100svh;max-height:100svh;
+ max-width:850px;display:flex;flex-direction:column-reverse;justify-content:center;
+ align-items:center;gap:clamp(18px,3.8vh,38px);padding:clamp(30px,6vh,66px) 0;
+ box-sizing:border-box;overflow:hidden}
+.baby .babyGrid>div{width:100%;flex:none}
+.baby .babyGrid>div:not(.ph){max-width:760px}
+.baby .babyGrid>.ph{width:min(100%,690px);height:auto;aspect-ratio:16/9;
+ max-height:48svh;margin:0!important;overflow:hidden}
+.baby .babyGrid>.ph img{object-fit:cover;object-position:center 47%}
+.babyGrid h2{margin:0!important;max-width:23ch}
+.baby .srcLine{margin-top:14px}
+@media(max-width:760px){
+ :root{--story-heading:clamp(26px,6.4vw,34px);--story-subheading:clamp(22px,5.5vw,28px)}
+ .introSurveyContent h2,.introQuestionContent .q,.sceneTextHold .sceneTextStage h2{font-size:var(--story-heading)!important}
+ .baby .babyGrid{padding:34px 2px;gap:24px}
+ .baby .babyGrid>.ph{aspect-ratio:4/3;max-height:44svh}
+ .sec.baby{height:255svh!important}
+ .xCue{padding:10px 12px!important;font-size:13px!important}
+}
+@media(max-height:650px){.baby .babyGrid{gap:15px;padding:20px 0}.baby .babyGrid>.ph{max-height:42svh}.babyGrid h2{font-size:clamp(24px,4vw,34px)!important}}
+@media(prefers-reduced-motion:reduce){.xCue,.xCue::after{animation:none!important}}
 </style>
 </head>
 <body>
@@ -1784,6 +1834,7 @@ function imgFb(i){
     Q('#backLines>div[data-k]').forEach(function(d){ d.classList.toggle('pick',picked.indexOf(d.dataset.k)>=0); });
     q('#xCount').textContent=picked.length+' / 5';
     xgrid.classList.remove('idle');
+    var cue=q('.xCue'); if(cue) cue.classList.toggle('chosen',picked.length>0);
   });
 
   /* ═════════ 막 카드: 화면에 20% 들어오면 글자가 뜨기 시작한다(41차) ═════════ */
