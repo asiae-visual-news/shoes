@@ -742,6 +742,23 @@ html.hosted .comp,html.hosted .uv{touch-action:none!important}
 }
 @media(max-height:650px){.baby .babyGrid{gap:15px;padding:20px 0}.baby .babyGrid>.ph{max-height:42svh}.babyGrid h2{font-size:clamp(24px,4vw,34px)!important}}
 @media(prefers-reduced-motion:reduce){.xCue,.xCue::after{animation:none!important}}
+
+/* 47차: 배경 사진만 보강. 기존 타이포그래피·구조·인터랙션은 변경하지 않음 */
+/* 1: 현관에 관한 질문 — 기존 현관 사진을 조금 더 드러냄 */
+.introQuestion .introStage .secBg img{opacity:.47!important;filter:saturate(.62) brightness(.78)!important;object-position:center 54%}
+.introQuestion .introStage .secBg::before{background:linear-gradient(180deg,rgba(11,9,6,.76),rgba(11,9,6,.62) 45%,rgba(11,9,6,.87))!important}
+/* 2: 같은 신발의 안과 밖 — 기존 밑창 접사 사진 */
+.stats.sceneTextHold>.sceneTextStage{
+ background:linear-gradient(90deg,rgba(11,9,6,.88),rgba(11,9,6,.73) 50%,rgba(11,9,6,.88)),
+ linear-gradient(180deg,rgba(11,9,6,.34),rgba(11,9,6,.72)),
+ url("01-sole.jpg") center 47%/cover no-repeat!important;
+}
+/* 4: 세탁 장면 — 기존 신발 사진을 낮은 농도의 분위기 배경으로만 사용 */
+#wash>.washStage{
+ background:linear-gradient(90deg,rgba(11,9,6,.95),rgba(11,9,6,.82) 50%,rgba(11,9,6,.95)),
+ linear-gradient(180deg,rgba(11,9,6,.83),rgba(11,9,6,.66),rgba(11,9,6,.9)),
+ url("00-cover.jpg") center 52%/cover no-repeat!important;
+}
 </style>
 </head>
 <body>
