@@ -31,7 +31,9 @@
    53차: 표지 스크롤 지시는 바닥 가까이. '현관을 넘는 것들'은 오른쪽 목록 높이를 왼쪽 평면도에 맞춘다.
    54차: 기사 안 모바일에선 부모가 투명 막을 깔아 브라우저 기본 스크롤을 쓴다. 누르기만 좌표로 넘겨받아 대신 누른다.
    55차: '현관을 넘는 것들'도 한 화면에 멈춰 세운다. 직접 골라 보는 곳이라 지나치지 않게.
-   56차: 표지의 재현 이미지 고지는 뺀다. 맨 아래 '이미지, 소리에 대하여'와 아기 사진 태그로 밝힌다. */
+   56차: 표지의 재현 이미지 고지는 뺀다. 맨 아래 '이미지, 소리에 대하여'와 아기 사진 태그로 밝힌다.
+   58차: 스크롤 진행을 약 20% 빠르게. 글만 있는 멈춤 구간(막 카드·프롤로그·한 문장·인용·아기)은 더 줄이고,
+         직접 해 보는 장면(고르기·닦기)은 조금만 줄인다. 장면이 스크롤을 따라가는 지연은 170→120ms. */
 :root{
   --bg:#0B0906;--bg2:#110d09;--ink:#EFE6D8;--dim:#9C978E;
   --stone:#8A7A66;--stone-lt:#BDAF9A;--line:rgba(207,194,174,.13);
@@ -155,7 +157,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .sound-hint.show{opacity:1;transform:none}
 
 /* ═════ 막 카드: 한 화면을 멈춰 세운다. 가운데쯤 오면 뜨고(is-visible), 벗어나면 진다 ═════ */
-.card{position:relative;height:260svh;background:#050403;isolation:isolate}
+.card{position:relative;height:215svh;background:#050403;isolation:isolate}
 .cardStage{position:sticky;top:0;z-index:2;height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(72px,12vh,125px) var(--gut);overflow:hidden;background:#050403;isolation:isolate}
 .cardIn{width:100%;max-width:760px;max-height:78svh;padding:0 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(18px);filter:blur(4px);transition:opacity .58s ease-out,transform .75s cubic-bezier(.16,1,.3,1),filter .7s}
 .card.is-visible .cardIn{opacity:1;transform:none;filter:none}
@@ -168,7 +170,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .card.on .cardRule{width:clamp(48px,8vw,90px)}
 
 /* ═════ 프롤로그: 두 장면을 각각 한 화면에 멈춰 세운다 ═════ */
-.introHold{position:relative;height:275svh;background:var(--bg)}
+.introHold{position:relative;height:230svh;background:var(--bg)}
 .introStage{position:sticky;top:0;width:100%;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(38px,5vh,60px) var(--pad);isolation:isolate;background:var(--bg)}
 .secBg{position:absolute;inset:0;z-index:0;pointer-events:none}
 .secBg img{opacity:.18;filter:saturate(.55)}
@@ -195,7 +197,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .introQuestionContent .q2{font-family:var(--serif);font-weight:400;font-size:var(--story-subheading);line-height:1.52;letter-spacing:-.02em;color:#F8F0E4;margin:0}
 
 /* ═════ 한 문장 장면: 제목 한 줄을 한 화면에 멈춰 세운다 ═════ */
-.sceneTextHold{position:relative;height:265svh;background:var(--bg)}
+.sceneTextHold{position:relative;height:220svh;background:var(--bg)}
 .sceneTextStage{position:sticky;top:0;width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(30px,7vh,78px) var(--gut);overflow:hidden;isolation:isolate;background:#0B0906}
 .sceneTextStage.rv{transform:none}
 .sceneTextStage h2{max-width:23ch;opacity:0;transform:translateY(24px);filter:blur(5px);transition:opacity .65s ease-out,transform .8s cubic-bezier(.16,1,.3,1),filter .7s}
@@ -310,7 +312,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .stain{transition:opacity .9s,transform 1.2s cubic-bezier(.2,.7,.3,1);transform-box:fill-box;transform-origin:50% 8%;transform:scale(.2);opacity:0}
 .stain.on{transform:scale(1)}
 /* 인용: 화면 가운데 잠시 세워 두고, 카드 앞에 숨 쉴 자리를 둔다 */
-.quoteSec{position:relative;height:250svh;padding:0 var(--pad);text-align:center;background:var(--bg)}
+.quoteSec{position:relative;height:210svh;padding:0 var(--pad);text-align:center;background:var(--bg)}
 .quoteIn{position:sticky;top:0;height:100svh;max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center}
 .quoteSec .big{font-family:var(--serif);font-weight:400;font-size:var(--story-subheading);line-height:1.75;color:#F8F0E4;margin:0}
 
@@ -361,7 +363,7 @@ html.embedded .byline,html.hosted .byline{display:none}
    53차: 오른쪽 목록 높이를 왼쪽 평면도에 맞춘다. 목록은 칸 높이를 차지하지 않고(절대 배치),
          평면도 높이만큼 늘거나 줄어 위아래 끝이 맞는다.
    55차: 한 화면에 멈춰 세운다. 평면도 크기는 화면 높이에 맞춰 줄어 제목·목록과 함께 한 화면에 들어온다 */
-.cross{position:relative;height:320svh;background:var(--bg)}
+.cross{position:relative;height:300svh;background:var(--bg)}
 .crossStage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vh,64px) var(--pad)}
 .crossHead{flex:none;width:100%;max-width:850px;margin:0 auto;text-align:center}
 .crossGrid{flex:none;width:100%;max-width:min(1120px,calc((100svh - 2.96 * var(--story-heading) - 2 * clamp(28px,6vh,64px) - clamp(24px,4vh,48px) - 8px) * 2.01 + clamp(36px,5vw,72px)));margin:clamp(24px,4vh,48px) auto 0;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:clamp(36px,5vw,72px);align-items:center}
@@ -414,7 +416,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .xrow[aria-pressed="true"] .xchk::after{left:7px;top:3px;width:6px;height:11px;background:none;border:solid #0B0906;border-width:0 2px 2px 0;transform:rotate(45deg)}
 
 /* ═════ 5막: 바닥. 개리 교수 발언을 제목으로, 아래는 출처 한 줄. 한 화면에 멈춰 세운다 ═════ */
-.baby{position:relative;height:260svh;padding:0 var(--pad);background:var(--bg2)}
+.baby{position:relative;height:220svh;padding:0 var(--pad);background:var(--bg2)}
 .babyGrid{position:sticky;top:0;height:100svh;max-width:850px;margin:0 auto;display:flex;flex-direction:column-reverse;justify-content:center;align-items:center;gap:clamp(18px,3.8vh,38px);padding:clamp(30px,6vh,66px) 0;overflow:hidden}
 .babyGrid>div{width:100%;flex:none}
 .babyGrid>.babyTx{max-width:760px;text-align:center}
@@ -453,7 +455,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 #backLines>div.pick b::before{content:"고른 항목";display:block;font-family:var(--sans);font-size:11px;letter-spacing:.18em;color:var(--lamp);margin-bottom:10px;text-shadow:none}
 
 /* ═════ 끝: 현관을 닦는다 (표지 문장에 답한다) ═════ */
-.wipeSec{position:relative;min-height:320svh;overflow:clip;-webkit-user-select:none;user-select:none;padding:0 var(--gut);background:#070605}
+.wipeSec{position:relative;min-height:300svh;overflow:clip;-webkit-user-select:none;user-select:none;padding:0 var(--gut);background:#070605}
 .wipeStage{position:sticky;top:0;height:100svh;z-index:3;max-width:760px;margin:0 auto;text-align:center;display:flex;align-items:center;justify-content:center}
 /* 현관 센서등. 마지막 장면에 들어서면 켜지고, 다 닦고 나면 깜빡이며 꺼진다. 꺼진 뒤엔 불 꺼진 등 틀만 남는다.
    54차: 불빛을 더 밝게, 등이 꺼진 직후 화면이 어두워지도록 */
@@ -540,15 +542,15 @@ html.hosted::-webkit-scrollbar{display:none}
   .trail i:nth-child(odd){transform:translateX(-5px) rotate(174deg)}
   .sound{min-height:34px;font-size:12px;gap:8px;padding:0 5px 0 10px}
   .sound-hint{top:calc(env(safe-area-inset-top,0px) + 54px);font-size:11.5px}
-  .card{height:275svh}
+  .card{height:225svh}
   .cardT{font-size:clamp(48px,14vw,84px)}
   .cardStage{padding:70px 24px}
-  .introHold{height:290svh}
+  .introHold{height:240svh}
   .introStage{padding:22px 20px}
   .ages{padding:15px 12px}
   .ages figcaption{font-size:18px}
   .age{grid-template-columns:4.8em 1fr 2.6em;gap:8px;font-size:12px;margin-bottom:8px}
-  .sceneTextHold{height:275svh}
+  .sceneTextHold{height:230svh}
   .cam{font-size:9.5px;letter-spacing:.1em;inset:8px}
   .camTop{left:24px;right:24px}
   .camFocus{display:none}
@@ -565,7 +567,7 @@ html.hosted::-webkit-scrollbar{display:none}
   .lm span{font-size:11.5px}
   .cultBox .comp{aspect-ratio:4/3;height:auto;width:92vw;max-height:100%}
   /* 현관을 넘는 것들(모바일): 한 화면 안에 평면도 위, 두 줄 목록 아래. 평면도는 남는 높이만큼 */
-  .cross{height:320svh}
+  .cross{height:300svh}
   .crossStage{padding:clamp(16px,3vh,28px) 20px}
   .crossGrid{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;max-width:none;margin-top:clamp(12px,2.4vh,22px);gap:12px}
   .mapWrap{flex:1 1 auto;min-height:0;display:flex;justify-content:center}
@@ -578,7 +580,7 @@ html.hosted::-webkit-scrollbar{display:none}
   .xrow:last-child{grid-column:1/-1}
   .xth{display:none}
   .xtx b{font-size:14px;line-height:1.3}
-  .baby{height:255svh}
+  .baby{height:215svh}
   .babyGrid{padding:34px 2px;gap:24px}
   .babyGrid>.ph{aspect-ratio:4/3;max-height:44svh}
   .washMeters{gap:22px}
@@ -695,7 +697,7 @@ function imgFb(i){
 </section>
 
 <!-- 1막: 하루의 밑창 -->
-<section class="pin" id="day" style="height:800svh">
+<section class="pin" id="day" style="height:660svh">
   <div class="stage dayStage">
     <div class="shotBg ph"><img alt="" src="14-day-bg.jpg" onerror="imgFb(this)"/></div>
     <div class="cam" aria-hidden="true">
@@ -741,7 +743,7 @@ function imgFb(i){
 </section>
 
 <!-- 2막: 검체 — 결과가 다 나올 때까지 멈춰 선다 -->
-<section class="pin" id="lab" style="height:420svh">
+<section class="pin" id="lab" style="height:360svh">
   <div class="stage labStage">
     <div class="labBox">
       <div class="labSwab" id="labSwab">
@@ -798,7 +800,7 @@ function imgFb(i){
 </section>
 
 <!-- 2막: 키 재기 -->
-<section class="pin" id="grid" style="height:660svh">
+<section class="pin" id="grid" style="height:550svh">
   <div class="stage gridStage">
     <div class="ratio"><b id="ratioNum">×1</b><span>같은 신발 안쪽 대비</span></div>
     <div class="rulerBox">
@@ -828,7 +830,7 @@ function imgFb(i){
 </section>
 
 <!-- 2막: 배율 — 밑창·홈은 사진, 세균은 그림 -->
-<section class="pin" id="zoom" style="height:800svh">
+<section class="pin" id="zoom" style="height:660svh">
   <div class="stage zoomStage">
     <div class="scale">배율<b id="zScale">×1</b></div>
     <div class="zBox">
@@ -866,7 +868,7 @@ function imgFb(i){
 </section>
 
 <!-- 3막: 네 걸음 -->
-<section class="pin" id="steps" style="height:680svh">
+<section class="pin" id="steps" style="height:565svh">
   <div class="stage stepStage">
     <div class="floor">
       <svg viewBox="0 22 520 504" role="img" aria-label="현관에서 거실로 번지는 오염을 보여주는 도면">
@@ -914,7 +916,7 @@ function imgFb(i){
 </section>
 
 <!-- 4막: 문화 비교 -->
-<section class="pin" id="culture" style="height:500svh">
+<section class="pin" id="culture" style="height:420svh">
   <div class="stage cultStage">
     <div class="cultHead"><h2>벗는 집, 신는 집</h2></div>
     <div class="cultBox">
@@ -936,7 +938,7 @@ function imgFb(i){
 </section>
 
 <!-- 4막: 자외선 — 화면 전체. 사진 없이 재현 그래픽만 -->
-<section class="pin uvSec" id="uvSec" style="height:420svh">
+<section class="pin uvSec" id="uvSec" style="height:360svh">
   <div class="stage uvStage">
     <div class="uv" id="uv" role="img" aria-label="자외선 등으로 바닥을 비추는 재현 그래픽. 현관 타일 한 칸에 자국이 가장 짙고, 턱 너머로 양말 자국이 옅게 이어진다">
       <svg class="uvBase" viewBox="0 0 1000 560" preserveAspectRatio="xMinYMid slice" aria-hidden="true"></svg>
@@ -1026,7 +1028,7 @@ function imgFb(i){
 </section>
 
 <!-- 6막: 세탁기 -->
-<section class="pin" id="wash" style="height:620svh">
+<section class="pin" id="wash" style="height:515svh">
   <div class="stage washStage">
     <div class="washMeters">
       <div class="wm"><svg viewBox="0 0 120 120" id="wmOut" aria-hidden="true"></svg><div><b id="wmOutN">0%</b><span>바깥 면</span></div></div>
@@ -1082,7 +1084,7 @@ function imgFb(i){
 </section>
 
 <!-- 6막: 길을 거둔다 -->
-<section class="pin" id="back" style="height:640svh">
+<section class="pin" id="back" style="height:530svh">
   <div class="stage backStage">
     <div class="backMap" id="backMap"></div>
     <div class="backFoot">
@@ -1610,12 +1612,12 @@ function imgFb(i){
     showLine(backLines,i); quiet(backLines,p);
   }
 
-  /* ═════════ 스크롤 엔진: 짧은 관성으로 따라간다 ═════════ */
+  /* ═════════ 스크롤 엔진: 짧은 관성으로 따라간다 (58차: 지연 170→120ms) ═════════ */
   var probe=q('#svhProbe'), SVH=0;
   function measure(){ SVH=probe.offsetHeight||innerHeight; }
   var scenes=[['day',dayScene],['lab',labScene],['grid',gridScene],['zoom',zoomScene],['steps',stepScene],['culture',cultScene],['uvSec',uvScene],['wash',washScene],['back',backScene]]
     .map(function(a){ return {el:document.getElementById(a[0]), fn:a[1], last:-1, ps:null}; }).filter(function(s){ return s.el; });
-  var TAU=170, running=false, lastT=0;
+  var TAU=120, running=false, lastT=0;
   function loop(now){
     var dt=Math.min(64,now-lastT); lastT=now;
     var k=1-Math.exp(-dt/TAU), more=false;
@@ -1623,7 +1625,7 @@ function imgFb(i){
       var r=s.el.getBoundingClientRect();
       if(r.bottom<-SVH||r.top>SVH*2){ s.ps=null; return; }
       var pt=clamp(-r.top/Math.max(1,s.el.offsetHeight-SVH));
-      if(s.ps===null||RM||Math.abs(pt-s.ps)>.12) s.ps=pt; else s.ps+=(pt-s.ps)*k;
+      if(s.ps===null||RM||Math.abs(pt-s.ps)>.15) s.ps=pt; else s.ps+=(pt-s.ps)*k;
       if(Math.abs(pt-s.ps)<2e-4) s.ps=pt; else more=true;
       if(Math.abs(s.ps-s.last)<.0004) return;
       s.last=s.ps; s.fn(s.ps);
