@@ -157,7 +157,7 @@ html.embedded .byline,html.hosted .byline{display:none}
 .sound-hint.show{opacity:1;transform:none}
 
 /* ═════ 막 카드: 한 화면을 멈춰 세운다. 가운데쯤 오면 뜨고(is-visible), 벗어나면 진다 ═════ */
-.card{position:relative;height:215svh;background:#050403;isolation:isolate}
+.card{position:relative;height:150svh;background:#050403;isolation:isolate}
 .cardStage{position:sticky;top:0;z-index:2;height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(72px,12vh,125px) var(--gut);overflow:hidden;background:#050403;isolation:isolate}
 .cardIn{width:100%;max-width:760px;max-height:78svh;padding:0 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(18px);filter:blur(4px);transition:opacity .58s ease-out,transform .75s cubic-bezier(.16,1,.3,1),filter .7s}
 .card.is-visible .cardIn{opacity:1;transform:none;filter:none}
