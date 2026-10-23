@@ -33,7 +33,8 @@
    55차: '현관을 넘는 것들'도 한 화면에 멈춰 세운다. 직접 골라 보는 곳이라 지나치지 않게.
    56차: 표지의 재현 이미지 고지는 뺀다. 맨 아래 '이미지, 소리에 대하여'와 아기 사진 태그로 밝힌다.
    58차: 스크롤 진행을 약 20% 빠르게. 글만 있는 멈춤 구간(막 카드·프롤로그·한 문장·인용·아기)은 더 줄이고,
-         직접 해 보는 장면(고르기·닦기)은 조금만 줄인다. 장면이 스크롤을 따라가는 지연은 170→120ms. */
+         직접 해 보는 장면(고르기·닦기)은 조금만 줄인다. 장면이 스크롤을 따라가는 지연은 170→120ms.
+   59차: 장면 사이를 밀어 올리지 않는다. 구간끼리 겹쳐 두고, 다음 장면이 같은 자리에서 스크롤에 맞춰 겹쳐 뜬다(맨 아래 59차 블록). */
 :root{
   --bg:#0B0906;--bg2:#110d09;--ink:#EFE6D8;--dim:#9C978E;
   --stone:#8A7A66;--stone-lt:#BDAF9A;--line:rgba(207,194,174,.13);
@@ -613,6 +614,36 @@ html.hosted::-webkit-scrollbar{display:none}
   .uvSec.dark .sOff,.wipeSec.dark .wipeLamp{opacity:0!important}
   #dust{display:none!important}
 }
+
+/* ═════ 59차: 장면 사이를 밀어 올리지 않는다 ═════
+   냉동인간의 글 전환처럼, 다음 장면이 같은 자리에서 스크롤에 맞춰 빠르게 겹쳐 뜬다.
+   구간끼리 한 화면+여유(--xb)만큼 겹쳐 두고, 다음 장면은 --xb 동안 0→1로 뜬다.
+   다 뜬 순간 앞 장면이 풀려 뒤로 빠지므로 밀려 올라가는 모습이 보이지 않는다 */
+:root{--xb:20svh}
+html.xf .coverHold{position:relative;height:calc(140svh + var(--xb))}
+html.xf .cover{position:sticky;top:0}
+html.xf .wrap>section{margin-top:calc(-100svh - var(--xb));background:transparent}
+html.xf .wrap>section:not(.live){pointer-events:none}
+html.xf .card{height:calc(150svh + var(--xb))}
+html.xf .wrap>section>.xs{opacity:0;visibility:hidden;transition:none}
+/* 배경이 바깥 구간에 칠해져 있던 장면은 장면 틀로 옮긴다 */
+html.xf .quoteIn{background:var(--bg);box-shadow:0 0 0 100vmax var(--bg)}
+html.xf .crossStage{background:var(--bg)}
+html.xf .babyGrid{background:var(--bg2);box-shadow:0 0 0 100vmax var(--bg2)}
+html.xf .wipeStage{background:#070605;box-shadow:0 0 0 100vmax #070605}
+/* 글과 그래픽은 장면이 실제로 뜰 때 떠오르게(안 보일 때 미리 끝나 있지 않게) */
+html.xf .wrap>section:not(.live) .introContent{opacity:0;transform:translateY(15px)}
+html.xf .wrap>section:not(.live) .cardIn{opacity:0;transform:translateY(18px);filter:blur(4px)}
+html.xf .wrap>section:not(.live) .cardNo,html.xf .wrap>section:not(.live) .cardLog{opacity:0}
+html.xf .wrap>section:not(.live) .cardT{opacity:0;filter:blur(6px)}
+html.xf .wrap>section:not(.live) .cardRule{width:0}
+html.xf .wrap>section:not(.live) .sceneTextStage h2{opacity:0;transform:translateY(24px);filter:blur(5px)}
+html.xf .wrap>section:not(.live)>.xs .rv{opacity:0;transform:translateY(18px)}
+html.xf .wrap>section:not(.live) .gfx{opacity:0;transform:scale(.985) translateY(14px)}
+html.xf .wrap>section:not(.live) .ages .age i::after{width:0}
+html.xf .wrap>section:not(.live) .wd{opacity:0;transform:translateY(.42em);filter:blur(4px)}
+html.xf .wipeSec:not(.live) .wipeBox{display:none}
+@media(max-width:760px){html.xf .card{height:calc(160svh + var(--xb))}}
 </style>
 </head>
 <body>
@@ -1956,6 +1987,36 @@ function imgFb(i){
  addEventListener('resize',queue,{passive:true});
  addEventListener('message',function(e){if(e.data&&typeof e.data.type==='string'&&/:progress$/.test(e.data.type))queue()});
  update();
+})();
+</script>
+<script>
+/* 59차: 장면 사이를 밀어 올리지 않는다.
+   다음 장면은 --xb만큼 스크롤하는 동안 같은 자리에서 0→1로 뜨고, 구간 윗변이 화면 맨 위에 닿은 장면은 .live가 된다 */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var root=document.documentElement, wrap=document.querySelector('.wrap'), cover=document.querySelector('.cover'), probe=document.getElementById('svhProbe');
+  if(!wrap||!cover) return;
+  var hold=document.createElement('div'); hold.className='coverHold';
+  cover.parentNode.insertBefore(hold,cover); hold.appendChild(cover);
+  var secs=Array.prototype.filter.call(wrap.children,function(el){ return el.tagName==='SECTION'&&el.firstElementChild; })
+    .map(function(s){ var st=s.firstElementChild; st.classList.add('xs'); return {s:s,st:st,o:-1}; });
+  root.classList.add('xf');
+  var XB=1, queued=false;
+  function measure(){ var xb=parseFloat(getComputedStyle(root).getPropertyValue('--xb'))||20; XB=Math.max(1,((probe&&probe.offsetHeight)||innerHeight)*xb/100); }
+  function update(){
+    queued=false;
+    secs.forEach(function(x){
+      var top=x.s.getBoundingClientRect().top, o=top>0?0:Math.round(Math.min(1,-top/XB)*1000)/1000;
+      x.s.classList.toggle('live',top<=1);
+      if(o===x.o) return;
+      x.o=o; x.st.style.opacity=o; x.st.style.visibility=o>0?'visible':'hidden';
+    });
+  }
+  function queue(){ if(!queued){ queued=true; requestAnimationFrame(update); } }
+  addEventListener('scroll',queue,{passive:true});
+  addEventListener('resize',function(){ measure(); queue(); },{passive:true});
+  measure(); update();
+  dispatchEvent(new Event('scroll'));
 })();
 </script>
 </body>
